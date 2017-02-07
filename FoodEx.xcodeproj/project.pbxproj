@@ -19,6 +19,7 @@
 		39B870D41E45DC8D00F63751 /* STPTestPaymentSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B870CC1E45DC8D00F63751 /* STPTestPaymentSummaryViewController.m */; };
 		39B870D51E45DC8D00F63751 /* STPTestPaymentSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B870CD1E45DC8D00F63751 /* STPTestPaymentSummaryViewController.xib */; };
 		39B870D61E45DC8D00F63751 /* STPTestShippingMethodStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B870CF1E45DC8D00F63751 /* STPTestShippingMethodStore.m */; };
+		39C68D791E496F7E00D393C9 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C68D781E496F7E00D393C9 /* LocalAuthentication.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		39B870CD1E45DC8D00F63751 /* STPTestPaymentSummaryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = STPTestPaymentSummaryViewController.xib; path = ApplePayStubs/STPTestPaymentSummaryViewController.xib; sourceTree = "<group>"; };
 		39B870CE1E45DC8D00F63751 /* STPTestShippingMethodStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STPTestShippingMethodStore.h; path = ApplePayStubs/STPTestShippingMethodStore.h; sourceTree = "<group>"; };
 		39B870CF1E45DC8D00F63751 /* STPTestShippingMethodStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STPTestShippingMethodStore.m; path = ApplePayStubs/STPTestShippingMethodStore.m; sourceTree = "<group>"; };
+		39C68D781E496F7E00D393C9 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39C68D791E496F7E00D393C9 /* LocalAuthentication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +66,7 @@
 			children = (
 				39B870AC1E45CE2100F63751 /* FoodEx */,
 				39B870AB1E45CE2100F63751 /* Products */,
+				39C68D771E496F7E00D393C9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +113,14 @@
 				39B870CF1E45DC8D00F63751 /* STPTestShippingMethodStore.m */,
 			);
 			name = ApplePayStubs;
+			sourceTree = "<group>";
+		};
+		39C68D771E496F7E00D393C9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				39C68D781E496F7E00D393C9 /* LocalAuthentication.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
