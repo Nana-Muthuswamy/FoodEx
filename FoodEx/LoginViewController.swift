@@ -29,6 +29,7 @@ class LoginViewController: UIViewController {
                 } else {
 
                     print("Touch ID failure: \(evaluateError)")
+                    self.handleTouchIDAuthFailure(LAError(_nsError: evaluateError as! NSError).code)
                 }
             }
 
@@ -43,6 +44,39 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: Utils Functions
+
+    func handleTouchIDAuthFailure(_ errorCd: LAError.Code) -> Void {
+
+        var userErrorInfo = ""
+
+        switch errorCd {
+
+        case .authenticationFailed:
+            userErrorInfo = "Touch ID Auth failed."
+        case .userCancel:
+            userErrorInfo = "Touch ID Auth cancelled by user."
+        case .userFallback:
+            userErrorInfo = "Touch ID Auth ignored and user fallsback to manual sign in."
+        case .systemCancel:
+            userErrorInfo = "Touch ID Auth cancelled by system."
+        case .passcodeNotSet:
+            userErrorInfo = "Touch ID Auth failed as passcode was not set in the device."
+        case .touchIDNotAvailable:
+            userErrorInfo = "Touch ID Auth not supported in the device."
+        case .touchIDNotEnrolled:
+            userErrorInfo = "Touch ID Auth not enrolled in the device."
+        default:
+            userErrorInfo = "Touch ID Auth failed due to unknown reasons."
+        }
+
+        let alert = UIAlertController(title: "User Authentication Error", message: userErrorInfo, preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+
+        present(alert, animated: true)
+
+    }
 
 }
 
