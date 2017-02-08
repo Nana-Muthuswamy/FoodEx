@@ -20,11 +20,12 @@ class LoginViewController: UIViewController {
 
         if (myContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError)) {
 
-            myContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Sign in with your fingerprint or cancel to login manually") { (success, evaluateError) in
+            myContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Sign in with Touch ID or cancel to enter password.") { (success, evaluateError) in
 
                 if (success) {
 
                     print("Touch ID success")
+                    // Proceed displaying application dashboard
 
                 } else {
 

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,11 +21,83 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="3QV-G4-vbk">
+                                <rect key="frame" x="36" y="205" width="303" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Dav-ph-j8c">
+                                <rect key="frame" x="36" y="245" width="303" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="continue" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1x-Ov-guv">
+                                <rect key="frame" x="36" y="295" width="303" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Sign In"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B57-Sx-MRJ">
+                                <rect key="frame" x="16" y="617" width="57" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Register"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2kr-XL-fdp">
+                                <rect key="frame" x="303" y="617" width="56" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Support"/>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="tBj-d0-4r7">
+                                <rect key="frame" x="125" y="60" width="125" height="125"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="2ef-vj-nfw"/>
+                                    <constraint firstAttribute="width" constant="125" id="cmE-1V-szd"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSD-t8-Zbx">
+                                <rect key="frame" x="36" y="421" width="303" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Forgot User Name or Password"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9q-XF-1hO">
+                                <rect key="frame" x="162" y="351" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="BxD-ii-9dc"/>
+                                    <constraint firstAttribute="height" constant="50" id="Dpq-B5-L7m"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="TouchID"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="tBj-d0-4r7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2WJ-9n-hZN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SSD-t8-Zbx" secondAttribute="trailing" constant="20" id="7mV-NC-zdR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3QV-G4-vbk" secondAttribute="trailing" constant="20" id="DM9-7w-xBd"/>
+                            <constraint firstItem="SSD-t8-Zbx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="LZW-CB-2lr"/>
+                            <constraint firstItem="q1x-Ov-guv" firstAttribute="top" secondItem="Dav-ph-j8c" secondAttribute="bottom" constant="20" id="O3P-vh-eW7"/>
+                            <constraint firstItem="Dav-ph-j8c" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="OF0-KY-YNg"/>
+                            <constraint firstItem="f9q-XF-1hO" firstAttribute="top" secondItem="q1x-Ov-guv" secondAttribute="bottom" constant="20" id="TKs-v6-PSV"/>
+                            <constraint firstItem="tBj-d0-4r7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="VFl-E0-wp3"/>
+                            <constraint firstItem="f9q-XF-1hO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fZU-4Z-oaT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="q1x-Ov-guv" secondAttribute="trailing" constant="20" id="fil-r6-zj3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Dav-ph-j8c" secondAttribute="trailing" constant="20" id="koF-Ns-Omj"/>
+                            <constraint firstItem="3QV-G4-vbk" firstAttribute="top" secondItem="tBj-d0-4r7" secondAttribute="bottom" constant="20" id="oFZ-n2-fNa"/>
+                            <constraint firstItem="Dav-ph-j8c" firstAttribute="top" secondItem="3QV-G4-vbk" secondAttribute="bottom" constant="10" id="v39-a3-oXj"/>
+                            <constraint firstItem="q1x-Ov-guv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="vBX-Oc-c2e"/>
+                            <constraint firstItem="3QV-G4-vbk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="yUY-wA-axb"/>
+                            <constraint firstItem="SSD-t8-Zbx" firstAttribute="top" secondItem="f9q-XF-1hO" secondAttribute="bottom" constant="20" id="zqZ-gD-Ccq"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="140" y="137.18140929535232"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="TouchID" width="225" height="225"/>
+        <image name="iTunesArtwork" width="512" height="512"/>
+    </resources>
 </document>
