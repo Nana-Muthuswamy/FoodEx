@@ -35,9 +35,12 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="continue" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1x-Ov-guv">
-                                <rect key="frame" x="36" y="295" width="303" height="36"/>
+                                <rect key="frame" x="156.5" y="295" width="62" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Sign In"/>
+                                <connections>
+                                    <action selector="performRegularAuth:" destination="BYZ-38-t0r" eventType="touchDown" id="c9n-7w-Lgf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B57-Sx-MRJ">
                                 <rect key="frame" x="16" y="617" width="57" height="30"/>
@@ -68,6 +71,9 @@
                                     <constraint firstAttribute="height" constant="50" id="Dpq-B5-L7m"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="TouchID"/>
+                                <connections>
+                                    <action selector="performTouchIDAuth:" destination="BYZ-38-t0r" eventType="touchDown" id="Qxp-v7-VY7"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -75,21 +81,24 @@
                             <constraint firstItem="tBj-d0-4r7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2WJ-9n-hZN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="SSD-t8-Zbx" secondAttribute="trailing" constant="20" id="7mV-NC-zdR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3QV-G4-vbk" secondAttribute="trailing" constant="20" id="DM9-7w-xBd"/>
+                            <constraint firstItem="q1x-Ov-guv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KQY-gw-SXS"/>
                             <constraint firstItem="SSD-t8-Zbx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="LZW-CB-2lr"/>
                             <constraint firstItem="q1x-Ov-guv" firstAttribute="top" secondItem="Dav-ph-j8c" secondAttribute="bottom" constant="20" id="O3P-vh-eW7"/>
                             <constraint firstItem="Dav-ph-j8c" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="OF0-KY-YNg"/>
                             <constraint firstItem="f9q-XF-1hO" firstAttribute="top" secondItem="q1x-Ov-guv" secondAttribute="bottom" constant="20" id="TKs-v6-PSV"/>
                             <constraint firstItem="tBj-d0-4r7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="VFl-E0-wp3"/>
                             <constraint firstItem="f9q-XF-1hO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fZU-4Z-oaT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="q1x-Ov-guv" secondAttribute="trailing" constant="20" id="fil-r6-zj3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Dav-ph-j8c" secondAttribute="trailing" constant="20" id="koF-Ns-Omj"/>
                             <constraint firstItem="3QV-G4-vbk" firstAttribute="top" secondItem="tBj-d0-4r7" secondAttribute="bottom" constant="20" id="oFZ-n2-fNa"/>
                             <constraint firstItem="Dav-ph-j8c" firstAttribute="top" secondItem="3QV-G4-vbk" secondAttribute="bottom" constant="10" id="v39-a3-oXj"/>
-                            <constraint firstItem="q1x-Ov-guv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="vBX-Oc-c2e"/>
                             <constraint firstItem="3QV-G4-vbk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="yUY-wA-axb"/>
                             <constraint firstItem="SSD-t8-Zbx" firstAttribute="top" secondItem="f9q-XF-1hO" secondAttribute="bottom" constant="20" id="zqZ-gD-Ccq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordField" destination="Dav-ph-j8c" id="wcy-zF-LEe"/>
+                        <outlet property="userNameField" destination="3QV-G4-vbk" id="cdE-rC-m6E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
