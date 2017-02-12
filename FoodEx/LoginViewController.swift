@@ -53,7 +53,7 @@ class LoginViewController: UIViewController {
 
             if (success) {
 
-                print("Touch ID success")
+                print("TouchID Auth Success.")
                 // Proceed displaying application dashboard
 
             } else {
@@ -68,13 +68,18 @@ class LoginViewController: UIViewController {
     @IBAction func performRegularAuth(_ sender: UIButton) {
 
         var success = false
-        let userName = userNameField.text
-        let password = passwordField.text
+        let userName = userNameField.text!.trimmingCharacters(in: .whitespaces).lowercased()
+        let password = passwordField.text!
 
         // Validate the login credentials against registered users data mart
+        if let registeredUsersDataMart = AppDelegate().globals.registeredUsers {
+
+            success = (registeredUsersDataMart[userName] == password)
+        }
 
         if (success) {
             // Proceed displaying application dashboard
+            print("Regular Login Auth Success.")
 
         } else {
 

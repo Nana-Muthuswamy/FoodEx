@@ -20,6 +20,8 @@
 		39B870D51E45DC8D00F63751 /* STPTestPaymentSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B870CD1E45DC8D00F63751 /* STPTestPaymentSummaryViewController.xib */; };
 		39B870D61E45DC8D00F63751 /* STPTestShippingMethodStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B870CF1E45DC8D00F63751 /* STPTestShippingMethodStore.m */; };
 		39C68D791E496F7E00D393C9 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C68D781E496F7E00D393C9 /* LocalAuthentication.framework */; };
+		39C95A101E4FDC9500D56416 /* AppGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C95A0F1E4FDC9500D56416 /* AppGlobals.swift */; };
+		39C95A121E4FDDF400D56416 /* AppDataMart.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39C95A111E4FDDF400D56416 /* AppDataMart.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		39B870CE1E45DC8D00F63751 /* STPTestShippingMethodStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STPTestShippingMethodStore.h; path = ApplePayStubs/STPTestShippingMethodStore.h; sourceTree = "<group>"; };
 		39B870CF1E45DC8D00F63751 /* STPTestShippingMethodStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STPTestShippingMethodStore.m; path = ApplePayStubs/STPTestShippingMethodStore.m; sourceTree = "<group>"; };
 		39C68D781E496F7E00D393C9 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		39C95A0F1E4FDC9500D56416 /* AppGlobals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppGlobals.swift; sourceTree = "<group>"; };
+		39C95A111E4FDDF400D56416 /* AppDataMart.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppDataMart.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				39B870AD1E45CE2100F63751 /* AppDelegate.swift */,
+				39C95A0F1E4FDC9500D56416 /* AppGlobals.swift */,
 				39B870AF1E45CE2100F63751 /* LoginViewController.swift */,
 				39B870B11E45CE2100F63751 /* Main.storyboard */,
 				39B870B41E45CE2100F63751 /* Assets.xcassets */,
@@ -89,6 +94,7 @@
 				39B870C01E45DC8D00F63751 /* FoodEx-Bridging-Header.h */,
 				39B870BF1E45DBE100F63751 /* ApplePayStubs */,
 				39B870B91E45CE2100F63751 /* Info.plist */,
+				39C95A111E4FDDF400D56416 /* AppDataMart.plist */,
 			);
 			path = FoodEx;
 			sourceTree = "<group>";
@@ -185,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39B870B81E45CE2100F63751 /* LaunchScreen.storyboard in Resources */,
+				39C95A121E4FDDF400D56416 /* AppDataMart.plist in Resources */,
 				39B870B51E45CE2100F63751 /* Assets.xcassets in Resources */,
 				39B870D51E45DC8D00F63751 /* STPTestPaymentSummaryViewController.xib in Resources */,
 				39B870B31E45CE2100F63751 /* Main.storyboard in Resources */,
@@ -202,6 +209,7 @@
 				39B870D31E45DC8D00F63751 /* STPTestPaymentAuthorizationViewController.m in Sources */,
 				39B870B01E45CE2100F63751 /* LoginViewController.swift in Sources */,
 				39B870D41E45DC8D00F63751 /* STPTestPaymentSummaryViewController.m in Sources */,
+				39C95A101E4FDC9500D56416 /* AppGlobals.swift in Sources */,
 				39B870D21E45DC8D00F63751 /* STPTestDataTableViewController.m in Sources */,
 				39B870AE1E45CE2100F63751 /* AppDelegate.swift in Sources */,
 				39B870D61E45DC8D00F63751 /* STPTestShippingMethodStore.m in Sources */,
