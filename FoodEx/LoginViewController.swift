@@ -6,7 +6,6 @@
 //  Copyright © 2017 Apple. All rights reserved.
 //
 
-import UIKit
 import LocalAuthentication
 
 class LoginViewController: UIViewController {
@@ -30,7 +29,7 @@ class LoginViewController: UIViewController {
 
         if (laContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError)) {
 
-            performTouchIDAuth(nil)
+            performTouchIDAuth(self)
 
         } else {
 
@@ -44,10 +43,24 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    // View Controller Transitions
+    func presentApplicationDashboard () -> Void {
+
+        if let viewControllerToPresent = self.storyboard?.instantiateViewController(withIdentifier: "AppNavController") {
+
+            viewControllerToPresent.modalPresentationStyle = .fullScreen
+            viewControllerToPresent.modalTransitionStyle = .flipHorizontal
+
+            present(viewControllerToPresent, animated: true) {
+                print("AppNavController presented!")
+            }
+        }
+    }
+
     // MARK: IBActions
 
     // Kick starts Touch ID Auth
-    @IBAction func performTouchIDAuth(_ sender: UIButton?) {
+    @IBAction func performTouchIDAuth(_ sender: Any) {
 
         laContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Sign in with Touch ID or cancel to enter password.") { (success, evaluateError) in
 
@@ -55,6 +68,7 @@ class LoginViewController: UIViewController {
 
                 print("TouchID Auth Success.")
                 // Proceed displaying application dashboard
+                self.presentApplicationDashboard()
 
             } else {
 
@@ -80,6 +94,7 @@ class LoginViewController: UIViewController {
         if (success) {
             // Proceed displaying application dashboard
             print("Regular Login Auth Success.")
+            presentApplicationDashboard()
 
         } else {
 
