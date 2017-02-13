@@ -26,20 +26,26 @@
                                 <rect key="frame" x="36" y="205" width="303" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="enableSignIn:" destination="BYZ-38-t0r" eventType="editingChanged" id="hZs-wh-nJB"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Dav-ph-j8c">
                                 <rect key="frame" x="36" y="245" width="303" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="continue" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="enableSignIn:" destination="BYZ-38-t0r" eventType="editingChanged" id="0bg-4q-AKp"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1x-Ov-guv">
                                 <rect key="frame" x="156.5" y="295" width="62" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Sign In"/>
                                 <connections>
-                                    <action selector="performRegularAuth:" destination="BYZ-38-t0r" eventType="touchDown" id="c9n-7w-Lgf"/>
+                                    <segue destination="lQk-QQ-88h" kind="show" identifier="displayAppNavController" id="amt-Jm-RIA"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B57-Sx-MRJ">
@@ -97,6 +103,7 @@
                     </view>
                     <connections>
                         <outlet property="passwordField" destination="Dav-ph-j8c" id="wcy-zF-LEe"/>
+                        <outlet property="signInButton" destination="q1x-Ov-guv" id="70Q-F0-upm"/>
                         <outlet property="userNameField" destination="3QV-G4-vbk" id="cdE-rC-m6E"/>
                     </connections>
                 </viewController>
@@ -113,7 +120,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="b0b-3y-KBi" kind="relationship" relationship="rootViewController" id="ehi-Jb-R3n"/>
+                        <segue destination="wAl-T0-yiT" kind="relationship" relationship="rootViewController" id="kjZ-U7-pnO"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7L2-eY-8Zz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -121,23 +128,53 @@
             <point key="canvasLocation" x="607" y="143"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="s6Z-tf-Zd1">
+        <scene sceneID="H0m-GK-8KY">
             <objects>
-                <viewController id="b0b-3y-KBi" sceneMemberID="viewController">
+                <viewController id="wAl-T0-yiT" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="CGX-RC-ANm"/>
-                        <viewControllerLayoutGuide type="bottom" id="nz1-Sr-ze2"/>
+                        <viewControllerLayoutGuide type="top" id="pBa-SR-2dJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jzh-1l-bvg"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gkP-qp-CLG">
+                    <view key="view" contentMode="scaleToFill" id="MZt-Xw-qsf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fIR-Yr-91T">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="wAl-T0-yiT" id="FD7-j1-1QI"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="641-H3-72M"/>
+                    <navigationItem key="navigationItem" id="oK6-zb-HGq"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="3tM-2J-1gK" id="2We-fc-NhD"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0KK-xR-2FA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dkz-JS-HTg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="c7r-Xj-X3M">
+                    <connections>
+                        <outlet property="delegate" destination="wAl-T0-yiT" id="sZK-Wh-qoJ"/>
+                        <outlet property="searchContentsController" destination="wAl-T0-yiT" id="XF4-K6-KjL"/>
+                        <outlet property="searchResultsDataSource" destination="wAl-T0-yiT" id="JOn-im-aAy"/>
+                        <outlet property="searchResultsDelegate" destination="wAl-T0-yiT" id="iVN-gW-3YU"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="3tM-2J-1gK">
+                    <connections>
+                        <outlet property="delegate" destination="wAl-T0-yiT" id="0W0-2H-PM6"/>
+                        <outlet property="searchBar" destination="fIR-Yr-91T" id="YM8-vC-6I1"/>
+                        <outlet property="searchContentsController" destination="wAl-T0-yiT" id="Dut-d7-vDN"/>
+                        <outlet property="searchResultsDataSource" destination="wAl-T0-yiT" id="ePa-gF-bb3"/>
+                        <outlet property="searchResultsDelegate" destination="wAl-T0-yiT" id="r6u-MA-ulz"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1529" y="143"/>
+            <point key="canvasLocation" x="1606" y="139"/>
         </scene>
     </scenes>
     <resources>

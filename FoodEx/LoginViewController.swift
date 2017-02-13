@@ -16,14 +16,17 @@ class LoginViewController: UIViewController {
     // MARK: IBOutlets
     @IBOutlet weak var userNameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var signInButton: UIButton!
 
-
-    // MARK: Function Overrides
+    // MARK: View Controller Life Cycle
 
     // Evaluates and presents Touch ID Auth if device and user setup supports it.
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        // Disable SignIn initially
+        signInButton.isEnabled = false
 
         var authError : NSError? = nil
 
@@ -43,17 +46,44 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // View Controller Transitions
-    func presentApplicationDashboard () -> Void {
+    // MARK: Segues
 
-        if let viewControllerToPresent = self.storyboard?.instantiateViewController(withIdentifier: "AppNavController") {
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
 
-            viewControllerToPresent.modalPresentationStyle = .fullScreen
-            viewControllerToPresent.modalTransitionStyle = .flipHorizontal
+        var shouldPerform = false
 
-            present(viewControllerToPresent, animated: true) {
-                print("AppNavController presented!")
+        if (identifier == "displayAppNavController") {
+
+            let userName = userNameField.text!.trimmingCharacters(in: .whitespaces).lowercased()
+            let password = passwordField.text!
+
+            // Validate the login credentials against registered users data mart
+            if let registeredUsersDataMart = AppDelegate().globals.registeredUsers {
+
+                shouldPerform = (registeredUsersDataMart[userName] == password)
+                
             }
+
+            if (shouldPerform == false) {
+
+                let alert = UIAlertController(title: "User Authentication Error", message: "Incorrect Username or Password. Please try again.", preferredStyle: .alert)
+
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+
+                present(alert, animated: true)
+            }
+        }
+
+        return shouldPerform
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if (segue.identifier == "displayAppNavController") {
+            // TODO: Need to setup data for display
+
+            segue.destination.modalPresentationStyle = .fullScreen
+            segue.destination.modalTransitionStyle = .flipHorizontal
         }
     }
 
@@ -68,7 +98,7 @@ class LoginViewController: UIViewController {
 
                 print("TouchID Auth Success.")
                 // Proceed displaying application dashboard
-                self.presentApplicationDashboard()
+                self.performSegue(withIdentifier: "displayAppNavController", sender: self)
 
             } else {
 
@@ -78,32 +108,17 @@ class LoginViewController: UIViewController {
         }
     }
 
-    // Regular Login Authentication
-    @IBAction func performRegularAuth(_ sender: UIButton) {
+    @IBAction func enableSignIn(_ sender: UITextField) {
 
-        var success = false
-        let userName = userNameField.text!.trimmingCharacters(in: .whitespaces).lowercased()
-        let password = passwordField.text!
+        let userName = userNameField.text!.trimmingCharacters(in: .whitespaces)
+        let password = passwordField.text!.trimmingCharacters(in: .whitespaces)
 
-        // Validate the login credentials against registered users data mart
-        if let registeredUsersDataMart = AppDelegate().globals.registeredUsers {
-
-            success = (registeredUsersDataMart[userName] == password)
-        }
-
-        if (success) {
-            // Proceed displaying application dashboard
-            print("Regular Login Auth Success.")
-            presentApplicationDashboard()
-
+        if ((userName.characters.count > 0) && (password.characters.count > 0)) {
+            signInButton.isEnabled = true
         } else {
-
-            let alert = UIAlertController(title: "User Authentication Error", message: "Incorrect Username or Password. Please try again.", preferredStyle: .alert)
-
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-
-            present(alert, animated: true)
+            signInButton.isEnabled = false
         }
+
     }
 
     // MARK: Utils Functions
