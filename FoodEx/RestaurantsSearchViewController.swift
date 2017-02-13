@@ -6,7 +6,7 @@
 //  Copyright © 2017 Apple. All rights reserved.
 //
 
-class RestaurantsSearchViewController: UIViewController {
+class RestaurantsSearchViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar!
 
@@ -14,10 +14,24 @@ class RestaurantsSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Set the title
-        self.navigationItem.title = "FoodEx Restaurants"
+        // TODO: Setup Data for Search Results
     }
 
+    // MARK: Segue
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+
+        return false
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+    }
+
+    // MARK: UISearchBarDelegate
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("Search Text: \(searchBar.text.debugDescription)")
+    }
 
     // MARK: IBActions
     @IBAction func quickSearch(_ sender: UIButton) {

@@ -127,7 +127,7 @@
             </objects>
             <point key="canvasLocation" x="607" y="143"/>
         </scene>
-        <!--FoodEx Restaurants-->
+        <!--Restaurants Search View Controller-->
         <scene sceneID="gdy-Us-tYJ">
             <objects>
                 <viewController id="900-Cc-4wo" customClass="RestaurantsSearchViewController" customModule="FoodEx" customModuleProvider="target" sceneMemberID="viewController">
@@ -201,6 +201,11 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="623-zx-t35">
+                                <rect key="frame" x="172" y="148" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Test"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -208,7 +213,7 @@
                             <constraint firstItem="NoG-5K-mkN" firstAttribute="centerX" secondItem="sIs-uK-Evs" secondAttribute="centerX" id="acD-Ck-5Pe"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="FoodEx Restaurants" id="A8z-uw-dQ6"/>
+                    <navigationItem key="navigationItem" id="A8z-uw-dQ6"/>
                     <connections>
                         <outlet property="searchBar" destination="3EA-gh-Rw8" id="SRH-bI-rLT"/>
                     </connections>
