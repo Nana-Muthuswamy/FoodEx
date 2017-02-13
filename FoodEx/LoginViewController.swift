@@ -23,7 +23,6 @@ class LoginViewController: UIViewController {
     // Evaluates and presents Touch ID Auth if device and user setup supports it.
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
 
         // Disable SignIn initially
         signInButton.isEnabled = false
@@ -34,10 +33,7 @@ class LoginViewController: UIViewController {
 
             performTouchIDAuth(self)
 
-        } else {
-
-            print("Touch ID authentication not possible.")
-        }
+        } // else continue displaying login view controller for users to perform traditional login
     }
 
     // Memory Management
@@ -48,6 +44,7 @@ class LoginViewController: UIViewController {
 
     // MARK: Segues
 
+    // Validate username and password values and allow segue to application view controller
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
 
         var shouldPerform = false
@@ -77,42 +74,44 @@ class LoginViewController: UIViewController {
         return shouldPerform
     }
 
+    // Segue to application view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if (segue.identifier == "displayAppNavController") {
-            // TODO: Need to setup data for display
-
             segue.destination.modalPresentationStyle = .fullScreen
             segue.destination.modalTransitionStyle = .flipHorizontal
+
+            // TODO: Need to setup data for display
         }
     }
 
     // MARK: IBActions
 
-    // Kick starts Touch ID Auth
+    // Initiates Touch ID Auth
     @IBAction func performTouchIDAuth(_ sender: Any) {
 
         laContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Sign in with Touch ID or cancel to enter password.") { (success, evaluateError) in
 
             if (success) {
 
-                print("TouchID Auth Success.")
-                // Proceed displaying application dashboard
+                // Proceed with segue to application view controller
                 self.performSegue(withIdentifier: "displayAppNavController", sender: self)
 
             } else {
 
-                print("Touch ID failure: \(evaluateError)")
+                // Handle auth failure and appropriate display user alert
                 self.handleTouchIDAuthFailure(LAError(_nsError: evaluateError as! NSError).code)
             }
         }
     }
 
+    // Validates username and password values to enable Sign In button
     @IBAction func enableSignIn(_ sender: UITextField) {
 
         let userName = userNameField.text!.trimmingCharacters(in: .whitespaces)
         let password = passwordField.text!.trimmingCharacters(in: .whitespaces)
 
+        // Enable Sign In button only if there are valid values in username and password fields
         if ((userName.characters.count > 0) && (password.characters.count > 0)) {
             signInButton.isEnabled = true
         } else {
