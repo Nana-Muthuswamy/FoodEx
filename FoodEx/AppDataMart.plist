@@ -4,10 +4,73 @@
 <dict>
 	<key>RegisteredUsers</key>
 	<dict>
-		<key>ashok</key>
+		<key>asdf</key>
 		<string>asdf</string>
 		<key>divi</key>
 		<string>qwerty</string>
 	</dict>
+	<key>Restaurants</key>
+	<array>
+		<dict>
+			<key>Name</key>
+			<string>McDonald&apos;s</string>
+			<key>Description</key>
+			<string>I&apos;m Lovin&apos; It.</string>
+			<key>Distance</key>
+			<string>1.61</string>
+			<key>Image</key>
+			<string>Mcdonalds.png</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Jack in the Box</string>
+			<key>Description</key>
+			<string>The food is better at the Box.</string>
+			<key>Distance</key>
+			<string>0.62</string>
+			<key>Image</key>
+			<string>JackInTheBox.png</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Denny&apos;s</string>
+			<key>Description</key>
+			<string>America&apos;s Diner is Always Open.</string>
+			<key>Distance</key>
+			<string>1.2</string>
+			<key>Image</key>
+			<string>Dennys.png</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>The Habit Burger Grill</string>
+			<key>Description</key>
+			<string>Habit does it always.</string>
+			<key>Distance</key>
+			<string>1.74</string>
+			<key>Image</key>
+			<string>TheHabit.png</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Burger King</string>
+			<key>Description</key>
+			<string>Have It Your Way.</string>
+			<key>Distance</key>
+			<string>1.58</string>
+			<key>Image</key>
+			<string>BurgerKing.png</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Panera Bread</string>
+			<key>Description</key>
+			<string>Food as it should be.</string>
+			<key>Distance</key>
+			<string>1.77</string>
+			<key>Image</key>
+			<string>PaneraBread.png</string>
+		</dict>
+	</array>
 </dict>
 </plist>

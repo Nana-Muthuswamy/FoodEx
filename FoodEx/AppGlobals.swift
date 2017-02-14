@@ -16,6 +16,12 @@ struct AppGlobals {
         }
     }
 
+    var restaurants : [[String:String]]? {
+        get {
+            return appDataMart["Restaurants"] as? [[String:String]]
+        }
+    }
+
     init() {
         let dataMartURL = Bundle.main.url(forResource: "AppDataMart", withExtension: "plist")
         let data = try! Data(contentsOf: dataMartURL!)

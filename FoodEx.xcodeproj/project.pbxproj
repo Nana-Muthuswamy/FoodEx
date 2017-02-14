@@ -23,6 +23,7 @@
 		39C95A101E4FDC9500D56416 /* AppGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C95A0F1E4FDC9500D56416 /* AppGlobals.swift */; };
 		39C95A121E4FDDF400D56416 /* AppDataMart.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39C95A111E4FDDF400D56416 /* AppDataMart.plist */; };
 		39F089031E5138E800F70E2B /* RestaurantsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F089021E5138E800F70E2B /* RestaurantsSearchViewController.swift */; };
+		39F089051E518F4500F70E2B /* RestaurantsSearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F089041E518F4500F70E2B /* RestaurantsSearchResultsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		39C95A0F1E4FDC9500D56416 /* AppGlobals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppGlobals.swift; sourceTree = "<group>"; };
 		39C95A111E4FDDF400D56416 /* AppDataMart.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppDataMart.plist; sourceTree = "<group>"; };
 		39F089021E5138E800F70E2B /* RestaurantsSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantsSearchViewController.swift; sourceTree = "<group>"; };
+		39F089041E518F4500F70E2B /* RestaurantsSearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantsSearchResultsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				39B870B91E45CE2100F63751 /* Info.plist */,
 				39C95A111E4FDDF400D56416 /* AppDataMart.plist */,
 				39F089021E5138E800F70E2B /* RestaurantsSearchViewController.swift */,
+				39F089041E518F4500F70E2B /* RestaurantsSearchResultsController.swift */,
 			);
 			path = FoodEx;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				39B870AE1E45CE2100F63751 /* AppDelegate.swift in Sources */,
 				39B870D61E45DC8D00F63751 /* STPTestShippingMethodStore.m in Sources */,
 				39B870D11E45DC8D00F63751 /* STPTestCardStore.m in Sources */,
+				39F089051E518F4500F70E2B /* RestaurantsSearchResultsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

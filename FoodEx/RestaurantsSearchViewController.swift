@@ -20,11 +20,18 @@ class RestaurantsSearchViewController: UIViewController, UISearchBarDelegate {
     // MARK: Segue
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
 
-        return false
+        return true
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
+        segue.destination.modalPresentationStyle = .fullScreen
+        segue.destination.modalTransitionStyle = .flipHorizontal
+
+        if let restaurantList = AppDelegate().globals.restaurants {
+
+            (segue.destination as! RestaurantsSearchResultsController).restaurants = restaurantList
+        }
     }
 
     // MARK: UISearchBarDelegate
