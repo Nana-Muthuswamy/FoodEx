@@ -6,9 +6,28 @@
 //  Copyright © 2017 Apple. All rights reserved.
 //
 
-class RestaurantsSearchResultsController: UITableViewController {
+class RestaurantsSearchResultsController: UITableViewController, UISearchResultsUpdating {
 
-    var restaurants: [[String:String]] = []
+    var restaurants: [[String:String]] = [] {
+        didSet {
+            filteredRestaurants = restaurants
+        }
+    }
+    var filteredRestaurants: [[String:String]] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+
+    // MARK: Overrides
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        if let restaurantList = AppDelegate().globals.restaurants {
+            restaurants = restaurantList
+        }
+    }
 
     // MARK: UITableViewDataSource
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -17,7 +36,7 @@ class RestaurantsSearchResultsController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return restaurants.count
+        return filteredRestaurants.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -29,7 +48,7 @@ class RestaurantsSearchResultsController: UITableViewController {
             return UITableViewCell(style: .subtitle, reuseIdentifier: reuseIdentifier)
         }
 
-        let restaurantSynopsis = restaurants[indexPath.row]
+        let restaurantSynopsis = filteredRestaurants[indexPath.row]
 
         tableCell.textLabel?.text = restaurantSynopsis["Name"]
 
@@ -50,8 +69,19 @@ class RestaurantsSearchResultsController: UITableViewController {
         return tableCell
     }
 
-    
 
-    // MARK: UITableViewDelegate
+    // MARK: UISearchResultsUpdating
+
+    func updateSearchResults(for searchController: UISearchController) {
+
+        if let searchText = searchController.searchBar.text {
+
+            filteredRestaurants = restaurants.filter{$0["Name"]!.lowercased().contains(searchText.lowercased())}
+
+        } else {
+
+            filteredRestaurants = restaurants
+        }
+    }
 
 }

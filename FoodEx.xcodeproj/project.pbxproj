@@ -92,6 +92,8 @@
 				39B870AD1E45CE2100F63751 /* AppDelegate.swift */,
 				39C95A0F1E4FDC9500D56416 /* AppGlobals.swift */,
 				39B870AF1E45CE2100F63751 /* LoginViewController.swift */,
+				39F089021E5138E800F70E2B /* RestaurantsSearchViewController.swift */,
+				39F089041E518F4500F70E2B /* RestaurantsSearchResultsController.swift */,
 				39B870B11E45CE2100F63751 /* Main.storyboard */,
 				39B870B41E45CE2100F63751 /* Assets.xcassets */,
 				39B870B61E45CE2100F63751 /* LaunchScreen.storyboard */,
@@ -99,8 +101,6 @@
 				39B870BF1E45DBE100F63751 /* ApplePayStubs */,
 				39B870B91E45CE2100F63751 /* Info.plist */,
 				39C95A111E4FDDF400D56416 /* AppDataMart.plist */,
-				39F089021E5138E800F70E2B /* RestaurantsSearchViewController.swift */,
-				39F089041E518F4500F70E2B /* RestaurantsSearchResultsController.swift */,
 			);
 			path = FoodEx;
 			sourceTree = "<group>";

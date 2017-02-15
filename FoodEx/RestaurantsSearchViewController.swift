@@ -6,32 +6,33 @@
 //  Copyright © 2017 Apple. All rights reserved.
 //
 
-class RestaurantsSearchViewController: UIViewController, UISearchBarDelegate {
+class RestaurantsSearchViewController: UIViewController, UISearchBarDelegate, UISearchControllerDelegate {
 
-    @IBOutlet weak var searchBar: UISearchBar!
+    var searchController: UISearchController!
 
     // MARK: Overrides
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // TODO: Setup Data for Search Results
-    }
+        // Setup Search Controller
+        let searchResultsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RestaurantsSearchResultsController")
 
-    // MARK: Segue
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        searchController = UISearchController(searchResultsController: searchResultsController)
+        searchController.searchResultsUpdater = searchResultsController as! RestaurantsSearchResultsController
 
-        return true
-    }
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Add Search Bar to the view
+        navigationItem.titleView = searchController.searchBar
 
-        segue.destination.modalPresentationStyle = .fullScreen
-        segue.destination.modalTransitionStyle = .flipHorizontal
-
-        if let restaurantList = AppDelegate().globals.restaurants {
-
-            (segue.destination as! RestaurantsSearchResultsController).restaurants = restaurantList
-        }
+        // Setup Presentation Traits
+        definesPresentationContext = true
+        searchController.dimsBackgroundDuringPresentation = true
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = false
+        
     }
 
     // MARK: UISearchBarDelegate
@@ -50,7 +51,7 @@ class RestaurantsSearchViewController: UIViewController, UISearchBarDelegate {
             if (quickSearchType == "Favorites") {quickSearchType = "Favorite"}
 
             // Set the search bar's text
-            searchBar.text = "\(quickSearchType) Restaurants"
+            searchController.searchBar.text = "\(quickSearchType) Restaurants"
         }
 
     }
