@@ -41,7 +41,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1x-Ov-guv">
-                                <rect key="frame" x="156.5" y="295" width="62" height="36"/>
+                                <rect key="frame" x="157" y="295" width="62" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Sign In"/>
                                 <connections>
@@ -71,7 +71,7 @@
                                 <state key="normal" title="Forgot User Name or Password"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9q-XF-1hO">
-                                <rect key="frame" x="162" y="351" width="50" height="50"/>
+                                <rect key="frame" x="163" y="351" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="BxD-ii-9dc"/>
                                     <constraint firstAttribute="height" constant="50" id="Dpq-B5-L7m"/>
@@ -114,7 +114,7 @@
         <!--App Navigation Controller-->
         <scene sceneID="IwC-D6-1PZ">
             <objects>
-                <navigationController storyboardIdentifier="AppNavController" title="App Navigation Controller" useStoryboardIdentifierAsRestorationIdentifier="YES" hidesBarsWhenKeyboardAppears="YES" id="lQk-QQ-88h" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AppNavController" title="App Navigation Controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lQk-QQ-88h" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Is-Rb-6xf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -140,7 +140,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NoG-5K-mkN">
-                                <rect key="frame" x="136" y="198.5" width="103" height="270"/>
+                                <rect key="frame" x="136" y="199" width="103" height="270"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZR-wy-8PH">
                                         <rect key="frame" x="33" y="0.0" width="37" height="30"/>
@@ -150,14 +150,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8g-EK-snb">
-                                        <rect key="frame" x="30.5" y="40" width="42" height="30"/>
+                                        <rect key="frame" x="31" y="40" width="42" height="30"/>
                                         <state key="normal" title="Indian"/>
                                         <connections>
                                             <action selector="quickSearch:" destination="900-Cc-4wo" eventType="touchUpInside" id="eeH-fE-kBb"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uuP-mL-bYn">
-                                        <rect key="frame" x="23.5" y="80" width="56" height="30"/>
+                                        <rect key="frame" x="24" y="80" width="56" height="30"/>
                                         <state key="normal" title="Chinese"/>
                                         <connections>
                                             <action selector="quickSearch:" destination="900-Cc-4wo" eventType="touchUpInside" id="pjk-dV-oPS"/>
@@ -185,7 +185,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reY-XO-khO">
-                                        <rect key="frame" x="20.5" y="240" width="62" height="30"/>
+                                        <rect key="frame" x="21" y="240" width="62" height="30"/>
                                         <state key="normal" title="Favorites"/>
                                         <connections>
                                             <action selector="quickSearch:" destination="900-Cc-4wo" eventType="touchUpInside" id="TbD-vi-dj7"/>
