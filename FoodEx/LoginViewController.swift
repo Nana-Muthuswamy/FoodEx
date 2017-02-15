@@ -95,7 +95,9 @@ class LoginViewController: UIViewController {
             if (success) {
 
                 // Proceed with segue to application view controller
-                self.performSegue(withIdentifier: "displayAppNavController", sender: self)
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "displayAppNavController", sender: self)
+                }
 
             } else {
 
@@ -160,11 +162,13 @@ class LoginViewController: UIViewController {
 
         if shouldDisplayAlert {
 
-            let alert = UIAlertController(title: "User Authentication Error", message: userErrorInfo, preferredStyle: .alert)
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "User Authentication Error", message: userErrorInfo, preferredStyle: .alert)
 
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
 
-            present(alert, animated: true)
+                self.present(alert, animated: true)
+            }
         }
     }
 
