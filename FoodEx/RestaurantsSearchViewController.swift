@@ -29,10 +29,7 @@ class RestaurantsSearchViewController: UIViewController, UISearchBarDelegate, UI
 
         // Setup Presentation Traits
         definesPresentationContext = true
-        searchController.dimsBackgroundDuringPresentation = true
         searchController.hidesNavigationBarDuringPresentation = false
-        searchController.obscuresBackgroundDuringPresentation = false
-        
     }
 
     // MARK: UISearchBarDelegate
