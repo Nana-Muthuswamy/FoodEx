@@ -52,6 +52,8 @@ class RestaurantsSearchViewController: UIViewController, UISearchBarDelegate, UI
 
             // Set the search bar's text
             searchController.searchBar.text = "\(quickSearchType) Restaurants"
+            // Force activate UISearchController
+            searchController.searchBar.becomeFirstResponder()
         }
 
     }

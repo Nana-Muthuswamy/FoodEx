@@ -20,6 +20,8 @@
 			<string>1.61</string>
 			<key>Image</key>
 			<string>Mcdonalds.png</string>
+			<key>Cuisine</key>
+			<string>Local</string>
 		</dict>
 		<dict>
 			<key>Name</key>
@@ -30,6 +32,8 @@
 			<string>0.62</string>
 			<key>Image</key>
 			<string>JackInTheBox.png</string>
+			<key>Cuisine</key>
+			<string>Local</string>
 		</dict>
 		<dict>
 			<key>Name</key>
@@ -40,6 +44,8 @@
 			<string>1.2</string>
 			<key>Image</key>
 			<string>Dennys.png</string>
+			<key>Cuisine</key>
+			<string>Local</string>
 		</dict>
 		<dict>
 			<key>Name</key>
@@ -50,6 +56,8 @@
 			<string>1.74</string>
 			<key>Image</key>
 			<string>TheHabit.png</string>
+			<key>Cuisine</key>
+			<string>Local</string>
 		</dict>
 		<dict>
 			<key>Name</key>
@@ -60,6 +68,8 @@
 			<string>1.58</string>
 			<key>Image</key>
 			<string>BurgerKing.png</string>
+			<key>Cuisine</key>
+			<string>Local</string>
 		</dict>
 		<dict>
 			<key>Name</key>
@@ -70,6 +80,32 @@
 			<string>1.77</string>
 			<key>Image</key>
 			<string>PaneraBread.png</string>
+			<key>Cuisine</key>
+			<string>Local</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Taco Bell</string>
+			<key>Description</key>
+			<string>Yo quiero Taco Bell.</string>
+			<key>Distance</key>
+			<string>1.1</string>
+			<key>Image</key>
+			<string>TacoBell.png</string>
+			<key>Cuisine</key>
+			<string>Mexican</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Chipotle</string>
+			<key>Description</key>
+			<string>Food with Integrity.</string>
+			<key>Distance</key>
+			<string>1.76</string>
+			<key>Image</key>
+			<string>Chipotle.png</string>
+			<key>Cuisine</key>
+			<string>Mexican</string>
 		</dict>
 	</array>
 </dict>
