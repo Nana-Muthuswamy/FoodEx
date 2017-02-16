@@ -6,7 +6,7 @@
 //  Copyright © 2017 Apple. All rights reserved.
 //
 
-class RestaurantsSearchResultsController: UITableViewController, UISearchResultsUpdating {
+class RestaurantsSearchResultsController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
 
     var restaurants: [[String:String]] = [] {
         didSet {
@@ -57,7 +57,6 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
         return tableCell
     }
 
-
     // MARK: UISearchResultsUpdating
 
     func updateSearchResults(for searchController: UISearchController) {
@@ -75,4 +74,9 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
         }
     }
 
+    // MARK: UISearchBarDelegate
+
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+
+    }
 }

@@ -6,9 +6,10 @@
 //  Copyright © 2017 Apple. All rights reserved.
 //
 
-class RestaurantsSearchViewController: UIViewController, UISearchBarDelegate, UISearchControllerDelegate {
+class RestaurantsSearchViewController: UIViewController, UISearchControllerDelegate {
 
     var searchController: UISearchController!
+    @IBOutlet weak var searchBarContainer: UIView!
 
     // MARK: Overrides
 
@@ -16,26 +17,26 @@ class RestaurantsSearchViewController: UIViewController, UISearchBarDelegate, UI
         super.viewDidLoad()
 
         // Setup Search Controller
-        let searchResultsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RestaurantsSearchResultsController")
+        let searchResultsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RestaurantsSearchResultsController") as! RestaurantsSearchResultsController
 
         searchController = UISearchController(searchResultsController: searchResultsController)
-        searchController.searchResultsUpdater = searchResultsController as! RestaurantsSearchResultsController
+        searchController.searchResultsUpdater = searchResultsController
 
         searchController.delegate = self
-        searchController.searchBar.delegate = self
+        searchController.searchBar.delegate = searchResultsController
+
+        // Update Search Bar's properties
+        searchController.searchBar.placeholder = "Restaurant or Cuisine"
+        searchController.searchBar.scopeButtonTitles = ["All","< 5 Miles"]
+        searchController.searchBar.sizeToFit()
 
         // Add Search Bar to the view
-        navigationItem.titleView = searchController.searchBar
+        searchBarContainer.addSubview(searchController.searchBar)
+        searchBarContainer.sizeToFit()
 
         // Setup Presentation Traits
         definesPresentationContext = true
-        searchController.hidesNavigationBarDuringPresentation = false
-    }
-
-    // MARK: UISearchBarDelegate
-
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("Search Text: \(searchBar.text.debugDescription)")
+        searchController.hidesNavigationBarDuringPresentation = true
     }
 
     // MARK: IBActions

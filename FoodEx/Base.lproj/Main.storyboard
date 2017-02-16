@@ -150,14 +150,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8g-EK-snb">
-                                        <rect key="frame" x="31" y="40" width="42" height="30"/>
+                                        <rect key="frame" x="30.5" y="40" width="42" height="30"/>
                                         <state key="normal" title="Indian"/>
                                         <connections>
                                             <action selector="quickSearch:" destination="900-Cc-4wo" eventType="touchUpInside" id="eeH-fE-kBb"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uuP-mL-bYn">
-                                        <rect key="frame" x="24" y="80" width="56" height="30"/>
+                                        <rect key="frame" x="23.5" y="80" width="56" height="30"/>
                                         <state key="normal" title="Chinese"/>
                                         <connections>
                                             <action selector="quickSearch:" destination="900-Cc-4wo" eventType="touchUpInside" id="pjk-dV-oPS"/>
@@ -185,7 +185,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reY-XO-khO">
-                                        <rect key="frame" x="21" y="240" width="62" height="30"/>
+                                        <rect key="frame" x="20.5" y="240" width="62" height="30"/>
                                         <state key="normal" title="Favorites"/>
                                         <connections>
                                             <action selector="quickSearch:" destination="900-Cc-4wo" eventType="touchUpInside" id="TbD-vi-dj7"/>
@@ -193,6 +193,11 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HLU-KW-xW0">
+                                <rect key="frame" x="0.0" y="64" width="375" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -201,10 +206,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="A8z-uw-dQ6"/>
+                    <connections>
+                        <outlet property="searchBarContainer" destination="HLU-KW-xW0" id="kEL-36-6lW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sGD-eM-ETI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1454" y="146"/>
+            <point key="canvasLocation" x="1453.5999999999999" y="145.27736131934034"/>
         </scene>
         <!--Restaurants Search Results Controller-->
         <scene sceneID="QtU-uF-sux">
