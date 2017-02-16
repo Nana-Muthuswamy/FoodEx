@@ -97,7 +97,7 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
 
         tableCell.nameLabel.text = restaurantSynopsis["Name"]
         tableCell.subTitleLabel.text = restaurantSynopsis["Description"] ?? "No description available."
-        tableCell.distanceLabel.text = "\(restaurantSynopsis["Distance"]!) Miles"
+        tableCell.distanceLabel.text = "\(restaurantSynopsis["Distance"]!) mi."
         tableCell.addressLabel.text = restaurantSynopsis["Address"]
 
         if let imageFileNameTypeComponents = restaurantSynopsis["Image"]?.components(separatedBy: ".") {

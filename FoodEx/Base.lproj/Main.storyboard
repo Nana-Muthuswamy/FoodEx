@@ -240,6 +240,7 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOY-na-t6Z">
                                             <rect key="frame" x="119.5" y="5" width="48" height="21"/>
                                             <constraints>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="170" id="SOY-DB-w1N"/>
                                                 <constraint firstAttribute="height" constant="21" id="a9Z-pb-MtV"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -282,8 +283,9 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2O-sW-E6w" userLabel="Distance">
-                                            <rect key="frame" x="302.5" y="11" width="49.5" height="15"/>
+                                            <rect key="frame" x="302.5" y="9.5" width="49.5" height="15"/>
                                             <constraints>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="p3H-g4-FGc"/>
                                                 <constraint firstAttribute="height" constant="15" id="xIU-r7-cla"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -294,12 +296,12 @@
                                     <constraints>
                                         <constraint firstItem="2Ie-BF-CfJ" firstAttribute="top" secondItem="qOY-na-t6Z" secondAttribute="bottom" constant="5" id="1hW-aE-bg1"/>
                                         <constraint firstItem="lFT-ZS-xGb" firstAttribute="top" secondItem="TNe-n7-oYh" secondAttribute="top" id="9a3-7K-gvg"/>
+                                        <constraint firstItem="F2O-sW-E6w" firstAttribute="baseline" secondItem="qOY-na-t6Z" secondAttribute="baseline" id="CAg-LZ-aHr"/>
                                         <constraint firstItem="yRO-3N-Sx5" firstAttribute="leading" secondItem="wHP-19-08p" secondAttribute="leading" constant="15" id="KxY-zx-tN5"/>
                                         <constraint firstItem="yRO-3N-Sx5" firstAttribute="top" secondItem="wHP-19-08p" secondAttribute="top" constant="5" id="L2f-zJ-UFe"/>
                                         <constraint firstItem="qOY-na-t6Z" firstAttribute="top" secondItem="yRO-3N-Sx5" secondAttribute="top" id="LAn-VV-dmc"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="lFT-ZS-xGb" secondAttribute="trailing" constant="15" id="LYJ-aV-x2v"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="F2O-sW-E6w" secondAttribute="trailing" constant="15" id="PeC-EM-IA5"/>
-                                        <constraint firstItem="F2O-sW-E6w" firstAttribute="bottom" secondItem="qOY-na-t6Z" secondAttribute="bottom" id="TyL-s5-3wm"/>
                                         <constraint firstItem="TNe-n7-oYh" firstAttribute="leading" secondItem="qOY-na-t6Z" secondAttribute="leading" id="c1z-K3-ah8"/>
                                         <constraint firstItem="2Ie-BF-CfJ" firstAttribute="leading" secondItem="qOY-na-t6Z" secondAttribute="leading" id="g9G-bc-aIR"/>
                                         <constraint firstItem="6z4-kw-fSC" firstAttribute="leading" secondItem="qOY-na-t6Z" secondAttribute="leading" id="hzl-Je-esR"/>
