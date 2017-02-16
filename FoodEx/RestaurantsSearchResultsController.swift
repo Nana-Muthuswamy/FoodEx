@@ -62,18 +62,12 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
 
     func updateSearchResults(for searchController: UISearchController) {
 
-        if var searchText = searchController.searchBar.text {
+        if let searchText = searchController.searchBar.text {
 
-            var searchKey: String
-
-            if searchText.contains("Restaurants") {
-                searchKey = "Cuisine"
-                searchText = searchText.components(separatedBy: .whitespaces).first!
-            } else {
-                searchKey = "Name"
+            filteredRestaurants = restaurants.filter{
+                $0["Name"]!.lowercased().contains(searchText.lowercased()) ||
+                searchText.lowercased().contains($0["Cuisine"]!.lowercased())
             }
-
-            filteredRestaurants = restaurants.filter{$0[searchKey]!.lowercased().contains(searchText.lowercased())}
 
         } else {
 
