@@ -25,7 +25,16 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
         super.viewDidLoad()
 
         if let restaurantList = AppDelegate().globals.restaurants {
-            restaurants = restaurantList
+
+            restaurants = restaurantList.sorted() {
+                let firstDistStr = $0["Distance"] ?? ""
+                let secondDistStr = $1["Distance"] ?? ""
+
+                let firstDistance = Float(firstDistStr) ?? 0.0
+                let secondDistance = Float(secondDistStr) ?? 0.0
+
+                return firstDistance < secondDistance
+            }
         }
     }
 
