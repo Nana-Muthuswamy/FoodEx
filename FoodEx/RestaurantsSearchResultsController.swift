@@ -29,6 +29,47 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
         }
     }
 
+    // MARK: Utils
+
+    func filterRestaurants(nameOrCuisine searchText: String?, scope: Int = 0) {
+
+        if let searchText = searchText {
+
+            let filterOnlyTheNearest = (scope > 0)
+
+            filteredRestaurants = restaurants.filter({ (aRestaurant) -> Bool in
+
+                var didPass = false
+                // If Name isn't available for the element, should not make to filtered list!
+                guard let name = aRestaurant["Name"] else {
+                    return didPass
+                }
+
+                // If Name matches, consider the element
+                if name.lowercased().contains(searchText.lowercased()) {
+                    didPass = true
+                } else if let cuisine = aRestaurant["Cuisine"] { // Or Else if the Cuisine type exists and matches
+                    if searchText.lowercased().contains(cuisine.lowercased()) {
+                        didPass = true
+                    }
+                }
+
+                // If the element is considered, check the scope and validate the distance preference too...
+                if didPass && filterOnlyTheNearest {
+
+                    if let distanceStr = aRestaurant["Distance"], let distance = Float(distanceStr) {
+                        didPass = (distance <= 5)
+                    }
+                }
+
+                return didPass
+            })
+        } else {
+            
+            filteredRestaurants = restaurants
+        }
+    }
+
     // MARK: UITableViewDataSource
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1;
@@ -61,22 +102,13 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
 
     func updateSearchResults(for searchController: UISearchController) {
 
-        if let searchText = searchController.searchBar.text {
-
-            filteredRestaurants = restaurants.filter{
-                $0["Name"]!.lowercased().contains(searchText.lowercased()) ||
-                searchText.lowercased().contains($0["Cuisine"]!.lowercased())
-            }
-
-        } else {
-
-            filteredRestaurants = restaurants
-        }
+        filterRestaurants(nameOrCuisine: searchController.searchBar.text, scope: searchController.searchBar.selectedScopeButtonIndex)
     }
 
     // MARK: UISearchBarDelegate
 
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
 
+        filterRestaurants(nameOrCuisine: searchBar.text, scope: searchBar.selectedScopeButtonIndex)
     }
 }

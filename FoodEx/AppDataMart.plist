@@ -59,7 +59,7 @@
 			<key>Description</key>
 			<string>Habit does it always.</string>
 			<key>Distance</key>
-			<string>1.74</string>
+			<string>5.74</string>
 			<key>Image</key>
 			<string>TheHabit.png</string>
 			<key>Cuisine</key>
@@ -101,7 +101,7 @@
 			<key>Description</key>
 			<string>Yo quiero Taco Bell.</string>
 			<key>Distance</key>
-			<string>1.1</string>
+			<string>5.1</string>
 			<key>Image</key>
 			<string>TacoBell.png</string>
 			<key>Cuisine</key>
