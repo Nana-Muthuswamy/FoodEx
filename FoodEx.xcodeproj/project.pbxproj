@@ -24,6 +24,7 @@
 		39C95A121E4FDDF400D56416 /* AppDataMart.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39C95A111E4FDDF400D56416 /* AppDataMart.plist */; };
 		39F089031E5138E800F70E2B /* RestaurantsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F089021E5138E800F70E2B /* RestaurantsSearchViewController.swift */; };
 		39F089051E518F4500F70E2B /* RestaurantsSearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F089041E518F4500F70E2B /* RestaurantsSearchResultsController.swift */; };
+		39F346D31E552A09008E4A03 /* RestaurantSynopsisTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F346D21E552A09008E4A03 /* RestaurantSynopsisTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		39C95A111E4FDDF400D56416 /* AppDataMart.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppDataMart.plist; sourceTree = "<group>"; };
 		39F089021E5138E800F70E2B /* RestaurantsSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantsSearchViewController.swift; sourceTree = "<group>"; };
 		39F089041E518F4500F70E2B /* RestaurantsSearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantsSearchResultsController.swift; sourceTree = "<group>"; };
+		39F346D21E552A09008E4A03 /* RestaurantSynopsisTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantSynopsisTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				39B870BF1E45DBE100F63751 /* ApplePayStubs */,
 				39B870B91E45CE2100F63751 /* Info.plist */,
 				39C95A111E4FDDF400D56416 /* AppDataMart.plist */,
+				39F346D21E552A09008E4A03 /* RestaurantSynopsisTableViewCell.swift */,
 			);
 			path = FoodEx;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				39F089031E5138E800F70E2B /* RestaurantsSearchViewController.swift in Sources */,
 				39B870D21E45DC8D00F63751 /* STPTestDataTableViewController.m in Sources */,
 				39B870AE1E45CE2100F63751 /* AppDelegate.swift in Sources */,
+				39F346D31E552A09008E4A03 /* RestaurantSynopsisTableViewCell.swift in Sources */,
 				39B870D61E45DC8D00F63751 /* STPTestShippingMethodStore.m in Sources */,
 				39B870D11E45DC8D00F63751 /* STPTestCardStore.m in Sources */,
 				39F089051E518F4500F70E2B /* RestaurantsSearchResultsController.swift in Sources */,

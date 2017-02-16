@@ -41,29 +41,20 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let reuseIdentifier = "Restaurant Synopsis"
-
-        guard let tableCell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) else {
-
-            return UITableViewCell(style: .subtitle, reuseIdentifier: reuseIdentifier)
-        }
+        let tableCell = tableView.dequeueReusableCell(withIdentifier: "Restaurant Synopsis")! as! RestaurantSynopsisTableViewCell
 
         let restaurantSynopsis = filteredRestaurants[indexPath.row]
 
-        tableCell.textLabel?.text = restaurantSynopsis["Name"]
+        tableCell.nameLabel.text = restaurantSynopsis["Name"]
 
-        var description = restaurantSynopsis["Description"] ?? "No description available."
+        tableCell.subTitleLabel.text = restaurantSynopsis["Description"] ?? "No description available."
 
         if let distance = restaurantSynopsis["Distance"] {
-            description.append(" | \(distance) Miles")
+            tableCell.distanceLabel.text = "\(distance) Miles"
         }
 
-        tableCell.detailTextLabel?.text = description
-
-
         if let imageFileNameTypeComponents = restaurantSynopsis["Image"]?.components(separatedBy: ".") {
-
-            tableCell.imageView?.image = UIImage(named: imageFileNameTypeComponents.first!)
+            tableCell.symbolImageView.image = UIImage(named: imageFileNameTypeComponents.first!)
         }
 
         return tableCell
