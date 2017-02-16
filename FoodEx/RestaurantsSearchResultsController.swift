@@ -46,12 +46,9 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
         let restaurantSynopsis = filteredRestaurants[indexPath.row]
 
         tableCell.nameLabel.text = restaurantSynopsis["Name"]
-
         tableCell.subTitleLabel.text = restaurantSynopsis["Description"] ?? "No description available."
-
-        if let distance = restaurantSynopsis["Distance"] {
-            tableCell.distanceLabel.text = "\(distance) Miles"
-        }
+        tableCell.distanceLabel.text = "\(restaurantSynopsis["Distance"]!) Miles"
+        tableCell.addressLabel.text = restaurantSynopsis["Address"]
 
         if let imageFileNameTypeComponents = restaurantSynopsis["Image"]?.components(separatedBy: ".") {
             tableCell.symbolImageView.image = UIImage(named: imageFileNameTypeComponents.first!)

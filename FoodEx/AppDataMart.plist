@@ -22,6 +22,8 @@
 			<string>Mcdonalds.png</string>
 			<key>Cuisine</key>
 			<string>Local</string>
+			<key>Address</key>
+			<string>1990 El Camino Real, Santa Clara</string>
 		</dict>
 		<dict>
 			<key>Name</key>
@@ -34,6 +36,8 @@
 			<string>JackInTheBox.png</string>
 			<key>Cuisine</key>
 			<string>Local</string>
+			<key>Address</key>
+			<string>911 El Camino Real Santa Clara</string>
 		</dict>
 		<dict>
 			<key>Name</key>
@@ -46,6 +50,8 @@
 			<string>Dennys.png</string>
 			<key>Cuisine</key>
 			<string>Local</string>
+			<key>Address</key>
+			<string>1745 El Camino Real Santa Clara</string>
 		</dict>
 		<dict>
 			<key>Name</key>
@@ -58,6 +64,8 @@
 			<string>TheHabit.png</string>
 			<key>Cuisine</key>
 			<string>Local</string>
+			<key>Address</key>
+			<string>2000 El Camino Real Santa Clara</string>
 		</dict>
 		<dict>
 			<key>Name</key>
@@ -70,6 +78,8 @@
 			<string>BurgerKing.png</string>
 			<key>Cuisine</key>
 			<string>Local</string>
+			<key>Address</key>
+			<string>1925 El Camino Real Santa Clara</string>
 		</dict>
 		<dict>
 			<key>Name</key>
@@ -82,6 +92,8 @@
 			<string>PaneraBread.png</string>
 			<key>Cuisine</key>
 			<string>Local</string>
+			<key>Address</key>
+			<string>2002 El Camino Real Santa Clara</string>
 		</dict>
 		<dict>
 			<key>Name</key>
@@ -94,6 +106,8 @@
 			<string>TacoBell.png</string>
 			<key>Cuisine</key>
 			<string>Mexican</string>
+			<key>Address</key>
+			<string>1680 El Camino Real Santa Clara</string>
 		</dict>
 		<dict>
 			<key>Name</key>
@@ -106,6 +120,8 @@
 			<string>Chipotle.png</string>
 			<key>Cuisine</key>
 			<string>Mexican</string>
+			<key>Address</key>
+			<string>2002 El Camino Real Santa Clara</string>
 		</dict>
 	</array>
 </dict>
