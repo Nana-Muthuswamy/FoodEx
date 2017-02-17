@@ -91,12 +91,9 @@
 		39B870AC1E45CE2100F63751 /* FoodEx */ = {
 			isa = PBXGroup;
 			children = (
-				39B870AD1E45CE2100F63751 /* AppDelegate.swift */,
-				39C95A0F1E4FDC9500D56416 /* AppGlobals.swift */,
-				39B870AF1E45CE2100F63751 /* LoginViewController.swift */,
-				39F089021E5138E800F70E2B /* RestaurantsSearchViewController.swift */,
-				39F089041E518F4500F70E2B /* RestaurantsSearchResultsController.swift */,
-				39F346D21E552A09008E4A03 /* RestaurantSynopsisTableViewCell.swift */,
+				39F346D61E56C6A4008E4A03 /* Globals */,
+				39F346D51E56C692008E4A03 /* View Controllers */,
+				39F346D41E56C66F008E4A03 /* Views */,
 				39B870B11E45CE2100F63751 /* Main.storyboard */,
 				39B870B41E45CE2100F63751 /* Assets.xcassets */,
 				39B870B61E45CE2100F63751 /* LaunchScreen.storyboard */,
@@ -136,6 +133,33 @@
 				39C68D781E496F7E00D393C9 /* LocalAuthentication.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		39F346D41E56C66F008E4A03 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				39F346D21E552A09008E4A03 /* RestaurantSynopsisTableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		39F346D51E56C692008E4A03 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				39B870AF1E45CE2100F63751 /* LoginViewController.swift */,
+				39F089021E5138E800F70E2B /* RestaurantsSearchViewController.swift */,
+				39F089041E518F4500F70E2B /* RestaurantsSearchResultsController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		39F346D61E56C6A4008E4A03 /* Globals */ = {
+			isa = PBXGroup;
+			children = (
+				39B870AD1E45CE2100F63751 /* AppDelegate.swift */,
+				39C95A0F1E4FDC9500D56416 /* AppGlobals.swift */,
+			);
+			name = Globals;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
