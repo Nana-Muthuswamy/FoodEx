@@ -27,11 +27,9 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
         if let restaurantList = AppDelegate().globals.restaurants {
 
             restaurants = restaurantList.sorted() {
-                let firstDistStr = $0["Distance"] ?? ""
-                let secondDistStr = $1["Distance"] ?? ""
 
-                let firstDistance = Float(firstDistStr) ?? 0.0
-                let secondDistance = Float(secondDistStr) ?? 0.0
+                let firstDistance = Float($0["Distance"] ?? "") ?? 0.0
+                let secondDistance = Float($1["Distance"] ?? "") ?? 0.0
 
                 return firstDistance < secondDistance
             }
@@ -102,6 +100,14 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
 
         if let imageFileNameTypeComponents = restaurantSynopsis["Image"]?.components(separatedBy: ".") {
             tableCell.symbolImageView.image = UIImage(named: imageFileNameTypeComponents.first!)
+        }
+
+        if let reviewCount = Int(restaurantSynopsis["Reviews"] ?? "0") {
+            tableCell.setReviewStars(count: reviewCount)
+        }
+
+        if let costCount = Int(restaurantSynopsis["Cost"] ?? "0") {
+            tableCell.setCostDollars(count: costCount)
         }
 
         return tableCell

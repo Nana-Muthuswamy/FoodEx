@@ -14,4 +14,32 @@ class RestaurantSynopsisTableViewCell: UITableViewCell {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var symbolImageView: UIImageView!
 
+    @IBOutlet private weak var reviewsStack: UIStackView!
+    @IBOutlet private weak var dollarsStack: UIStackView!
+
+    func setReviewStars(count: Int) -> Void {
+
+        var count = count
+        let subviews = reviewsStack.arrangedSubviews
+
+        if count > subviews.count {count = subviews.count}
+
+        if count > 0 {
+            reviewsStack.arrangedSubviews.prefix(upTo: count).forEach() {
+                $0.isHidden = false
+            }
+        }
+    }
+
+    func setCostDollars(count: Int) -> Void {
+
+        var count = count
+        let subviews = reviewsStack.arrangedSubviews
+
+        if count > subviews.count {count = subviews.count}
+
+        dollarsStack.arrangedSubviews.suffix(count).forEach() {
+            $0.isHidden = false
+        }
+    }
 }
