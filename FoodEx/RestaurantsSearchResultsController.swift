@@ -24,7 +24,7 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let restaurantList = AppDelegate().globals.restaurants {
+        if let restaurantList = AppGlobals.shared.restaurants {
 
             restaurants = restaurantList.sorted() {
 

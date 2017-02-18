@@ -6,7 +6,11 @@
 //  Copyright © 2017 Apple. All rights reserved.
 //
 
+// A Singleton App Globals that provides data throughout the app
 struct AppGlobals {
+
+    // Singleton Type property
+    static let shared = AppGlobals()
 
     private let appDataMart : [String:Any]
 
@@ -22,7 +26,8 @@ struct AppGlobals {
         }
     }
 
-    init() {
+    private init() {
+        
         let dataMartURL = Bundle.main.url(forResource: "AppDataMart", withExtension: "plist")
         let data = try! Data(contentsOf: dataMartURL!)
         let plist = try! PropertyListSerialization.propertyList(from: data, options: .mutableContainers, format: nil)
