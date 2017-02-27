@@ -15,15 +15,29 @@ struct AppGlobals {
     private let appDataMart : [String:Any]
 
     var registeredUsers : [String:String]? {
-        get {
-            return appDataMart["RegisteredUsers"] as? [String : String]
-        }
+        return appDataMart["RegisteredUsers"] as? [String : String]
+    }
+
+    var restaurantsSynopsis : [[String:String]]? {
+        let restaurants = appDataMart["Restaurants"] as? [[String:Any]]
+
+        var restaurantsSynopsis = [[String:String]]()
+        
+        restaurants?.forEach({ (element) in
+
+            var elementSynopsis = element
+            elementSynopsis.removeValue(forKey: "Menu")
+
+            if let newElement = elementSynopsis as? [String:String] {
+                restaurantsSynopsis.append(newElement)
+            }
+        })
+
+        return restaurantsSynopsis
     }
 
     var restaurants : [[String:Any]]? {
-        get {
-            return appDataMart["Restaurants"] as? [[String:Any]]
-        }
+        return appDataMart["Restaurants"] as? [[String : Any]]
     }
 
     private init() {

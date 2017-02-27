@@ -8,12 +8,12 @@
 
 class RestaurantsSearchResultsController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
 
-    var restaurants: [[String:Any]] = [] {
+    var restaurants: [[String:String]] = [] {
         didSet {
             filteredRestaurants = restaurants
         }
     }
-    var filteredRestaurants: [[String:Any]] = [] {
+    var filteredRestaurants: [[String:String]] = [] {
         didSet {
             tableView.reloadData()
         }
@@ -24,12 +24,12 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let restaurantList = AppGlobals.shared.restaurants {
+        if let restaurantList = AppGlobals.shared.restaurantsSynopsis {
 
             restaurants = restaurantList.sorted() {
 
-                let firstDistance = Float(($0["Distance"] as! String?) ?? "") ?? 0.0
-                let secondDistance = Float(($1["Distance"] as! String?) ?? "") ?? 0.0
+                let firstDistance = Float($0["Distance"] ?? "") ?? 0.0
+                let secondDistance = Float($1["Distance"] ?? "") ?? 0.0
 
                 return firstDistance < secondDistance
             }
@@ -48,14 +48,14 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
 
                 var didPass = false
                 // If Name isn't available for the element, should not make to filtered list!
-                guard let name = aRestaurant["Name"] as! String? else {
+                guard let name = aRestaurant["Name"] else {
                     return didPass
                 }
 
                 // If Name matches, consider the element
                 if name.lowercased().contains(searchText.lowercased()) {
                     didPass = true
-                } else if let cuisine = aRestaurant["Cuisine"] as! String? { // Or Else if the Cuisine type exists and matches
+                } else if let cuisine = aRestaurant["Cuisine"] { // Or Else if the Cuisine type exists and matches
                     if searchText.lowercased().contains(cuisine.lowercased()) {
                         didPass = true
                     }
@@ -64,7 +64,7 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
                 // If the element is considered, check the scope and validate the distance preference too...
                 if didPass && filterOnlyTheNearest {
 
-                    if let distanceStr = aRestaurant["Distance"] as! String?, let distance = Float(distanceStr) {
+                    if let distanceStr = aRestaurant["Distance"], let distance = Float(distanceStr) {
                         didPass = (distance <= 5)
                     }
                 }
@@ -93,20 +93,20 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
 
         let restaurantSynopsis = filteredRestaurants[indexPath.row]
 
-        tableCell.nameLabel.text = restaurantSynopsis["Name"] as! String?
-        tableCell.subTitleLabel.text = (restaurantSynopsis["Description"] as! String?) ?? "No description available."
+        tableCell.nameLabel.text = restaurantSynopsis["Name"]
+        tableCell.subTitleLabel.text = restaurantSynopsis["Description"] ?? "No description available."
         tableCell.distanceLabel.text = "\(restaurantSynopsis["Distance"]!) mi."
-        tableCell.addressLabel.text = restaurantSynopsis["Address"] as! String?
+        tableCell.addressLabel.text = restaurantSynopsis["Address"]
 
-        if let imageFileNameTypeComponents = (restaurantSynopsis["Image"] as! String?)?.components(separatedBy: ".") {
+        if let imageFileNameTypeComponents = restaurantSynopsis["Image"]?.components(separatedBy: ".") {
             tableCell.symbolImageView.image = UIImage(named: imageFileNameTypeComponents.first!)
         }
 
-        if let reviewCount = Int((restaurantSynopsis["Reviews"] as! String?) ?? "0") {
+        if let reviewCount = Int(restaurantSynopsis["Reviews"] ?? "0") {
             tableCell.setReviewStars(count: reviewCount)
         }
 
-        if let costCount = Int((restaurantSynopsis["Cost"] as! String?) ?? "0") {
+        if let costCount = Int(restaurantSynopsis["Cost"] ?? "0") {
             tableCell.setCostDollars(count: costCount)
         }
 
