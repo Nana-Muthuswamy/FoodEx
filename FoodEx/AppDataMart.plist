@@ -34,11 +34,61 @@
 					<key>Name</key>
 					<string>French Fries</string>
 					<key>Details</key>
-					<string>Potato fingers fired in granula oil.</string>
+					<string>Potatoes Prepared in Vegetable Oil (Canola Oil, Corn Oil, Soybean Oil, Hydrogenated SoybeanOil) and Salt</string>
 					<key>Price</key>
-					<string>2.00</string>
+					<real>1.69</real>
 					<key>Image</key>
-					<string>McDFrenchFries.png</string>
+					<string>McD_Fries.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>McFlurry</string>
+					<key>Details</key>
+					<string>Vanilla reduced fat ice cream, m&amp;m mini milk chocolate candies</string>
+					<key>Price</key>
+					<real>2.39</real>
+					<key>Image</key>
+					<string>McFlurry.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Cheeseburger</string>
+					<key>Details</key>
+					<string>100% beef patty, regular bun, pasteurized process american cheese, ketchup, mustard, pickle slices, onions</string>
+					<key>Price</key>
+					<integer>1</integer>
+					<key>Image</key>
+					<string>McD_Cheseburger.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>4 Pc. Chicken McNuggets</string>
+					<key>Details</key>
+					<string>White Boneless Chicken, Water, Food Starch-Modified, Salt, Seasoning</string>
+					<key>Price</key>
+					<real>1.99</real>
+					<key>Image</key>
+					<string>McD_Nugget.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Smoothie</string>
+					<key>Details</key>
+					<string>Mango Pineapple, Strawberry Banana, or Blueberry Pomegranate</string>
+					<key>Price</key>
+					<real>2.39</real>
+					<key>Image</key>
+					<string>McD_Smoothie.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Iced Coffee-Regular</string>
+					<key>Details</key>
+					<string>Premium roast coffee, ice, light cream, liquid sugar</string>
+					<key>Price</key>
+					<real>1.49</real>
+					<key>Image</key>
+					<string>McD_Coffee.png</string>
 				</dict>
 			</array>
 		</dict>
@@ -59,6 +109,69 @@
 			<string>3</string>
 			<key>Cost</key>
 			<string>2</string>
+			<key>Menu</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>Seasoned Curly Fries</string>
+					<key>Details</key>
+					<string>Potatoes Prepared in Vegetable Oil (Canola Oil, Corn Oil, Soybean Oil, Hydrogenated SoybeanOil) and Salt</string>
+					<key>Price</key>
+					<real>2.29</real>
+					<key>Image</key>
+					<string>JITB_Curly.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Regular Shake</string>
+					<key>Details</key>
+					<string>Chocolate, Vanilla, or Strawberry</string>
+					<key>Price</key>
+					<real>2.39</real>
+					<key>Image</key>
+					<string>JITB_Shake.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Chicken Nuggets</string>
+					<key>Details</key>
+					<string>White Boneless Chicken, Water, Food Starch-Modified, Salt, Seasoning</string>
+					<key>Price</key>
+					<real>1.59</real>
+					<key>Image</key>
+					<string>JITB_Nugget.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Big Cheeseburger</string>
+					<key>Details</key>
+					<string>100% beef patty, regular bun, pasteurized process american cheese, ketchup, mustard, pickle slices, onions</string>
+					<key>Price</key>
+					<real>2.49</real>
+					<key>Image</key>
+					<string>JITB_Burger.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Chicken Club Salad</string>
+					<key>Details</key>
+					<string>Grilled Chicken, Bacon Ranch Dressing, Gourmet Croutons</string>
+					<key>Price</key>
+					<real>5.49</real>
+					<key>Image</key>
+					<string>JITB_Salad.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Cheesecake</string>
+					<key>Details</key>
+					<string>Skim Milk, Milk, Sugar, Palm Oil, Corn Syrup, Enriched Bleached Wheat Flour</string>
+					<key>Price</key>
+					<real>1.59</real>
+					<key>Image</key>
+					<string>JITB_Cheesecake.png</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>Name</key>
@@ -77,6 +190,69 @@
 			<string>5</string>
 			<key>Cost</key>
 			<string>3</string>
+			<key>Menu</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>Basket Of Puppies</string>
+					<key>Details</key>
+					<string>Ten pancake puppies, our bitesized round pancakes rolled in a delicious blend of cinnamon and sugar. </string>
+					<key>Price</key>
+					<real>2.99</real>
+					<key>Image</key>
+					<string>Denny_BOP.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Breakfast special</string>
+					<key>Details</key>
+					<string>Two new fluffy buttermilk pancakes, two eggs, two bacon strips and two sausage links. Served with hash browns or choice of bread, plus coffee and juice.</string>
+					<key>Price</key>
+					<real>5.45</real>
+					<key>Image</key>
+					<string>Denny_BF.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Bowl Of Soup</string>
+					<key>Details</key>
+					<string>Our soups are kettlecooked to be rich and hearty. served with dinner bread</string>
+					<key>Price</key>
+					<real>2.39</real>
+					<key>Image</key>
+					<string>Denny_BOS.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Chicken Deluxe Salad</string>
+					<key>Details</key>
+					<string>Your choice of goldenfried breaded chicken strips or a grilled seasoned chicken breast sliced on top of crisp mixed greens with grape tomatoes, cucumbers, red onions and cheddar cheese. </string>
+					<key>Price</key>
+					<real>5.99</real>
+					<key>Image</key>
+					<string>Denny_CDS.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Western Burger</string>
+					<key>Details</key>
+					<string>Tangy steak sauce drizzled over onion tanglers and melted swiss cheese. served with lettuce, tomato and red onion</string>
+					<key>Price</key>
+					<real>5.99</real>
+					<key>Image</key>
+					<string>Denny_WB.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>The Super Bird</string>
+					<key>Details</key>
+					<string>Thinly sliced turkey bread with melted swiss cheese, crisp bacon and tomato on grilled sourdough.</string>
+					<key>Price</key>
+					<real>4.79</real>
+					<key>Image</key>
+					<string>Denny_TSB.png</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>Name</key>
@@ -95,6 +271,69 @@
 			<string>1</string>
 			<key>Cost</key>
 			<string>2</string>
+			<key>Menu</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>Charburger</string>
+					<key>Details</key>
+					<string>Crisp lettuce, fresh tomato, caramelized onions, pickles, and mayo on a toasted bun.</string>
+					<key>Price</key>
+					<real>3.5</real>
+					<key>Image</key>
+					<string>HBG_CharBurger.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Roasted garlic portabella char</string>
+					<key>Details</key>
+					<string>Portabella mushrooms, melted White American cheese, crisp lettuce, fresh tomato, caramelized onions, pickle, and roasted garlic aioli on a toasted bun</string>
+					<key>Price</key>
+					<real>4.99</real>
+					<key>Image</key>
+					<string>HBG_RGPC.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Veggie Burger</string>
+					<key>Details</key>
+					<string>Veggie patty on a toasted wheat bun, green leaf lettuce, fresh tomatoes, cucumbers, and onions, with honey Dijon dressing</string>
+					<key>Price</key>
+					<real>4.45</real>
+					<key>Image</key>
+					<string>HBG_VB.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Onion Rings</string>
+					<key>Details</key>
+					<string>Crunchy-battered, sweet white onions</string>
+					<key>Price</key>
+					<real>2.49</real>
+					<key>Image</key>
+					<string>HBG_Onion.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Grilled Cheese</string>
+					<key>Details</key>
+					<string>Includes fries, apple slices or applesauce and a soft drink, apple juice, or milk</string>
+					<key>Price</key>
+					<real>3.99</real>
+					<key>Image</key>
+					<string>HBG_GC.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Sundaes</string>
+					<key>Details</key>
+					<string>Vanilla Soft Serve, Hershey&apos;s© Chocolate, Whipped Cream, and Nuts</string>
+					<key>Price</key>
+					<real>2.99</real>
+					<key>Image</key>
+					<string>HBG_Sundae.png</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>Name</key>
@@ -113,6 +352,70 @@
 			<string>5</string>
 			<key>Cost</key>
 			<string>1</string>
+			<key>Menu</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>French Fries</string>
+					<key>Details</key>
+					<string>Potatoes Prepared in Vegetable Oil (Canola Oil, Corn Oil, Soybean Oil, Hydrogenated Soybean
+Oil) and Salt</string>
+					<key>Price</key>
+					<real>1.69</real>
+					<key>Image</key>
+					<string>BK_Fries.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>TendergrillTM Garden Salad</string>
+					<key>Details</key>
+					<string>Season-ripe lettuce, carrots, and tomatoes topped with grilled chicken, three kinds of cheese, and your choice of ken&apos;s salad dressing</string>
+					<key>Price</key>
+					<real>5.99</real>
+					<key>Image</key>
+					<string>BK_Salad.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Onion Rings</string>
+					<key>Details</key>
+					<string>Crunchy-battered, sweet white onions</string>
+					<key>Price</key>
+					<real>2.49</real>
+					<key>Image</key>
+					<string>BK_Onion.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Double Whopper</string>
+					<key>Details</key>
+					<string>Two flame-broiled beef patties stacked high with red ripe tomatoes, crisp lettuce, creamy mayo, ketchup, crunchy pickles, and onions all on a toasted sesame seed bun.</string>
+					<key>Price</key>
+					<real>3.59</real>
+					<key>Image</key>
+					<string>BK_Whooper.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Smoothie</string>
+					<key>Details</key>
+					<string>Mango Pineapple, Strawberry Banana, or Blueberry Pomegranate</string>
+					<key>Price</key>
+					<real>2.39</real>
+					<key>Image</key>
+					<string>BK_Smoothie.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Iced Coffee-Regular</string>
+					<key>Details</key>
+					<string>Premium roast coffee, ice, light cream, liquid sugar</string>
+					<key>Price</key>
+					<real>1.49</real>
+					<key>Image</key>
+					<string>BK_Coffee.png</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>Name</key>
@@ -131,6 +434,59 @@
 			<string>3</string>
 			<key>Cost</key>
 			<string>3</string>
+			<key>Menu</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>Signature Sandwiches</string>
+					<key>Details</key>
+					<string>Roasted Turkey &amp; Avocado BLT</string>
+					<key>Price</key>
+					<real>8.789999999999999</real>
+					<key>Image</key>
+					<string>Panera_SS.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Broth Bowls</string>
+					<key>Details</key>
+					<string>Soba Noodle Bowl with Edamame or Lentil Quinoa Bowl with Cage-Free Egg - Meal</string>
+					<key>Price</key>
+					<real>11.18</real>
+					<key>Image</key>
+					<string>Panera_BB.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Premium Signature Pastas</string>
+					<key>Details</key>
+					<string>Chicken Tortellini Alfredo, Butternut Squash Ravioli or Pasta Primavera - Meal</string>
+					<key>Price</key>
+					<real>11.18</real>
+					<key>Image</key>
+					<string>Panera_PSP.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Pasta</string>
+					<key>Details</key>
+					<string>Mac &amp; Cheese</string>
+					<key>Price</key>
+					<real>5.99</real>
+					<key>Image</key>
+					<string>Panera_MAC.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Soup</string>
+					<key>Details</key>
+					<string>Broccoli Cheddar Soup</string>
+					<key>Price</key>
+					<real>4.29</real>
+					<key>Image</key>
+					<string>Panera_BCS.png</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>Name</key>
@@ -149,6 +505,59 @@
 			<string>5</string>
 			<key>Cost</key>
 			<string>1</string>
+			<key>Menu</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>Cheesy Double Beef Burrito</string>
+					<key>Details</key>
+					<string>A double portion of seasoned beef loaded with warm nacho cheese sauce and seasoned rice</string>
+					<key>Price</key>
+					<real>5.99</real>
+					<key>Image</key>
+					<string>TB_Burrito.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Volcano Taco</string>
+					<key>Details</key>
+					<string>A crunchy red corn tortilla shell, filled with seasoned ground beef , crisp shredded lettuce, real cheddar cheese and topped off with cheesy molten hot lava sauce.</string>
+					<key>Price</key>
+					<real>4.59</real>
+					<key>Image</key>
+					<string>TB_Volcano.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Cheesy Nachos</string>
+					<key>Details</key>
+					<string>Crisp, freshly prepared tortilla chips covered in warm nacho cheese sauce.</string>
+					<key>Price</key>
+					<real>3.59</real>
+					<key>Image</key>
+					<string>TB_Nacho.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Chicken Fiesta Taco Salad</string>
+					<key>Details</key>
+					<string>A crispy tortilla bowl filled with marinated all - white meat chicken, and loaded with chunky beans , real cheddar cheese, seasoned rice , crisp shredded lettuce, diced ripe tomatoes, red tortilla strips, reduced fat sour cream and served with citrus salsa on the side.</string>
+					<key>Price</key>
+					<real>5.65</real>
+					<key>Image</key>
+					<string>TB_Salad.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Crunchy Taco</string>
+					<key>Details</key>
+					<string>a crunchy, corn taco shell filled with seasoned ground beef, crisp shredded lettuce, and real cheddar cheese</string>
+					<key>Price</key>
+					<real>5.65</real>
+					<key>Image</key>
+					<string>TB_Taco.png</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>Name</key>
@@ -167,6 +576,130 @@
 			<string>4</string>
 			<key>Cost</key>
 			<string>2</string>
+			<key>Menu</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>Burrito Bowl</string>
+					<key>Details</key>
+					<string>Vegetarian, Chicken, Steak</string>
+					<key>Price</key>
+					<real>7.5</real>
+					<key>Image</key>
+					<string>Chipotle_BB.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Taco</string>
+					<key>Details</key>
+					<string>A crunchy red corn tortilla shell, filled with seasoned ground beef , crisp shredded lettuce, real cheddar cheese and topped off with cheesy molten hot lava sauce.</string>
+					<key>Price</key>
+					<real>4.59</real>
+					<key>Image</key>
+					<string>TB_Volcano.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Chips &amp; Guacamole</string>
+					<key>Details</key>
+					<string>Avacado, Cilantro, Salt, Onion, Tomato</string>
+					<key>Price</key>
+					<real>3.59</real>
+					<key>Image</key>
+					<string>Chipotle_CG.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Cheese Quesadilla (No Meat)</string>
+					<key>Details</key>
+					<string>Cheese, All purpose flour, Salt</string>
+					<key>Price</key>
+					<real>3.75</real>
+					<key>Image</key>
+					<string>Chipotle_CQ.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Soda</string>
+					<key>Details</key>
+					<string>Your choice of drink</string>
+					<key>Price</key>
+					<real>1.8</real>
+					<key>Image</key>
+					<string>Chipotle_Soda.png</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Peacock</string>
+			<key>Description</key>
+			<string>Delicious Food and best Service</string>
+			<key>Distance</key>
+			<string>5.76</string>
+			<key>Image</key>
+			<string>Peacock.png</string>
+			<key>Cuisine</key>
+			<string>Indian</string>
+			<key>Address</key>
+			<string>2798 El Camino Real Santa Clara CA 95051</string>
+			<key>Reviews</key>
+			<string>4</string>
+			<key>Cost</key>
+			<string>2</string>
+			<key>Menu</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>Burrito Bowl</string>
+					<key>Details</key>
+					<string>Vegetarian, Chicken, Steak</string>
+					<key>Price</key>
+					<real>7.5</real>
+					<key>Image</key>
+					<string>Chipotle_BB.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Taco</string>
+					<key>Details</key>
+					<string>A crunchy red corn tortilla shell, filled with seasoned ground beef , crisp shredded lettuce, real cheddar cheese and topped off with cheesy molten hot lava sauce.</string>
+					<key>Price</key>
+					<real>4.59</real>
+					<key>Image</key>
+					<string>TB_Volcano.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Chips &amp; Guacamole</string>
+					<key>Details</key>
+					<string>Avacado, Cilantro, Salt, Onion, Tomato</string>
+					<key>Price</key>
+					<real>3.59</real>
+					<key>Image</key>
+					<string>Chipotle_CG.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Cheese Quesadilla (No Meat)</string>
+					<key>Details</key>
+					<string>Cheese, All purpose flour, Salt</string>
+					<key>Price</key>
+					<real>3.75</real>
+					<key>Image</key>
+					<string>Chipotle_CQ.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Soda</string>
+					<key>Details</key>
+					<string>Your choice of drink</string>
+					<key>Price</key>
+					<real>1.8</real>
+					<key>Image</key>
+					<string>Chipotle_Soda.png</string>
+				</dict>
+			</array>
 		</dict>
 	</array>
 </dict>
