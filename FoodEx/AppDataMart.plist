@@ -28,6 +28,19 @@
 			<string>2</string>
 			<key>Cost</key>
 			<string>1</string>
+			<key>Menu</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>French Fries</string>
+					<key>Details</key>
+					<string>Potato fingers fired in granula oil.</string>
+					<key>Price</key>
+					<string>2.00</string>
+					<key>Image</key>
+					<string>McDFrenchFries.png</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>Name</key>

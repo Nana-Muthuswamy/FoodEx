@@ -20,9 +20,9 @@ struct AppGlobals {
         }
     }
 
-    var restaurants : [[String:String]]? {
+    var restaurants : [[String:Any]]? {
         get {
-            return appDataMart["Restaurants"] as? [[String:String]]
+            return appDataMart["Restaurants"] as? [[String:Any]]
         }
     }
 
