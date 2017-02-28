@@ -6,6 +6,8 @@
 //  Copyright © 2017 Apple. All rights reserved.
 //
 
+import UIKit
+
 class RestaurantsSearchResultsController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
 
     var restaurants: [[String:String]] = [] {

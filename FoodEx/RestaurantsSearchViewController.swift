@@ -6,6 +6,8 @@
 //  Copyright © 2017 Apple. All rights reserved.
 //
 
+import UIKit
+
 class RestaurantsSearchViewController: UIViewController, UISearchControllerDelegate {
 
     var searchController: UISearchController!

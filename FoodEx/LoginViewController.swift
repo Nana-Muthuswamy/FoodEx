@@ -6,6 +6,7 @@
 //  Copyright © 2017 Apple. All rights reserved.
 //
 
+import UIKit
 import LocalAuthentication
 
 class LoginViewController: UIViewController {

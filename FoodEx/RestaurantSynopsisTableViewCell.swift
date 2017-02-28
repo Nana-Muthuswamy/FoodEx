@@ -6,6 +6,8 @@
 //  Copyright © 2017 Apple. All rights reserved.
 //
 
+import UIKit
+
 class RestaurantSynopsisTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!

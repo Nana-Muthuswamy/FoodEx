@@ -6,6 +6,8 @@
 //  Copyright © 2017 Apple. All rights reserved.
 //
 
+import Foundation
+
 // A Singleton App Globals that provides data throughout the app
 struct AppGlobals {
 
