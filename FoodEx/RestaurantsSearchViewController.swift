@@ -51,7 +51,7 @@ class RestaurantsSearchViewController: UIViewController, UISearchControllerDeleg
             if (quickSearchType == "Favorites") {quickSearchType = "Favorite"}
 
             // Set the search bar's text
-            searchController.searchBar.text = "\(quickSearchType) Restaurants"
+            searchController.searchBar.text = "\(quickSearchType)"
             // Force activate UISearchController
             searchController.searchBar.becomeFirstResponder()
         }
