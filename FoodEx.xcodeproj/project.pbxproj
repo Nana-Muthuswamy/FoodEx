@@ -15,6 +15,8 @@
 		39C68D791E496F7E00D393C9 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C68D781E496F7E00D393C9 /* LocalAuthentication.framework */; };
 		39C95A101E4FDC9500D56416 /* AppGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C95A0F1E4FDC9500D56416 /* AppGlobals.swift */; };
 		39C95A121E4FDDF400D56416 /* AppDataMart.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39C95A111E4FDDF400D56416 /* AppDataMart.plist */; };
+		39E0317D1E6691C700CA1400 /* RestaurantDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E0317C1E6691C700CA1400 /* RestaurantDetailsTableViewController.swift */; };
+		39E0317F1E66A92C00CA1400 /* MenuItemDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E0317E1E66A92C00CA1400 /* MenuItemDetailsTableViewCell.swift */; };
 		39F089031E5138E800F70E2B /* RestaurantsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F089021E5138E800F70E2B /* RestaurantsSearchViewController.swift */; };
 		39F089051E518F4500F70E2B /* RestaurantsSearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F089041E518F4500F70E2B /* RestaurantsSearchResultsController.swift */; };
 		39F346D31E552A09008E4A03 /* RestaurantSynopsisTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F346D21E552A09008E4A03 /* RestaurantSynopsisTableViewCell.swift */; };
@@ -31,6 +33,8 @@
 		39C68D781E496F7E00D393C9 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		39C95A0F1E4FDC9500D56416 /* AppGlobals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppGlobals.swift; sourceTree = "<group>"; };
 		39C95A111E4FDDF400D56416 /* AppDataMart.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppDataMart.plist; sourceTree = "<group>"; };
+		39E0317C1E6691C700CA1400 /* RestaurantDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsTableViewController.swift; sourceTree = "<group>"; };
+		39E0317E1E66A92C00CA1400 /* MenuItemDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		39F089021E5138E800F70E2B /* RestaurantsSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantsSearchViewController.swift; sourceTree = "<group>"; };
 		39F089041E518F4500F70E2B /* RestaurantsSearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantsSearchResultsController.swift; sourceTree = "<group>"; };
 		39F346D21E552A09008E4A03 /* RestaurantSynopsisTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantSynopsisTableViewCell.swift; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				39F346D21E552A09008E4A03 /* RestaurantSynopsisTableViewCell.swift */,
+				39E0317E1E66A92C00CA1400 /* MenuItemDetailsTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -102,6 +107,7 @@
 				39B870AF1E45CE2100F63751 /* LoginViewController.swift */,
 				39F089021E5138E800F70E2B /* RestaurantsSearchViewController.swift */,
 				39F089041E518F4500F70E2B /* RestaurantsSearchResultsController.swift */,
+				39E0317C1E6691C700CA1400 /* RestaurantDetailsTableViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -193,9 +199,11 @@
 				39B870B01E45CE2100F63751 /* LoginViewController.swift in Sources */,
 				39C95A101E4FDC9500D56416 /* AppGlobals.swift in Sources */,
 				39F089031E5138E800F70E2B /* RestaurantsSearchViewController.swift in Sources */,
+				39E0317D1E6691C700CA1400 /* RestaurantDetailsTableViewController.swift in Sources */,
 				39B870AE1E45CE2100F63751 /* AppDelegate.swift in Sources */,
 				39F346D31E552A09008E4A03 /* RestaurantSynopsisTableViewCell.swift in Sources */,
 				39F089051E518F4500F70E2B /* RestaurantsSearchResultsController.swift in Sources */,
+				39E0317F1E66A92C00CA1400 /* MenuItemDetailsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

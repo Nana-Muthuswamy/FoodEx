@@ -91,7 +91,7 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let tableCell = tableView.dequeueReusableCell(withIdentifier: "Restaurant Synopsis")! as! RestaurantSynopsisTableViewCell
+        let tableCell = tableView.dequeueReusableCell(withIdentifier: "RestaurantSynopsis")! as! RestaurantSynopsisTableViewCell
 
         let restaurantSynopsis = filteredRestaurants[indexPath.row]
 
