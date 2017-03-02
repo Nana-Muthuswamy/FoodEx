@@ -13,6 +13,7 @@ class AppMainViewController: UITableViewController, UISearchControllerDelegate {
     private var searchController: UISearchController!
 
     private var cuisines = [String]()
+    private var restaurantsHistory = [[String:String]]()
 
     // MARK: Overrides
 
@@ -36,6 +37,8 @@ class AppMainViewController: UITableViewController, UISearchControllerDelegate {
         switch section {
         case 0:
             return cuisines.count
+        case 1:
+            return restaurantsHistory.count
         default:
             return 0
         }
@@ -43,15 +46,46 @@ class AppMainViewController: UITableViewController, UISearchControllerDelegate {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CuisineName")!
+        switch indexPath.section {
 
-        cell.textLabel?.text = cuisines[indexPath.row]
+        case 0:
+            let tableCell = tableView.dequeueReusableCell(withIdentifier: "CuisineName")!
+            tableCell.textLabel?.text = cuisines[indexPath.row]
 
-        return cell
+            return tableCell
+
+        case 1:
+
+            let tableCell = tableView.dequeueReusableCell(withIdentifier: "RestaurantSynopsis")! as! RestaurantSynopsisTableViewCell
+
+            let restaurantSynopsis = restaurantsHistory[indexPath.row]
+
+            tableCell.nameLabel.text = restaurantSynopsis["Name"]
+            tableCell.subTitleLabel.text = restaurantSynopsis["Description"] ?? "No description available."
+            tableCell.distanceLabel.text = "\(restaurantSynopsis["Distance"]!) mi."
+            tableCell.addressLabel.text = restaurantSynopsis["Address"]
+
+            if let imageFileNameTypeComponents = restaurantSynopsis["Image"]?.components(separatedBy: ".") {
+                tableCell.symbolImageView.image = UIImage(named: imageFileNameTypeComponents.first!)
+            }
+
+            if let reviewCount = Int(restaurantSynopsis["Reviews"] ?? "0") {
+                tableCell.setReviewStars(count: reviewCount)
+            }
+
+            if let costCount = Int(restaurantSynopsis["Cost"] ?? "0") {
+                tableCell.setCostDollars(count: costCount)
+            }
+
+            return tableCell
+
+        default:
+            return UITableViewCell()
+        }
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -59,6 +93,8 @@ class AppMainViewController: UITableViewController, UISearchControllerDelegate {
         switch section {
         case 0:
             return "Quick Search"
+        case 1:
+            return "Last Visits"
         default:
             return ""
         }
@@ -72,6 +108,18 @@ class AppMainViewController: UITableViewController, UISearchControllerDelegate {
         searchController.searchBar.text = cuisines[indexPath.row]
         // Force activate UISearchController
         searchController.searchBar.becomeFirstResponder()
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+        switch indexPath.section {
+        case 0:
+            return 44.0
+        case 1:
+            return 100.0
+        default:
+            return 0
+        }
     }
 
     // MARK: Utils
@@ -98,6 +146,10 @@ class AppMainViewController: UITableViewController, UISearchControllerDelegate {
 
         if let availableCuisines = AppGlobals.shared.cuisines {
             cuisines = availableCuisines
+        }
+
+        if let history = AppGlobals.shared.restaurantsHistory {
+            restaurantsHistory = history
         }
     }
 

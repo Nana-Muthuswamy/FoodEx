@@ -50,7 +50,7 @@ class LoginViewController: UIViewController {
 
         var shouldPerform = false
 
-        if (identifier == "displayAppNavController") {
+        if (identifier == "ShowAppNavController") {
 
             let userName = userNameField.text!.trimmingCharacters(in: .whitespaces).lowercased()
             let password = passwordField.text!
@@ -78,7 +78,7 @@ class LoginViewController: UIViewController {
     // Segue to application view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        if (segue.identifier == "displayAppNavController") {
+        if (segue.identifier == "ShowAppNavController") {
             segue.destination.modalPresentationStyle = .fullScreen
             segue.destination.modalTransitionStyle = .flipHorizontal
 
@@ -97,7 +97,7 @@ class LoginViewController: UIViewController {
 
                 // Proceed with segue to application view controller
                 DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "displayAppNavController", sender: self)
+                    self.performSegue(withIdentifier: "ShowAppNavController", sender: self)
                 }
 
             } else {
