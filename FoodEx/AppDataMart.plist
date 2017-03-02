@@ -28,6 +28,8 @@
 			<string>2</string>
 			<key>Cost</key>
 			<string>1</string>
+			<key>OperationHours</key>
+			<string>7:00 AM - 11:00 PM</string>
 			<key>Menu</key>
 			<array>
 				<dict>
@@ -110,6 +112,8 @@ Oil) and Salt</string>
 			<string>3</string>
 			<key>Cost</key>
 			<string>2</string>
+			<key>OperationHours</key>
+			<string>8:00 AM - 10:00 PM</string>
 			<key>Menu</key>
 			<array>
 				<dict>

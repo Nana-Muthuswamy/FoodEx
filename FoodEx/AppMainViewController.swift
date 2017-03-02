@@ -15,6 +15,11 @@ class AppMainViewController: UITableViewController, UISearchControllerDelegate {
     private var cuisines = [String]()
     private var restaurantsHistory = [[String:String]]()
 
+    struct DashboardSections {
+        static let QuickSearch = 0
+        static let LastSeen = 1
+    }
+
     // MARK: Overrides
 
     override func viewDidLoad() {
@@ -35,9 +40,10 @@ class AppMainViewController: UITableViewController, UISearchControllerDelegate {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         switch section {
-        case 0:
+
+        case DashboardSections.QuickSearch:
             return cuisines.count
-        case 1:
+        case DashboardSections.LastSeen:
             return restaurantsHistory.count
         default:
             return 0
@@ -48,13 +54,14 @@ class AppMainViewController: UITableViewController, UISearchControllerDelegate {
 
         switch indexPath.section {
 
-        case 0:
+        case DashboardSections.QuickSearch:
+
             let tableCell = tableView.dequeueReusableCell(withIdentifier: "CuisineName")!
             tableCell.textLabel?.text = cuisines[indexPath.row]
 
             return tableCell
 
-        case 1:
+        case DashboardSections.LastSeen:
 
             let tableCell = tableView.dequeueReusableCell(withIdentifier: "RestaurantSynopsis")! as! RestaurantSynopsisTableViewCell
 
@@ -91,10 +98,11 @@ class AppMainViewController: UITableViewController, UISearchControllerDelegate {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
         switch section {
-        case 0:
+
+        case DashboardSections.QuickSearch:
             return "Quick Search"
-        case 1:
-            return "Last Visits"
+        case DashboardSections.LastSeen:
+            return "Last Seen"
         default:
             return ""
         }
@@ -104,18 +112,21 @@ class AppMainViewController: UITableViewController, UISearchControllerDelegate {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        // Set the search bar's text
-        searchController.searchBar.text = cuisines[indexPath.row]
-        // Force activate UISearchController
-        searchController.searchBar.becomeFirstResponder()
+        if indexPath.section == DashboardSections.QuickSearch {
+            // Set the search bar's text
+            searchController.searchBar.text = cuisines[indexPath.row]
+            // Force activate UISearchController
+            searchController.searchBar.becomeFirstResponder()
+        }
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         switch indexPath.section {
-        case 0:
+
+        case DashboardSections.QuickSearch:
             return 44.0
-        case 1:
+        case DashboardSections.LastSeen:
             return 100.0
         default:
             return 0

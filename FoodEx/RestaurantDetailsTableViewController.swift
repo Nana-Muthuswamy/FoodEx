@@ -13,14 +13,20 @@ class RestaurantDetailsViewController: UITableViewController {
     var restaurantSynopsis = [String:String]()
     var menuList = [[String:String]]()
 
+    struct DetailsSection {
+        static let Synopsis = 0
+        static let Menu = 1
+    }
+
     // MARK: UITableViewDataSource
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         switch section {
-        case 0:
+
+        case DetailsSection.Synopsis:
             return 1
-        case 1:
+        case DetailsSection.Menu:
             return menuList.count
         default:
             return 0
@@ -31,7 +37,7 @@ class RestaurantDetailsViewController: UITableViewController {
 
         switch indexPath.section {
 
-        case 0:
+        case DetailsSection.Synopsis:
 
             let tableCell = tableView.dequeueReusableCell(withIdentifier: "RestaurantSynopsis")! as! RestaurantSynopsisTableViewCell
 
@@ -54,7 +60,8 @@ class RestaurantDetailsViewController: UITableViewController {
             
             return tableCell
 
-        case 1:
+        case DetailsSection.Menu:
+
             let tableCell = tableView.dequeueReusableCell(withIdentifier: "MenuDetails")! as! MenuItemDetailsTableViewCell
 
             let menuItemDetail = menuList[indexPath.row]
@@ -81,8 +88,39 @@ class RestaurantDetailsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
         switch section {
-        case 1:
+
+        case DetailsSection.Synopsis:
+
+            var headerTitle: String?
+
+            if let cuisineType = restaurantSynopsis["Cuisine"] {
+                headerTitle = "\(cuisineType) Cuisine"
+            }
+
+            return headerTitle
+
+        case DetailsSection.Menu:
             return "Menu"
+
+        default:
+            return ""
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+
+        switch section {
+
+        case DetailsSection.Synopsis:
+
+            var footerTitle: String?
+
+            if let operationHours = restaurantSynopsis["OperationHours"] {
+                footerTitle = "Hours Today: \(operationHours)"
+            }
+
+            return footerTitle
+
         default:
             return ""
         }
@@ -93,9 +131,10 @@ class RestaurantDetailsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         switch indexPath.section {
-        case 0:
+
+        case DetailsSection.Synopsis:
             return 100.0
-        case 1:
+        case DetailsSection.Menu:
             return 70.0
         default:
             return 0
