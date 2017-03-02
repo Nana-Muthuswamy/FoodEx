@@ -115,6 +115,24 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
         return tableCell
     }
 
+    // MARK: UITableViewDelegate
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let selectedRestaurant = filteredRestaurants[indexPath.row]
+
+        let destination = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RestaurantDetailsViewController") as! RestaurantDetailsViewController
+
+        destination.restaurantSynopsis = selectedRestaurant
+
+        if let restaurantName = selectedRestaurant["Name"], let menuList = AppGlobals.shared.menuList(for: restaurantName) {
+            destination.menuList = menuList
+        }
+
+        // Present Restaurant Details View Controller using App Main Nav View controller
+        self.presentingViewController?.navigationController?.pushViewController(destination, animated: true)
+    }
+
     // MARK: UISearchResultsUpdating
 
     func updateSearchResults(for searchController: UISearchController) {

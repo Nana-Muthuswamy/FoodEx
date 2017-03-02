@@ -111,7 +111,7 @@ class AppMainViewController: UITableViewController, UISearchControllerDelegate {
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-
+        
         switch indexPath.section {
         case 0:
             return 44.0
@@ -153,4 +153,24 @@ class AppMainViewController: UITableViewController, UISearchControllerDelegate {
         }
     }
 
+    // MARK: Segue
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if (segue.identifier == "ShowRestaurantDetails") {
+
+            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+
+                let selectedRestaurant = restaurantsHistory[indexPath.row]
+
+                let destination = segue.destination as! RestaurantDetailsViewController
+
+                destination.restaurantSynopsis = selectedRestaurant
+
+                if let restaurantName = selectedRestaurant["Name"], let menuList = AppGlobals.shared.menuList(for: restaurantName) {
+                    destination.menuList = menuList
+                }
+            }
+        }
+    }
 }

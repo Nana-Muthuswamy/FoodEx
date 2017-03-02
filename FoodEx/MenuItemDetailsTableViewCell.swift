@@ -12,7 +12,7 @@ class MenuItemDetailsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var menuItemImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var ingredientsLabel: UILabel!
+    @IBOutlet weak var detailsLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
 
 }

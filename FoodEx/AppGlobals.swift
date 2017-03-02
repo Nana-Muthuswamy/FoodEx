@@ -60,4 +60,17 @@ struct AppGlobals {
         // TODO: Error Handling
         appDataMart = (plist as? [String:Any])!
     }
+
+    func menuList(for restaurantName: String) -> [[String:String]]? {
+
+        if let matchingRestaurants = restaurants?.filter({ (element) -> Bool in
+            return (element["Name"] as! String == restaurantName)
+        }) {
+            let matchedRestaurant = matchingRestaurants.first
+            
+            return matchedRestaurant?["Menu"] as? [[String:String]]
+        }
+
+        return nil
+    }
 }
