@@ -20,6 +20,10 @@ struct AppGlobals {
         return appDataMart["RegisteredUsers"] as? [String : String]
     }
 
+    var cuisines : [String]? {
+        return appDataMart["Cuisines"] as? [String]
+    }
+
     var restaurantsSynopsis : [[String:String]]? {
         let restaurants = appDataMart["Restaurants"] as? [[String:Any]]
 

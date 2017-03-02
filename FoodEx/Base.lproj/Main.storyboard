@@ -120,99 +120,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="900-Cc-4wo" kind="relationship" relationship="rootViewController" id="TVy-s8-FIe"/>
+                        <segue destination="NiH-AU-sYg" kind="relationship" relationship="rootViewController" id="fA0-Fb-Ozd"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7L2-eY-8Zz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="607" y="143"/>
-        </scene>
-        <!--Restaurants Search View Controller-->
-        <scene sceneID="gdy-Us-tYJ">
-            <objects>
-                <viewController storyboardIdentifier="RestaurantsSearchViewController" id="900-Cc-4wo" customClass="RestaurantsSearchViewController" customModule="FoodEx" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="G3F-wj-t5z"/>
-                        <viewControllerLayoutGuide type="bottom" id="Gdv-Qe-Yeb"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="sIs-uK-Evs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NoG-5K-mkN">
-                                <rect key="frame" x="136" y="199" width="103" height="270"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZR-wy-8PH">
-                                        <rect key="frame" x="33" y="0.0" width="37" height="30"/>
-                                        <state key="normal" title="Local"/>
-                                        <connections>
-                                            <action selector="quickSearch:" destination="900-Cc-4wo" eventType="touchUpInside" id="htR-7e-03N"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8g-EK-snb">
-                                        <rect key="frame" x="30.5" y="40" width="42" height="30"/>
-                                        <state key="normal" title="Indian"/>
-                                        <connections>
-                                            <action selector="quickSearch:" destination="900-Cc-4wo" eventType="touchUpInside" id="eeH-fE-kBb"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uuP-mL-bYn">
-                                        <rect key="frame" x="23.5" y="80" width="56" height="30"/>
-                                        <state key="normal" title="Chinese"/>
-                                        <connections>
-                                            <action selector="quickSearch:" destination="900-Cc-4wo" eventType="touchUpInside" id="pjk-dV-oPS"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wBW-Jz-e1U">
-                                        <rect key="frame" x="23" y="120" width="57" height="30"/>
-                                        <state key="normal" title="Mexican"/>
-                                        <connections>
-                                            <action selector="quickSearch:" destination="900-Cc-4wo" eventType="touchUpInside" id="TQq-xF-9qs"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvt-Yl-DRO">
-                                        <rect key="frame" x="0.0" y="160" width="103" height="30"/>
-                                        <state key="normal" title="Middle Eastern"/>
-                                        <connections>
-                                            <action selector="quickSearch:" destination="900-Cc-4wo" eventType="touchUpInside" id="AMX-1X-Ea4"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNs-0s-g8L">
-                                        <rect key="frame" x="31" y="200" width="41" height="30"/>
-                                        <state key="normal" title="Italian"/>
-                                        <connections>
-                                            <action selector="quickSearch:" destination="900-Cc-4wo" eventType="touchUpInside" id="mFL-VW-Hhc"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reY-XO-khO">
-                                        <rect key="frame" x="20.5" y="240" width="62" height="30"/>
-                                        <state key="normal" title="Favorites"/>
-                                        <connections>
-                                            <action selector="quickSearch:" destination="900-Cc-4wo" eventType="touchUpInside" id="TbD-vi-dj7"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HLU-KW-xW0">
-                                <rect key="frame" x="0.0" y="64" width="375" height="88"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="NoG-5K-mkN" firstAttribute="centerY" secondItem="sIs-uK-Evs" secondAttribute="centerY" id="3dY-QP-GhS"/>
-                            <constraint firstItem="NoG-5K-mkN" firstAttribute="centerX" secondItem="sIs-uK-Evs" secondAttribute="centerX" id="acD-Ck-5Pe"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="A8z-uw-dQ6"/>
-                    <connections>
-                        <outlet property="searchBarContainer" destination="HLU-KW-xW0" id="kEL-36-6lW"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sGD-eM-ETI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1453.5999999999999" y="145.27736131934034"/>
         </scene>
         <!--Restaurants Search Results Controller-->
         <scene sceneID="QtU-uF-sux">
@@ -227,7 +140,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PZv-Dt-Vyb" id="wHP-19-08p">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yRO-3N-Sx5">
@@ -295,7 +208,7 @@
                                             </constraints>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="qIC-Fj-A7I" userLabel="Dollars Stack">
-                                            <rect key="frame" x="307" y="51" width="45" height="15"/>
+                                            <rect key="frame" x="315" y="51" width="45" height="15"/>
                                             <subviews>
                                                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dollar" translatesAutoresizingMaskIntoConstraints="NO" id="msT-RG-xC9">
                                                     <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -317,7 +230,7 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="15" id="l5F-TB-Vs0"/>
+                                                <constraint firstAttribute="height" constant="15" id="ohW-cs-jzu"/>
                                             </constraints>
                                         </stackView>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6z4-kw-fSC" userLabel="Address">
@@ -344,15 +257,15 @@
                                         <constraint firstItem="2Ie-BF-CfJ" firstAttribute="top" secondItem="qOY-na-t6Z" secondAttribute="bottom" constant="5" id="1hW-aE-bg1"/>
                                         <constraint firstItem="6z4-kw-fSC" firstAttribute="top" secondItem="CdX-UQ-NNP" secondAttribute="bottom" constant="5" id="5T9-QY-g8h"/>
                                         <constraint firstItem="F2O-sW-E6w" firstAttribute="baseline" secondItem="qOY-na-t6Z" secondAttribute="baseline" id="CAg-LZ-aHr"/>
-                                        <constraint firstItem="qIC-Fj-A7I" firstAttribute="top" secondItem="CdX-UQ-NNP" secondAttribute="top" id="CCH-2w-wOD"/>
                                         <constraint firstItem="yRO-3N-Sx5" firstAttribute="leading" secondItem="wHP-19-08p" secondAttribute="leading" constant="15" id="KxY-zx-tN5"/>
                                         <constraint firstItem="yRO-3N-Sx5" firstAttribute="top" secondItem="wHP-19-08p" secondAttribute="top" constant="5" id="L2f-zJ-UFe"/>
                                         <constraint firstItem="qOY-na-t6Z" firstAttribute="top" secondItem="yRO-3N-Sx5" secondAttribute="top" id="LAn-VV-dmc"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="qIC-Fj-A7I" secondAttribute="trailing" constant="15" id="PCg-0W-Lkk"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="F2O-sW-E6w" secondAttribute="trailing" constant="15" id="PeC-EM-IA5"/>
+                                        <constraint firstItem="qIC-Fj-A7I" firstAttribute="top" secondItem="CdX-UQ-NNP" secondAttribute="top" id="b8V-iQ-rum"/>
                                         <constraint firstItem="CdX-UQ-NNP" firstAttribute="leading" secondItem="qOY-na-t6Z" secondAttribute="leading" id="cVU-qz-CeE"/>
                                         <constraint firstItem="2Ie-BF-CfJ" firstAttribute="leading" secondItem="qOY-na-t6Z" secondAttribute="leading" id="g9G-bc-aIR"/>
                                         <constraint firstItem="6z4-kw-fSC" firstAttribute="leading" secondItem="qOY-na-t6Z" secondAttribute="leading" id="hzl-Je-esR"/>
+                                        <constraint firstAttribute="trailing" secondItem="qIC-Fj-A7I" secondAttribute="trailing" constant="15" id="qk6-co-hJH"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="6z4-kw-fSC" secondAttribute="trailing" constant="15" id="sHI-7G-ALW"/>
                                         <constraint firstItem="CdX-UQ-NNP" firstAttribute="top" secondItem="2Ie-BF-CfJ" secondAttribute="bottom" constant="5" id="v41-2M-11e"/>
                                         <constraint firstItem="qOY-na-t6Z" firstAttribute="leading" secondItem="yRO-3N-Sx5" secondAttribute="trailing" constant="15" id="vEx-Ds-D1k"/>
@@ -366,7 +279,6 @@
                                     <outlet property="reviewsStack" destination="CdX-UQ-NNP" id="Lqw-CY-hpv"/>
                                     <outlet property="subTitleLabel" destination="2Ie-BF-CfJ" id="4zb-E3-i02"/>
                                     <outlet property="symbolImageView" destination="yRO-3N-Sx5" id="DNm-q8-GAO"/>
-                                    <segue destination="6iT-Nd-xBC" kind="show" id="mUX-YJ-CGm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -378,7 +290,54 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HLt-l7-JR1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2336.8000000000002" y="140.77961019490255"/>
+            <point key="canvasLocation" x="2142" y="825"/>
+        </scene>
+        <!--App Main View Controller-->
+        <scene sceneID="AC3-U1-bG8">
+            <objects>
+                <tableViewController id="NiH-AU-sYg" customClass="AppMainViewController" customModule="FoodEx" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="9be-IT-Q8B">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CuisineName" textLabel="faE-Ra-6Dh" style="IBUITableViewCellStyleDefault" id="66X-ow-lve">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="66X-ow-lve" id="0qF-UY-ItA">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="faE-Ra-6Dh">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="P21-Xd-kWf">
+                                <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="P21-Xd-kWf" id="hhd-dl-91T">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="NiH-AU-sYg" id="mza-JX-IyK"/>
+                            <outlet property="delegate" destination="NiH-AU-sYg" id="q1C-ei-izv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="ekc-0H-VpL"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DMZ-eY-4C3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1401" y="143"/>
         </scene>
         <!--Restaurant Details Table View Controller-->
         <scene sceneID="qX0-Tj-ky5">
@@ -436,7 +395,7 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="15" id="tqW-Hj-awU"/>
+                                                <constraint firstAttribute="height" constant="15" id="GuO-NF-v15"/>
                                             </constraints>
                                         </stackView>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bbk-hx-31A">
@@ -450,7 +409,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mzh-4g-Gyr" userLabel="Distance">
-                                            <rect key="frame" x="302.5" y="9.5" width="49.5" height="15"/>
+                                            <rect key="frame" x="302.5" y="10" width="49.5" height="15"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="3M2-V1-jfj"/>
                                                 <constraint firstAttribute="height" constant="15" id="scU-cC-duh"/>
@@ -508,19 +467,19 @@
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="YtS-ng-Trr" secondAttribute="trailing" constant="15" id="65I-60-HPb"/>
                                         <constraint firstAttribute="trailing" secondItem="pgR-AC-ell" secondAttribute="trailing" constant="15" id="7IW-Ah-LaI"/>
+                                        <constraint firstItem="YtS-ng-Trr" firstAttribute="top" secondItem="WEN-rf-mhd" secondAttribute="top" id="8D0-5k-a3d"/>
                                         <constraint firstItem="IUY-DC-el1" firstAttribute="leading" secondItem="tdh-v3-NB1" secondAttribute="leading" constant="15" id="CZs-YV-miI"/>
                                         <constraint firstItem="IUY-DC-el1" firstAttribute="top" secondItem="tdh-v3-NB1" secondAttribute="top" constant="5" id="K5I-0x-dGZ"/>
                                         <constraint firstItem="Ihy-j7-RRm" firstAttribute="top" secondItem="IUY-DC-el1" secondAttribute="top" id="Nde-wN-ab2"/>
                                         <constraint firstItem="pgR-AC-ell" firstAttribute="leading" secondItem="Ihy-j7-RRm" secondAttribute="leading" id="OLc-eQ-XlM"/>
                                         <constraint firstItem="WEN-rf-mhd" firstAttribute="top" secondItem="Bbk-hx-31A" secondAttribute="bottom" constant="5" id="ZKT-lw-vvb"/>
-                                        <constraint firstItem="YtS-ng-Trr" firstAttribute="top" secondItem="WEN-rf-mhd" secondAttribute="top" id="Zvp-b1-wCe"/>
                                         <constraint firstItem="Mzh-4g-Gyr" firstAttribute="baseline" secondItem="Ihy-j7-RRm" secondAttribute="baseline" id="cES-Yy-THa"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Mzh-4g-Gyr" secondAttribute="trailing" constant="15" id="daR-l9-oGt"/>
                                         <constraint firstItem="WEN-rf-mhd" firstAttribute="leading" secondItem="IUY-DC-el1" secondAttribute="trailing" constant="15" id="gei-dJ-BSl"/>
                                         <constraint firstItem="pgR-AC-ell" firstAttribute="top" secondItem="WEN-rf-mhd" secondAttribute="bottom" constant="5" id="ijm-5J-pY4"/>
                                         <constraint firstItem="Bbk-hx-31A" firstAttribute="top" secondItem="Ihy-j7-RRm" secondAttribute="bottom" constant="5" id="jst-RV-c11"/>
-                                        <constraint firstAttribute="trailing" secondItem="YtS-ng-Trr" secondAttribute="trailing" constant="15" id="oCU-lE-TOf"/>
                                         <constraint firstItem="Ihy-j7-RRm" firstAttribute="leading" secondItem="IUY-DC-el1" secondAttribute="trailing" constant="15" id="owH-gd-blU"/>
                                         <constraint firstItem="Bbk-hx-31A" firstAttribute="leading" secondItem="Ihy-j7-RRm" secondAttribute="leading" id="riR-XX-L0G"/>
                                     </constraints>
@@ -607,7 +566,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3X-DS-tcm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3355" y="142"/>
+            <point key="canvasLocation" x="2231" y="143"/>
         </scene>
     </scenes>
     <resources>
