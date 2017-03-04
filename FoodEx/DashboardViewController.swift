@@ -1,5 +1,5 @@
 //
-//  AppMainViewController.swift
+//  DashboardViewController.swift
 //  FoodEx
 //
 //  Created by Nana on 2/12/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AppMainViewController: UITableViewController, UISearchControllerDelegate {
+class DashboardViewController: UITableViewController, UISearchControllerDelegate {
 
     private var searchController: UISearchController!
 
