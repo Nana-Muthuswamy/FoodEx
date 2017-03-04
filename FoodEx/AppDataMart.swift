@@ -1,5 +1,5 @@
 //
-//  AppGlobals.swift
+//  AppDataMart.swift
 //  FoodEx
 //
 //  Created by Nana on 2/11/17.
@@ -9,32 +9,32 @@
 import Foundation
 
 // A Singleton App Globals that provides data throughout the app
-struct AppGlobals {
+struct AppDataMart {
 
     // Singleton Type property
-    static let shared = AppGlobals()
+    static let shared = AppDataMart()
 
     private let appDataMart : [String:Any]
 
-    var registeredUsers : [String:String]? {
-        return appDataMart["RegisteredUsers"] as? [String : String]
+    var registeredUsers : Dictionary<String, String>? {
+        return appDataMart["RegisteredUsers"] as? Dictionary<String, String>
     }
 
-    var cuisines : [String]? {
-        return appDataMart["Cuisines"] as? [String]
+    var cuisines : Array<String>? {
+        return appDataMart["Cuisines"] as? Array<String>
     }
 
-    var restaurantsSynopsis : [[String:String]]? {
-        let restaurants = appDataMart["Restaurants"] as? [[String:Any]]
+    var restaurantsSynopsis : [Dictionary<String, String>]? {
+        let restaurants = appDataMart["Restaurants"] as? [Dictionary<String, Any>]
 
-        var restaurantsSynopsis = [[String:String]]()
+        var restaurantsSynopsis = [Dictionary<String, String>]()
         
         restaurants?.forEach({ (element) in
 
             var elementSynopsis = element
             elementSynopsis.removeValue(forKey: "Menu")
 
-            if let newElement = elementSynopsis as? [String:String] {
+            if let newElement = elementSynopsis as? Dictionary<String, String> {
                 restaurantsSynopsis.append(newElement)
             }
         })
@@ -42,20 +42,20 @@ struct AppGlobals {
         return restaurantsSynopsis
     }
 
-    var restaurants : [[String:Any]]? {
-        return appDataMart["Restaurants"] as? [[String : Any]]
+    var restaurants : [Dictionary<String, Any>]? {
+        return appDataMart["Restaurants"] as? [Dictionary<String, Any>]
     }
 
-    var restaurantsLastSeen: [[String:String]]? {
+    var restaurantsLastSeen: [Dictionary<String, String>]? {
         // TDO: This should be extracted from UserDefaults instead
         return Array(restaurantsSynopsis!.prefix(through: 1))
     }
 
-    var orderHistory: [[String:String]]? {
+    var orderHistory: [Dictionary<String, String>]? {
 
         let orderHistory = UserDefaults.standard.array(forKey: "OrderHistory")
 
-        if let orderHistory = orderHistory as? [[String:String]] {
+        if let orderHistory = orderHistory as? [Dictionary<String, String>] {
             return orderHistory
         } else {
 
@@ -72,17 +72,17 @@ struct AppGlobals {
         let plist = try! PropertyListSerialization.propertyList(from: data, options: .mutableContainers, format: nil)
 
         // TODO: Error Handling
-        appDataMart = (plist as? [String:Any])!
+        appDataMart = (plist as? Dictionary<String, Any>)!
     }
 
-    func menuList(for restaurantName: String) -> [[String:String]]? {
+    func menuList(for restaurantName: String) -> [Dictionary<String, String>]? {
 
         if let matchingRestaurants = restaurants?.filter({ (element) -> Bool in
             return (element["Name"] as! String == restaurantName)
         }) {
             let matchedRestaurant = matchingRestaurants.first
             
-            return matchedRestaurant?["Menu"] as? [[String:String]]
+            return matchedRestaurant?["Menu"] as? [Dictionary<String, String>]
         }
 
         return nil

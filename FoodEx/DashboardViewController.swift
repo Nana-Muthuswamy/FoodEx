@@ -12,9 +12,9 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
 
     private var searchController: UISearchController!
 
-    private var cuisines = [String]()
-    private var restaurantsLastSeen = [[String:String]]()
-    private var orderHistory = [[String:String]]()
+    private var cuisines = Array<String>()
+    private var restaurantsLastSeen = [Dictionary<String, String>]()
+    private var orderHistory = [Dictionary<String, String>]()
 
     struct DashboardSections {
         static let QuickSearch = 0
@@ -175,15 +175,15 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
 
     private func setupData() -> Void {
 
-        if let availableCuisines = AppGlobals.shared.cuisines {
+        if let availableCuisines = AppDataMart.shared.cuisines {
             cuisines = availableCuisines
         }
 
-        if let lastSeen = AppGlobals.shared.restaurantsLastSeen {
+        if let lastSeen = AppDataMart.shared.restaurantsLastSeen {
             restaurantsLastSeen = lastSeen
         }
 
-        if let orders = AppGlobals.shared.orderHistory {
+        if let orders = AppDataMart.shared.orderHistory {
             orderHistory = orders
         }
     }
@@ -202,7 +202,7 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
 
                 destination.restaurantSynopsis = selectedRestaurant
 
-                if let restaurantName = selectedRestaurant["Name"], let menuList = AppGlobals.shared.menuList(for: restaurantName) {
+                if let restaurantName = selectedRestaurant["Name"], let menuList = AppDataMart.shared.menuList(for: restaurantName) {
                     destination.menuList = menuList
                 }
             }

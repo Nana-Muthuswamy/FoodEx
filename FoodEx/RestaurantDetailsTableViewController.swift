@@ -10,8 +10,8 @@ import UIKit
 
 class RestaurantDetailsViewController: AppBaseViewController {
 
-    var restaurantSynopsis = [String:String]()
-    var menuList = [[String:String]]()
+    var restaurantSynopsis = Dictionary<String, String>()
+    var menuList = [Dictionary<String, String>]()
 
     struct DetailsSection {
         static let Synopsis = 0

@@ -10,12 +10,12 @@ import UIKit
 
 class RestaurantsSearchResultsController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
 
-    var restaurants: [[String:String]] = [] {
+    var restaurants: [Dictionary<String, String>] = [] {
         didSet {
             filteredRestaurants = restaurants
         }
     }
-    var filteredRestaurants: [[String:String]] = [] {
+    var filteredRestaurants: [Dictionary<String, String>] = [] {
         didSet {
             tableView.reloadData()
         }
@@ -26,7 +26,7 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let restaurantList = AppGlobals.shared.restaurantsSynopsis {
+        if let restaurantList = AppDataMart.shared.restaurantsSynopsis {
 
             restaurants = restaurantList.sorted() {
 
@@ -125,7 +125,7 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
 
         destination.restaurantSynopsis = selectedRestaurant
 
-        if let restaurantName = selectedRestaurant["Name"], let menuList = AppGlobals.shared.menuList(for: restaurantName) {
+        if let restaurantName = selectedRestaurant["Name"], let menuList = AppDataMart.shared.menuList(for: restaurantName) {
             destination.menuList = menuList
         }
 
