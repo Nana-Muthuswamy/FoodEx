@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RestaurantDetailsViewController: UITableViewController {
+class RestaurantDetailsViewController: AppBaseViewController {
 
     var restaurantSynopsis = [String:String]()
     var menuList = [[String:String]]()
