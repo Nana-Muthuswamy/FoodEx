@@ -15,12 +15,19 @@ class AppBaseViewController: UITableViewController {
 
         let cartButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         cartButton.setBackgroundImage(UIImage(named: "Cart"), for: .normal)
-        cartButton.addTarget(self, action: #selector(presentCartViewController), for: .touchDown)
+        cartButton.addTarget(self, action: #selector(presentOrderDetails), for: .touchDown)
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: cartButton)
     }
 
-    func presentCartViewController() -> Void {
+    func presentOrderDetails() -> Void {
         print("Displaying Cart View")
+
+        let destination = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderDetailsViewController")
+
+        if let source = navigationController?.viewControllers.first as? DashboardViewController {
+
+            source.navigationController?.pushViewController(destination, animated: true)
+        }
     }
 }

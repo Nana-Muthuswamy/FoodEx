@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		393D72861E6B3B92005B9679 /* OrderSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D72851E6B3B92005B9679 /* OrderSummaryTableViewCell.swift */; };
+		393D72881E6B506C005B9679 /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D72871E6B506C005B9679 /* OrderDetailsViewController.swift */; };
 		39B870AE1E45CE2100F63751 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B870AD1E45CE2100F63751 /* AppDelegate.swift */; };
 		39B870B01E45CE2100F63751 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B870AF1E45CE2100F63751 /* LoginViewController.swift */; };
 		39B870B31E45CE2100F63751 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39B870B11E45CE2100F63751 /* Main.storyboard */; };
@@ -16,7 +17,7 @@
 		39C68D791E496F7E00D393C9 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C68D781E496F7E00D393C9 /* LocalAuthentication.framework */; };
 		39C95A101E4FDC9500D56416 /* AppDataMart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C95A0F1E4FDC9500D56416 /* AppDataMart.swift */; };
 		39C95A121E4FDDF400D56416 /* AppDataMart.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39C95A111E4FDDF400D56416 /* AppDataMart.plist */; };
-		39E0317D1E6691C700CA1400 /* RestaurantDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E0317C1E6691C700CA1400 /* RestaurantDetailsTableViewController.swift */; };
+		39E0317D1E6691C700CA1400 /* RestaurantDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E0317C1E6691C700CA1400 /* RestaurantDetailsViewController.swift */; };
 		39E0317F1E66A92C00CA1400 /* MenuItemDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E0317E1E66A92C00CA1400 /* MenuItemDetailsTableViewCell.swift */; };
 		39ED632F1E6A569B0039452D /* AppBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ED632E1E6A569B0039452D /* AppBaseViewController.swift */; };
 		39F089031E5138E800F70E2B /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F089021E5138E800F70E2B /* DashboardViewController.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		393D72851E6B3B92005B9679 /* OrderSummaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSummaryTableViewCell.swift; sourceTree = "<group>"; };
+		393D72871E6B506C005B9679 /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		39B870AA1E45CE2100F63751 /* FoodEx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodEx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39B870AD1E45CE2100F63751 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39B870AF1E45CE2100F63751 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -36,7 +38,7 @@
 		39C68D781E496F7E00D393C9 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		39C95A0F1E4FDC9500D56416 /* AppDataMart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDataMart.swift; sourceTree = "<group>"; };
 		39C95A111E4FDDF400D56416 /* AppDataMart.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppDataMart.plist; sourceTree = "<group>"; };
-		39E0317C1E6691C700CA1400 /* RestaurantDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsTableViewController.swift; sourceTree = "<group>"; };
+		39E0317C1E6691C700CA1400 /* RestaurantDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewController.swift; sourceTree = "<group>"; };
 		39E0317E1E66A92C00CA1400 /* MenuItemDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		39ED632E1E6A569B0039452D /* AppBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBaseViewController.swift; sourceTree = "<group>"; };
 		39F089021E5138E800F70E2B /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -110,10 +112,11 @@
 			isa = PBXGroup;
 			children = (
 				39B870AF1E45CE2100F63751 /* LoginViewController.swift */,
+				39ED632E1E6A569B0039452D /* AppBaseViewController.swift */,
 				39F089021E5138E800F70E2B /* DashboardViewController.swift */,
 				39F089041E518F4500F70E2B /* RestaurantsSearchResultsController.swift */,
-				39E0317C1E6691C700CA1400 /* RestaurantDetailsTableViewController.swift */,
-				39ED632E1E6A569B0039452D /* AppBaseViewController.swift */,
+				39E0317C1E6691C700CA1400 /* RestaurantDetailsViewController.swift */,
+				393D72871E6B506C005B9679 /* OrderDetailsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -205,9 +208,10 @@
 				39B870B01E45CE2100F63751 /* LoginViewController.swift in Sources */,
 				39C95A101E4FDC9500D56416 /* AppDataMart.swift in Sources */,
 				39F089031E5138E800F70E2B /* DashboardViewController.swift in Sources */,
-				39E0317D1E6691C700CA1400 /* RestaurantDetailsTableViewController.swift in Sources */,
+				39E0317D1E6691C700CA1400 /* RestaurantDetailsViewController.swift in Sources */,
 				39B870AE1E45CE2100F63751 /* AppDelegate.swift in Sources */,
 				393D72861E6B3B92005B9679 /* OrderSummaryTableViewCell.swift in Sources */,
+				393D72881E6B506C005B9679 /* OrderDetailsViewController.swift in Sources */,
 				39F346D31E552A09008E4A03 /* RestaurantSynopsisTableViewCell.swift in Sources */,
 				39F089051E518F4500F70E2B /* RestaurantsSearchResultsController.swift in Sources */,
 				39E0317F1E66A92C00CA1400 /* MenuItemDetailsTableViewCell.swift in Sources */,

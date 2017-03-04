@@ -129,7 +129,7 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
             destination.menuList = menuList
         }
 
-        // Present Restaurant Details View Controller using App Main Nav View controller
+        // Present Restaurant Details View Controller using Dashboard's Nav controller
         self.presentingViewController?.navigationController?.pushViewController(destination, animated: true)
     }
 
