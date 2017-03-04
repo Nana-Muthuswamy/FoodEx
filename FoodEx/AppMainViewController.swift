@@ -30,6 +30,11 @@ class AppMainViewController: UITableViewController, UISearchControllerDelegate {
 
         // Setup Presentation Traits
         definesPresentationContext = true
+        let cartButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        cartButton.setBackgroundImage(UIImage(named: "Cart"), for: .normal)
+        cartButton.addTarget(self, action: #selector(presentCartViewController), for: .touchDown)
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: cartButton)
 
         // Setup Data
         setupData()
@@ -183,5 +188,9 @@ class AppMainViewController: UITableViewController, UISearchControllerDelegate {
                 }
             }
         }
+    }
+
+    func presentCartViewController() -> Void {
+        print("Displaying Cart View")
     }
 }
