@@ -140,7 +140,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3wd-bx-AY7" id="JGv-A8-KUF">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JsW-kv-OeM">
@@ -169,35 +169,35 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CNI-dO-t4t" userLabel="Reviews Stack">
-                                            <rect key="frame" x="120" y="51" width="95" height="15"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CNI-dO-t4t" userLabel="Reviews Stack">
+                                            <rect key="frame" x="120" y="51" width="0.0" height="15"/>
                                             <subviews>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="87O-kS-4dg">
-                                                    <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="87O-kS-4dg">
+                                                    <rect key="frame" x="-120" y="-51" width="0.0" height="95"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="1OB-1U-epq"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="fHU-M3-C4o">
-                                                    <rect key="frame" x="20" y="0.0" width="15" height="15"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="fHU-M3-C4o">
+                                                    <rect key="frame" x="-120" y="-51" width="0.0" height="95"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="hIA-lG-hgk"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="9zg-oR-z0B">
-                                                    <rect key="frame" x="40" y="0.0" width="15" height="15"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="9zg-oR-z0B">
+                                                    <rect key="frame" x="-120" y="-51" width="0.0" height="95"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="eOQ-LH-PY5"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="QrG-Vm-aCH">
-                                                    <rect key="frame" x="60" y="0.0" width="15" height="15"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="QrG-Vm-aCH">
+                                                    <rect key="frame" x="-120" y="-51" width="0.0" height="95"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="82Z-Fl-nlQ"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="4gL-Lf-rid">
-                                                    <rect key="frame" x="80" y="0.0" width="15" height="15"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="4gL-Lf-rid">
+                                                    <rect key="frame" x="-120" y="-51" width="0.0" height="95"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="QwC-px-3vX"/>
                                                     </constraints>
@@ -208,23 +208,23 @@
                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="95" id="oCD-PT-aDg"/>
                                             </constraints>
                                         </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="MPZ-Be-5t7" userLabel="Dollars Stack">
-                                            <rect key="frame" x="315" y="51" width="45" height="15"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="MPZ-Be-5t7" userLabel="Dollars Stack">
+                                            <rect key="frame" x="315" y="51" width="0.0" height="15"/>
                                             <subviews>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dollar" translatesAutoresizingMaskIntoConstraints="NO" id="Uow-id-LPz">
-                                                    <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Dollar" translatesAutoresizingMaskIntoConstraints="NO" id="Uow-id-LPz">
+                                                    <rect key="frame" x="-360" y="-51" width="0.0" height="204"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="rNQ-WV-7gD"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dollar" translatesAutoresizingMaskIntoConstraints="NO" id="dba-nn-W23">
-                                                    <rect key="frame" x="15" y="0.0" width="15" height="15"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Dollar" translatesAutoresizingMaskIntoConstraints="NO" id="dba-nn-W23">
+                                                    <rect key="frame" x="-360" y="-51" width="0.0" height="204"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="rPc-V5-sE0"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dollar" translatesAutoresizingMaskIntoConstraints="NO" id="whV-JZ-2tp">
-                                                    <rect key="frame" x="30" y="0.0" width="15" height="15"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Dollar" translatesAutoresizingMaskIntoConstraints="NO" id="whV-JZ-2tp">
+                                                    <rect key="frame" x="-360" y="-51" width="0.0" height="204"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="kmY-Dz-V6O"/>
                                                     </constraints>
@@ -310,7 +310,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="faE-Ra-6Dh">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Cuisine Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="faE-Ra-6Dh">
                                             <rect key="frame" x="15" y="0.0" width="345" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -324,7 +324,7 @@
                                 <rect key="frame" x="0.0" y="100" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qJx-TT-vYa" id="CNA-PP-YE1">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GJM-qP-glF">
@@ -353,35 +353,35 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="m0m-Rt-OSx" userLabel="Reviews Stack">
-                                            <rect key="frame" x="120" y="51" width="95" height="15"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="m0m-Rt-OSx" userLabel="Reviews Stack">
+                                            <rect key="frame" x="120" y="51" width="0.0" height="15"/>
                                             <subviews>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="IVn-dx-2b5">
-                                                    <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="IVn-dx-2b5">
+                                                    <rect key="frame" x="-120" y="-51" width="0.0" height="95"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="f6h-a6-BhQ"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="pQ1-Bb-TAg">
-                                                    <rect key="frame" x="20" y="0.0" width="15" height="15"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="pQ1-Bb-TAg">
+                                                    <rect key="frame" x="-120" y="-51" width="0.0" height="95"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="HXF-28-Kq9"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="uy7-Fg-22D">
-                                                    <rect key="frame" x="40" y="0.0" width="15" height="15"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="uy7-Fg-22D">
+                                                    <rect key="frame" x="-120" y="-51" width="0.0" height="95"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="w0d-QS-jKE"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="w9V-9I-TC3">
-                                                    <rect key="frame" x="60" y="0.0" width="15" height="15"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="w9V-9I-TC3">
+                                                    <rect key="frame" x="-120" y="-51" width="0.0" height="95"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="RWx-Wq-1wd"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="Po7-RU-lOR">
-                                                    <rect key="frame" x="80" y="0.0" width="15" height="15"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="Po7-RU-lOR">
+                                                    <rect key="frame" x="-120" y="-51" width="0.0" height="95"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="2nK-KK-ZSc"/>
                                                     </constraints>
@@ -392,23 +392,23 @@
                                                 <constraint firstAttribute="height" constant="15" id="uxA-EL-GEb"/>
                                             </constraints>
                                         </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="BBN-dW-FUU" userLabel="Dollars Stack">
-                                            <rect key="frame" x="315" y="51" width="45" height="15"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="BBN-dW-FUU" userLabel="Dollars Stack">
+                                            <rect key="frame" x="315" y="51" width="0.0" height="15"/>
                                             <subviews>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dollar" translatesAutoresizingMaskIntoConstraints="NO" id="72K-LG-LjB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Dollar" translatesAutoresizingMaskIntoConstraints="NO" id="72K-LG-LjB">
+                                                    <rect key="frame" x="-360" y="-51" width="0.0" height="204"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="qfy-6x-7D3"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dollar" translatesAutoresizingMaskIntoConstraints="NO" id="w3w-BH-eXL">
-                                                    <rect key="frame" x="15" y="0.0" width="15" height="15"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Dollar" translatesAutoresizingMaskIntoConstraints="NO" id="w3w-BH-eXL">
+                                                    <rect key="frame" x="-360" y="-51" width="0.0" height="204"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="5bP-Xq-rlv"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dollar" translatesAutoresizingMaskIntoConstraints="NO" id="kjH-Qc-gYN">
-                                                    <rect key="frame" x="30" y="0.0" width="15" height="15"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Dollar" translatesAutoresizingMaskIntoConstraints="NO" id="kjH-Qc-gYN">
+                                                    <rect key="frame" x="-360" y="-51" width="0.0" height="204"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="exZ-hM-WrC"/>
                                                     </constraints>
@@ -467,6 +467,47 @@
                                     <segue destination="6iT-Nd-xBC" kind="show" identifier="ShowRestaurantDetails" id="AfF-7g-sj6"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderSummary" rowHeight="70" id="GnB-iB-EZR" userLabel="OrderSummary" customClass="OrderSummaryTableViewCell" customModule="FoodEx" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="200" width="375" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GnB-iB-EZR" id="nTa-VZ-xfw">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dh-m1-oqQ">
+                                            <rect key="frame" x="314.5" y="16" width="37.5" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wn0-RV-sqf">
+                                            <rect key="frame" x="15" y="16" width="121.5" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SjU-GA-PQv">
+                                            <rect key="frame" x="15" y="45" width="79.5" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="9dh-m1-oqQ" secondAttribute="trailing" constant="15" id="Kgn-iM-228"/>
+                                        <constraint firstItem="Wn0-RV-sqf" firstAttribute="leading" secondItem="nTa-VZ-xfw" secondAttribute="leadingMargin" constant="7" id="VSj-iL-HTT"/>
+                                        <constraint firstItem="Wn0-RV-sqf" firstAttribute="top" secondItem="nTa-VZ-xfw" secondAttribute="topMargin" constant="8" id="bqO-mt-ipB"/>
+                                        <constraint firstItem="9dh-m1-oqQ" firstAttribute="baseline" secondItem="Wn0-RV-sqf" secondAttribute="baseline" id="cdq-Xk-JBr"/>
+                                        <constraint firstItem="SjU-GA-PQv" firstAttribute="top" secondItem="Wn0-RV-sqf" secondAttribute="bottom" constant="8" id="hvp-KE-1py"/>
+                                        <constraint firstItem="SjU-GA-PQv" firstAttribute="leading" secondItem="Wn0-RV-sqf" secondAttribute="leading" id="uGd-i5-8zM"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="itemDetailsLabel" destination="SjU-GA-PQv" id="XAi-3P-nAH"/>
+                                    <outlet property="summaryLabel" destination="Wn0-RV-sqf" id="s87-LL-n8u"/>
+                                    <outlet property="totalLabel" destination="9dh-m1-oqQ" id="r58-se-9lq"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <sections/>
                         <connections>
@@ -490,10 +531,10 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantSynopsis" rowHeight="100" id="6l9-gj-X3C" customClass="RestaurantSynopsisTableViewCell" customModule="FoodEx" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="56" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6l9-gj-X3C" id="1T2-rA-ASP">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f0c-zk-pzO">
@@ -522,35 +563,35 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4rK-2y-N99" userLabel="Reviews Stack">
-                                            <rect key="frame" x="120" y="51" width="95" height="15"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4rK-2y-N99" userLabel="Reviews Stack">
+                                            <rect key="frame" x="120" y="51" width="0.0" height="15"/>
                                             <subviews>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="lyf-Yk-kz6">
-                                                    <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="lyf-Yk-kz6">
+                                                    <rect key="frame" x="-120" y="-51" width="0.0" height="95"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="xDf-Xg-sUf"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="moj-DF-WIp">
-                                                    <rect key="frame" x="20" y="0.0" width="15" height="15"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="moj-DF-WIp">
+                                                    <rect key="frame" x="-120" y="-51" width="0.0" height="95"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="HEL-5N-f5T"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="Ulc-to-M44">
-                                                    <rect key="frame" x="40" y="0.0" width="15" height="15"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="Ulc-to-M44">
+                                                    <rect key="frame" x="-120" y="-51" width="0.0" height="95"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="fKG-9m-BuS"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="S3q-aU-zvW">
-                                                    <rect key="frame" x="60" y="0.0" width="15" height="15"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="S3q-aU-zvW">
+                                                    <rect key="frame" x="-120" y="-51" width="0.0" height="95"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="yL1-VL-8g4"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="FJR-t9-mJf">
-                                                    <rect key="frame" x="80" y="0.0" width="15" height="15"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="FJR-t9-mJf">
+                                                    <rect key="frame" x="-120" y="-51" width="0.0" height="95"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="X3u-0d-PKf"/>
                                                     </constraints>
@@ -561,23 +602,23 @@
                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="95" id="wwp-6A-19p"/>
                                             </constraints>
                                         </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="4AQ-Xj-zX9" userLabel="Dollars Stack">
-                                            <rect key="frame" x="315" y="51" width="45" height="15"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="4AQ-Xj-zX9" userLabel="Dollars Stack">
+                                            <rect key="frame" x="315" y="51" width="0.0" height="15"/>
                                             <subviews>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dollar" translatesAutoresizingMaskIntoConstraints="NO" id="Mvy-ah-Wab">
-                                                    <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Dollar" translatesAutoresizingMaskIntoConstraints="NO" id="Mvy-ah-Wab">
+                                                    <rect key="frame" x="-360" y="-51" width="0.0" height="204"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="IcF-4D-Wc3"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dollar" translatesAutoresizingMaskIntoConstraints="NO" id="jyY-pr-tpx">
-                                                    <rect key="frame" x="15" y="0.0" width="15" height="15"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Dollar" translatesAutoresizingMaskIntoConstraints="NO" id="jyY-pr-tpx">
+                                                    <rect key="frame" x="-360" y="-51" width="0.0" height="204"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="l29-Fh-X1K"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dollar" translatesAutoresizingMaskIntoConstraints="NO" id="zv1-rR-ejH">
-                                                    <rect key="frame" x="30" y="0.0" width="15" height="15"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Dollar" translatesAutoresizingMaskIntoConstraints="NO" id="zv1-rR-ejH">
+                                                    <rect key="frame" x="-360" y="-51" width="0.0" height="204"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="M8y-2K-Owi"/>
                                                     </constraints>
@@ -637,10 +678,10 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuDetails" id="gxc-lx-3AW" customClass="MenuItemDetailsTableViewCell" customModule="FoodEx" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="156" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="155.5" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gxc-lx-3AW" id="hUC-3M-T2e">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6hK-sx-E69">

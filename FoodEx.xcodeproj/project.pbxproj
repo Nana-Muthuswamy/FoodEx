@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		393D72861E6B3B92005B9679 /* OrderSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D72851E6B3B92005B9679 /* OrderSummaryTableViewCell.swift */; };
 		39B870AE1E45CE2100F63751 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B870AD1E45CE2100F63751 /* AppDelegate.swift */; };
 		39B870B01E45CE2100F63751 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B870AF1E45CE2100F63751 /* LoginViewController.swift */; };
 		39B870B31E45CE2100F63751 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39B870B11E45CE2100F63751 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		393D72851E6B3B92005B9679 /* OrderSummaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSummaryTableViewCell.swift; sourceTree = "<group>"; };
 		39B870AA1E45CE2100F63751 /* FoodEx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodEx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39B870AD1E45CE2100F63751 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39B870AF1E45CE2100F63751 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				39F346D21E552A09008E4A03 /* RestaurantSynopsisTableViewCell.swift */,
 				39E0317E1E66A92C00CA1400 /* MenuItemDetailsTableViewCell.swift */,
+				393D72851E6B3B92005B9679 /* OrderSummaryTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				39F089031E5138E800F70E2B /* DashboardViewController.swift in Sources */,
 				39E0317D1E6691C700CA1400 /* RestaurantDetailsTableViewController.swift in Sources */,
 				39B870AE1E45CE2100F63751 /* AppDelegate.swift in Sources */,
+				393D72861E6B3B92005B9679 /* OrderSummaryTableViewCell.swift in Sources */,
 				39F346D31E552A09008E4A03 /* RestaurantSynopsisTableViewCell.swift in Sources */,
 				39F089051E518F4500F70E2B /* RestaurantsSearchResultsController.swift in Sources */,
 				39E0317F1E66A92C00CA1400 /* MenuItemDetailsTableViewCell.swift in Sources */,

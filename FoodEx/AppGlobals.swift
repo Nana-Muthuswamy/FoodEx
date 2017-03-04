@@ -46,9 +46,23 @@ struct AppGlobals {
         return appDataMart["Restaurants"] as? [[String : Any]]
     }
 
-    var restaurantsHistory: [[String:String]]? {
+    var restaurantsLastSeen: [[String:String]]? {
         // TDO: This should be extracted from UserDefaults instead
         return Array(restaurantsSynopsis!.prefix(through: 1))
+    }
+
+    var orderHistory: [[String:String]]? {
+
+        let orderHistory = UserDefaults.standard.array(forKey: "OrderHistory")
+
+        if let orderHistory = orderHistory as? [[String:String]] {
+            return orderHistory
+        } else {
+
+            let stubOrderHistory = [["Summary":"Yesterday's Dinner", "ItemDetails":"Seasoned Curly Fries, Cheeseburger.","Total":"$4.22"],["Summary":"Yesterday's Lunch", "ItemDetails":"Cheesy Nachos, Burrito Bowl.","Total":"$13.73"]]
+
+            return stubOrderHistory
+        }
     }
 
     private init() {

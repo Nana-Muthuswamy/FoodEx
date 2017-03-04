@@ -13,11 +13,13 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
     private var searchController: UISearchController!
 
     private var cuisines = [String]()
-    private var restaurantsHistory = [[String:String]]()
+    private var restaurantsLastSeen = [[String:String]]()
+    private var orderHistory = [[String:String]]()
 
     struct DashboardSections {
         static let QuickSearch = 0
         static let LastSeen = 1
+        static let OrderHistory = 2
     }
 
     // MARK: Overrides
@@ -44,7 +46,9 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
         case DashboardSections.QuickSearch:
             return cuisines.count
         case DashboardSections.LastSeen:
-            return restaurantsHistory.count
+            return restaurantsLastSeen.count
+        case DashboardSections.OrderHistory:
+            return orderHistory.count
         default:
             return 0
         }
@@ -65,7 +69,7 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
 
             let tableCell = tableView.dequeueReusableCell(withIdentifier: "RestaurantSynopsis")! as! RestaurantSynopsisTableViewCell
 
-            let restaurantSynopsis = restaurantsHistory[indexPath.row]
+            let restaurantSynopsis = restaurantsLastSeen[indexPath.row]
 
             tableCell.nameLabel.text = restaurantSynopsis["Name"]
             tableCell.subTitleLabel.text = restaurantSynopsis["Description"] ?? "No description available."
@@ -86,13 +90,25 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
 
             return tableCell
 
+        case DashboardSections.OrderHistory:
+
+            let tableCell = tableView.dequeueReusableCell(withIdentifier: "OrderSummary") as! OrderSummaryTableViewCell
+
+            let orderSummary = orderHistory[indexPath.row]
+
+            tableCell.summaryLabel.text = orderSummary["Summary"]
+            tableCell.itemDetailsLabel.text = orderSummary["ItemDetails"]
+            tableCell.totalLabel.text = orderSummary["Total"]
+
+            return tableCell
+
         default:
             return UITableViewCell()
         }
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -103,6 +119,8 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
             return "Quick Search"
         case DashboardSections.LastSeen:
             return "Last Seen"
+        case DashboardSections.OrderHistory:
+            return "Order History"
         default:
             return ""
         }
@@ -128,6 +146,8 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
             return 44.0
         case DashboardSections.LastSeen:
             return 100.0
+        case DashboardSections.OrderHistory:
+            return 70.0
         default:
             return 0
         }
@@ -159,8 +179,12 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
             cuisines = availableCuisines
         }
 
-        if let history = AppGlobals.shared.restaurantsHistory {
-            restaurantsHistory = history
+        if let lastSeen = AppGlobals.shared.restaurantsLastSeen {
+            restaurantsLastSeen = lastSeen
+        }
+
+        if let orders = AppGlobals.shared.orderHistory {
+            orderHistory = orders
         }
     }
 
@@ -172,7 +196,7 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
 
             if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
 
-                let selectedRestaurant = restaurantsHistory[indexPath.row]
+                let selectedRestaurant = restaurantsLastSeen[indexPath.row]
 
                 let destination = segue.destination as! RestaurantDetailsViewController
 
