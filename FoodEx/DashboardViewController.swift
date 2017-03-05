@@ -14,7 +14,7 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
 
     private var cuisines = Array<String>()
     private var restaurantsLastSeen = [Dictionary<String, String>]()
-    private var orderHistory = [Dictionary<String, String>]()
+    private var orderHistory = Array<OrderDetails>()
 
     struct DashboardSections {
         static let QuickSearch = 0
@@ -96,9 +96,9 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
 
             let orderSummary = orderHistory[indexPath.row]
 
-            tableCell.summaryLabel.text = orderSummary["Summary"]
-            tableCell.itemDetailsLabel.text = orderSummary["ItemDetails"]
-            tableCell.totalLabel.text = orderSummary["Total"]
+            tableCell.summaryLabel.text = orderSummary.title + " - " + orderSummary.date
+            tableCell.itemDetailsLabel.text = orderSummary.menuSummary
+            tableCell.totalLabel.text = orderSummary.formattedGrandTotal
 
             return tableCell
 
@@ -205,6 +205,16 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
                 if let restaurantName = selectedRestaurant["Name"], let menuList = AppDataMart.shared.menuList(for: restaurantName) {
                     destination.menuList = menuList
                 }
+            }
+
+        } else if (segue.identifier == "ShowOrderDetails") {
+
+            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+
+                let selectedOrder = orderHistory[indexPath.row]
+                let destination = segue.destination as! OrderDetailsViewController
+
+                destination.orderDetails = selectedOrder
             }
         }
     }

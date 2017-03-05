@@ -16,3 +16,8 @@ class MenuItemDetailsTableViewCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
 
 }
+
+class EditableMenuItemDetailsTableViewCell: MenuItemDetailsTableViewCell {
+    @IBOutlet weak var quantityField: UITextField!
+
+}

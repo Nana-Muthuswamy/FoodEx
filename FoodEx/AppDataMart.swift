@@ -51,17 +51,20 @@ struct AppDataMart {
         return Array(restaurantsSynopsis!.prefix(through: 1))
     }
 
-    var orderHistory: [Dictionary<String, String>]? {
+    var orderHistory: Array<OrderDetails>? {
 
         let orderHistory = UserDefaults.standard.array(forKey: "OrderHistory")
 
-        if let orderHistory = orderHistory as? [Dictionary<String, String>] {
+        // TDO: Need to extract Order History and create the model
+        if let orderHistory = orderHistory as? Array<OrderDetails> {
             return orderHistory
         } else {
 
-            let stubOrderHistory = [["Summary":"Yesterday's Dinner", "ItemDetails":"Seasoned Curly Fries, Cheeseburger.","Total":"$4.22"],["Summary":"Yesterday's Lunch", "ItemDetails":"Cheesy Nachos, Burrito Bowl.","Total":"$13.73"]]
+            let stubOrder1 = OrderDetails(title: "Nightout Dinner", reference: "2-143-2358", date: "March 3, 2017", menuItems: [MenuItem(name: "Seasoned Curly Fries", details: "Potatoes Prepared in Vegetable Oil (Canola Oil, Corn Oil, Soybean Oil, Hydrogenated Soybean Oil) and Salt", price: 2.29, image: "JITB_Curly.png", restaurantName: "Jack in the Box"), MenuItem(name: "Cheeseburger", details: "100% beef patty, regular bun, pasteurized process american cheese, ketchup, mustard, pickle slices, onions", price: 1.00, image: "McD_Cheseburger.png", restaurantName: "McDonald's")])
 
-            return stubOrderHistory
+            let stubOrder2 = OrderDetails(title: "Weekend Lunch", reference: "2-237-8453", date: "March 4, 2017", menuItems: [MenuItem(name: "Cheesy Nachos", details: "Crisp, freshly prepared tortilla chips covered in warm nacho cheese sauce.", price: 3.59, image: "TB_Nacho.png", restaurantName: "Taco Bell"), MenuItem(name: "Burrito Bowl", details: "Vegetarian, Chicken, Steak", price: 7.50, image: "Chipotle_BB.png", restaurantName: "Chipotle")])
+
+            return [stubOrder2,stubOrder1]
         }
     }
 
