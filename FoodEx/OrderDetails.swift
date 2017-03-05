@@ -1,23 +1,23 @@
 //
-//  OrderDetails.swift
+//  Order.swift
 //  FoodEx
 //
 //  Created by Nana on 3/4/17.
 //  Copyright © 2017 Apple. All rights reserved.
 //
 
-struct OrderDetails {
+struct Order {
     var title: String
     var reference: String
     let date: String
-    var menuItems: Array<MenuItem>
+    var items: Array<OrderItem>
 
-    var menuSummary: String {
-        return menuItems.map{$0.name}.joined(separator:", ")
+    var summary: String {
+        return items.map{$0.name}.joined(separator:", ")
     }
 
     var subTotal: Double {
-        return menuItems.reduce(0, {$0 + $1.price})
+        return items.reduce(0, {$0 + $1.price})
     }
 
     var formattedSubTotal: String {
@@ -33,14 +33,14 @@ struct OrderDetails {
     }
 }
 
-struct MenuItem {
-    let name: String
-    let details: String
-    let price: Double
-    let image: String
+class OrderItem: MenuItem {
+
     let restaurantName: String
 
-    var formattedPrice: String {
-        return String(format: "$%.2f", price)
+    init(name: String, details: String, price: Double, image: String, restaurant: String) {
+
+        restaurantName = restaurant
+
+        super.init(name: name, details: details, price: price, image: image)
     }
 }

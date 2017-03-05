@@ -14,7 +14,7 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
 
     private var cuisines = Array<String>()
     private var restaurantsLastSeen = [Dictionary<String, String>]()
-    private var orderHistory = Array<OrderDetails>()
+    private var orderHistory = Array<Order>()
 
     struct DashboardSections {
         static let QuickSearch = 0
@@ -97,7 +97,7 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
             let orderSummary = orderHistory[indexPath.row]
 
             tableCell.summaryLabel.text = orderSummary.title + " - " + orderSummary.date
-            tableCell.itemDetailsLabel.text = orderSummary.menuSummary
+            tableCell.itemDetailsLabel.text = orderSummary.summary
             tableCell.totalLabel.text = orderSummary.formattedGrandTotal
 
             return tableCell

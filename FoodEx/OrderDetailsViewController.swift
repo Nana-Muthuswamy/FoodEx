@@ -16,7 +16,7 @@ enum OrderDetailsViewMode {
 class OrderDetailsViewController: UITableViewController {
 
     var mode = OrderDetailsViewMode.read
-    var orderDetails: OrderDetails!
+    var orderDetails: Order!
 
     struct OrderDetailsSections {
         static let Summary = 0
@@ -46,7 +46,7 @@ class OrderDetailsViewController: UITableViewController {
             }
 
         case OrderDetailsSections.MenuItem:
-            if let count = orderDetails?.menuItems.count {
+            if let count = orderDetails?.items.count {
                 return count
             } else {
                 return 0
@@ -86,7 +86,7 @@ class OrderDetailsViewController: UITableViewController {
 
             let tableCell = tableView.dequeueReusableCell(withIdentifier: "MenuDetails") as! MenuItemDetailsTableViewCell
 
-            let menuItem = orderDetails.menuItems[indexPath.row]
+            let menuItem = orderDetails.items[indexPath.row]
 
             tableCell.nameLabel.text = menuItem.name
             tableCell.detailsLabel.text = "@" + menuItem.restaurantName

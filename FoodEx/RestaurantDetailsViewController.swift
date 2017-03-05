@@ -157,7 +157,7 @@ class RestaurantDetailsViewController: AppBaseViewController {
         case DetailsSection.Menu:
 
             let rowAction = UITableViewRowAction(style: .default, title: "Add to Cart", handler: { (rowAction, indexPath) in
-                // TDO: Add the menuList[indexPath.row] to OrderDetails.menuList
+                // TDO: Add the menuList[indexPath.row] to Order.menuList
                 print("Menu Item added to Cart")
             })
             rowAction.backgroundColor = UIColor.green
