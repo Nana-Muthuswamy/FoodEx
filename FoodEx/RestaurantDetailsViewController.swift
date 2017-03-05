@@ -126,6 +126,16 @@ class RestaurantDetailsViewController: AppBaseViewController {
         }
     }
 
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+
+        switch indexPath.section {
+        case DetailsSection.Menu:
+            return true
+        default:
+            return false
+        }
+    }
+
     // MARK: UITableViewDelegate
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -140,5 +150,25 @@ class RestaurantDetailsViewController: AppBaseViewController {
             return 0
         }
     }
+
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+
+        switch indexPath.section {
+        case DetailsSection.Menu:
+
+            let rowAction = UITableViewRowAction(style: .default, title: "Add to Cart", handler: { (rowAction, indexPath) in
+                // TDO: Add the menuList[indexPath.row] to OrderDetails.menuList
+                print("Menu Item added to Cart")
+            })
+            rowAction.backgroundColor = UIColor.green
+
+            return [rowAction]
+
+        default:
+            return nil
+        }
+
+    }
+
 
 }
