@@ -10,8 +10,7 @@ import UIKit
 
 class RestaurantDetailsViewController: AppBaseViewController {
 
-    var restaurantSynopsis = Dictionary<String, String>()
-    var menuList = [Dictionary<String, String>]()
+    var restaurant: Restaurant!
 
     struct DetailsSection {
         static let Synopsis = 0
@@ -27,7 +26,11 @@ class RestaurantDetailsViewController: AppBaseViewController {
         case DetailsSection.Synopsis:
             return 1
         case DetailsSection.Menu:
-            return menuList.count
+            if restaurant != nil {
+                return restaurant.menu.count
+            } else {
+                return 0
+            }
         default:
             return 0
         }
@@ -41,38 +44,26 @@ class RestaurantDetailsViewController: AppBaseViewController {
 
             let tableCell = tableView.dequeueReusableCell(withIdentifier: "RestaurantSynopsis")! as! RestaurantSynopsisTableViewCell
 
-            tableCell.nameLabel.text = restaurantSynopsis["Name"]
-            tableCell.subTitleLabel.text = restaurantSynopsis["Description"] ?? "No description available."
-            tableCell.distanceLabel.text = "\(restaurantSynopsis["Distance"]!) mi."
-            tableCell.addressLabel.text = restaurantSynopsis["Address"]
+            tableCell.nameLabel.text = restaurant.name
+            tableCell.subTitleLabel.text = restaurant.description
+            tableCell.distanceLabel.text = restaurant.formattedDistance
+            tableCell.addressLabel.text = restaurant.address
+            tableCell.symbolImageView.image = UIImage(named: restaurant.imageName)
+            tableCell.setReviewStars(count: restaurant.reviewRating)
+            tableCell.setCostDollars(count: restaurant.costRating)
 
-            if let imageFileNameTypeComponents = restaurantSynopsis["Image"]?.components(separatedBy: ".") {
-                tableCell.symbolImageView.image = UIImage(named: imageFileNameTypeComponents.first!)
-            }
-
-            if let reviewCount = Int(restaurantSynopsis["Reviews"] ?? "0") {
-                tableCell.setReviewStars(count: reviewCount)
-            }
-
-            if let costCount = Int(restaurantSynopsis["Cost"] ?? "0") {
-                tableCell.setCostDollars(count: costCount)
-            }
-            
             return tableCell
 
         case DetailsSection.Menu:
 
             let tableCell = tableView.dequeueReusableCell(withIdentifier: "MenuDetails")! as! MenuItemDetailsTableViewCell
 
-            let menuItemDetail = menuList[indexPath.row]
+            let menuItem = restaurant.menu[indexPath.row]
 
-            tableCell.nameLabel.text = menuItemDetail["Name"]
-            tableCell.detailsLabel.text = menuItemDetail["Details"]
-            tableCell.priceLabel.text = menuItemDetail["Price"]
-
-            if let imageFileNameTypeComponents = menuItemDetail["Image"]?.components(separatedBy: ".") {
-                tableCell.menuItemImageView.image = UIImage(named: imageFileNameTypeComponents.first!)
-            }
+            tableCell.nameLabel.text = menuItem.name
+            tableCell.detailsLabel.text = menuItem.details
+            tableCell.priceLabel.text = menuItem.formattedPrice
+            tableCell.menuItemImageView.image = UIImage(named: menuItem.imageName)
 
             return tableCell
 
@@ -90,14 +81,7 @@ class RestaurantDetailsViewController: AppBaseViewController {
         switch section {
 
         case DetailsSection.Synopsis:
-
-            var headerTitle: String?
-
-            if let cuisineType = restaurantSynopsis["Cuisine"] {
-                headerTitle = "\(cuisineType) Cuisine"
-            }
-
-            return headerTitle
+            return "\(restaurant.cuisine) Cuisine"
 
         case DetailsSection.Menu:
             return "Menu"
@@ -112,14 +96,7 @@ class RestaurantDetailsViewController: AppBaseViewController {
         switch section {
 
         case DetailsSection.Synopsis:
-
-            var footerTitle: String?
-
-            if let operationHours = restaurantSynopsis["OperationHours"] {
-                footerTitle = "Hours Today: \(operationHours)"
-            }
-
-            return footerTitle
+            return "Hours Today: \(restaurant.operationHours)"
 
         default:
             return ""

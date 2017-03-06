@@ -8,24 +8,80 @@
 
 struct Restaurant {
 
-}
-
-// Choosing "class" for MenuItem as this needs to be extensible
-class MenuItem {
     let name: String
-    let details: String
-    let price: Double
-    let image: String
+    let description: String
+    let distance: Double
+    let imageName: String
+    let cuisine: String
+    let address: String
+    let reviewRating: Int
+    let costRating: Int
+    let operationHours: String
+    let menu: Array<MenuItem>
 
-    init(name: String, details: String, price: Double, image: String) {
-
-        self.name = name
-        self.details = details
-        self.price = price
-        self.image = image
+    var formattedDistance: String {
+        return String(format: "%.2f mi.", distance)
     }
 
-    var formattedPrice: String {
-        return String(format: "$%.2f", price)
+    init(name: String, description: String?, distance: Double, imageName: String?, cuisine: String, address: String, reviewRating: Int?, costRating: Int?, operationHours: String?, menu: Array<MenuItem>) {
+
+        self.name = name
+        self.distance = distance
+        self.cuisine = cuisine
+        self.address = address
+
+        if let restaurantDesc = description {
+            self.description = restaurantDesc
+        } else {
+            self.description = "Description not available."
+        }
+
+        if let restaurantImageName = imageName {
+            self.imageName = restaurantImageName
+        } else {
+            self.imageName = ""
+        }
+
+        if let reviewRating = reviewRating {
+            self.reviewRating = min(max(reviewRating, 0), 5)
+        } else {
+            self.reviewRating = 0
+        }
+
+        if let costRating = costRating {
+            self.costRating = min(max(costRating, 0), 5)
+        } else {
+            self.costRating = 0
+        }
+
+        if let restaurantOperationHours = operationHours {
+            self.operationHours = restaurantOperationHours
+        } else {
+            self.operationHours = "Operation hours not available."
+        }
+
+        self.menu = menu
+    }
+
+
+    init?(dictionary source: Dictionary<String, Any>) {
+
+        guard let theName = source["Name"] as? String, let cuisineType = source["Cuisine"] as? String, let theDistanceStr = source["Distance"] as? String, let theDistance = Double(theDistanceStr), let theAddress = source["Address"] as? String else {
+
+            return nil
+        }
+
+        var menuList = Array<MenuItem>()
+
+        if let theMenu = source["Menu"] as? [Dictionary<String, String>] {
+
+            for menuItemDict in theMenu {
+                if let menuItem = MenuItem(dictionary: menuItemDict) {
+                    menuList.append(menuItem)
+                }
+            }
+        }
+
+        self.init(name: theName, description: source["Description"] as? String, distance: theDistance, imageName: source["Image"] as? String, cuisine: cuisineType, address: theAddress, reviewRating: Int(source["Reviews"] as! String), costRating: Int(source["Cost"] as! String), operationHours: source["OperationHours"] as? String, menu: menuList)
     }
 }

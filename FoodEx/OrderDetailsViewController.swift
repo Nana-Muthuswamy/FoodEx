@@ -91,7 +91,7 @@ class OrderDetailsViewController: UITableViewController {
             tableCell.nameLabel.text = menuItem.name
             tableCell.detailsLabel.text = "@" + menuItem.restaurantName
             tableCell.priceLabel.text = menuItem.formattedPrice
-            tableCell.menuItemImageView.image = UIImage(named: menuItem.image)
+            tableCell.menuItemImageView.image = UIImage(named: menuItem.imageName)
 
             return tableCell
 

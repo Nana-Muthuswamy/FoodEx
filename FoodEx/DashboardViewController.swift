@@ -13,7 +13,7 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
     private var searchController: UISearchController!
 
     private var cuisines = Array<String>()
-    private var restaurantsLastSeen = [Dictionary<String, String>]()
+    private var restaurantsLastSeen = Array<Restaurant>()
     private var orderHistory = Array<Order>()
 
     struct DashboardSections {
@@ -69,24 +69,15 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
 
             let tableCell = tableView.dequeueReusableCell(withIdentifier: "RestaurantSynopsis")! as! RestaurantSynopsisTableViewCell
 
-            let restaurantSynopsis = restaurantsLastSeen[indexPath.row]
+            let restaurant = restaurantsLastSeen[indexPath.row]
 
-            tableCell.nameLabel.text = restaurantSynopsis["Name"]
-            tableCell.subTitleLabel.text = restaurantSynopsis["Description"] ?? "No description available."
-            tableCell.distanceLabel.text = "\(restaurantSynopsis["Distance"]!) mi."
-            tableCell.addressLabel.text = restaurantSynopsis["Address"]
-
-            if let imageFileNameTypeComponents = restaurantSynopsis["Image"]?.components(separatedBy: ".") {
-                tableCell.symbolImageView.image = UIImage(named: imageFileNameTypeComponents.first!)
-            }
-
-            if let reviewCount = Int(restaurantSynopsis["Reviews"] ?? "0") {
-                tableCell.setReviewStars(count: reviewCount)
-            }
-
-            if let costCount = Int(restaurantSynopsis["Cost"] ?? "0") {
-                tableCell.setCostDollars(count: costCount)
-            }
+            tableCell.nameLabel.text = restaurant.name
+            tableCell.subTitleLabel.text = restaurant.description
+            tableCell.distanceLabel.text = restaurant.formattedDistance
+            tableCell.addressLabel.text = restaurant.address
+            tableCell.symbolImageView.image = UIImage(named: restaurant.imageName)
+            tableCell.setReviewStars(count: restaurant.reviewRating)
+            tableCell.setCostDollars(count: restaurant.costRating)
 
             return tableCell
 
@@ -94,11 +85,11 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
 
             let tableCell = tableView.dequeueReusableCell(withIdentifier: "OrderSummary") as! OrderSummaryTableViewCell
 
-            let orderSummary = orderHistory[indexPath.row]
+            let order = orderHistory[indexPath.row]
 
-            tableCell.summaryLabel.text = orderSummary.title + " - " + orderSummary.date
-            tableCell.itemDetailsLabel.text = orderSummary.summary
-            tableCell.totalLabel.text = orderSummary.formattedGrandTotal
+            tableCell.summaryLabel.text = order.title + " - " + order.date
+            tableCell.itemDetailsLabel.text = order.summary
+            tableCell.totalLabel.text = order.formattedGrandTotal
 
             return tableCell
 
@@ -200,11 +191,7 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
 
                 let destination = segue.destination as! RestaurantDetailsViewController
 
-                destination.restaurantSynopsis = selectedRestaurant
-
-                if let restaurantName = selectedRestaurant["Name"], let menuList = AppDataMart.shared.menuList(for: restaurantName) {
-                    destination.menuList = menuList
-                }
+                destination.restaurant = selectedRestaurant
             }
 
         } else if (segue.identifier == "ShowOrderDetails") {

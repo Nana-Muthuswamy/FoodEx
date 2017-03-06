@@ -8,11 +8,13 @@
 
 import Foundation
 
-// A Singleton App Globals that provides data throughout the app
+// A Singleton Data Mart that extacts data from DataMart.plist and provides data for all controllers
 struct AppDataMart {
 
     // Singleton Type property
     static let shared = AppDataMart()
+
+    var restaurants : Array<Restaurant>
 
     private let appDataMart : [String:Any]
 
@@ -24,31 +26,9 @@ struct AppDataMart {
         return appDataMart["Cuisines"] as? Array<String>
     }
 
-    var restaurantsSynopsis : [Dictionary<String, String>]? {
-        let restaurants = appDataMart["Restaurants"] as? [Dictionary<String, Any>]
-
-        var restaurantsSynopsis = [Dictionary<String, String>]()
-        
-        restaurants?.forEach({ (element) in
-
-            var elementSynopsis = element
-            elementSynopsis.removeValue(forKey: "Menu")
-
-            if let newElement = elementSynopsis as? Dictionary<String, String> {
-                restaurantsSynopsis.append(newElement)
-            }
-        })
-
-        return restaurantsSynopsis
-    }
-
-    var restaurants : [Dictionary<String, Any>]? {
-        return appDataMart["Restaurants"] as? [Dictionary<String, Any>]
-    }
-
-    var restaurantsLastSeen: [Dictionary<String, String>]? {
+    var restaurantsLastSeen: Array<Restaurant>? {
         // TDO: This should be extracted from UserDefaults instead
-        return Array(restaurantsSynopsis!.prefix(through: 1))
+        return Array(restaurants.prefix(through: 1))
     }
 
     var orderHistory: Array<Order>? {
@@ -60,9 +40,11 @@ struct AppDataMart {
             return orderHistory
         } else {
 
-            let stubOrder1 = Order(title: "Nightout Dinner", reference: "2-143-2358", date: "March 3, 2017", items: [OrderItem(name: "Seasoned Curly Fries", details: "Potatoes Prepared in Vegetable Oil (Canola Oil, Corn Oil, Soybean Oil, Hydrogenated Soybean Oil) and Salt", price: 2.29, image: "JITB_Curly.png", restaurant: "Jack in the Box"), OrderItem(name: "Cheeseburger", details: "100% beef patty, regular bun, pasteurized process american cheese, ketchup, mustard, pickle slices, onions", price: 1.00, image: "McD_Cheseburger.png", restaurant: "McDonald's")])
+            let stubOrder1 = Order(reference: "2-143-2358",title: "Nightout Dinner", date: "March 3, 2017", status: OrderStatus.completed, items: [OrderItem(name: "Seasoned Curly Fries", price: 2.29, details: "Potatoes Prepared in Vegetable Oil (Canola Oil, Corn Oil, Soybean Oil, Hydrogenated Soybean Oil) and Salt", imageName: "JITB_Curly.png", restaurantName: "Jack in the Box"), OrderItem(name: "Cheeseburger", price: 1.00, details: "100% beef patty, regular bun, pasteurized process american cheese, ketchup, mustard, pickle slices, onions", imageName: "McD_Cheseburger.png", restaurantName: "McDonald's")])
 
-            let stubOrder2 = Order(title: "Weekend Lunch", reference: "2-237-8453", date: "March 4, 2017", items: [OrderItem(name: "Cheesy Nachos", details: "Crisp, freshly prepared tortilla chips covered in warm nacho cheese sauce.", price: 3.59, image: "TB_Nacho.png", restaurant: "Taco Bell"), OrderItem(name: "Burrito Bowl", details: "Vegetarian, Chicken, Steak", price: 7.50, image: "Chipotle_BB.png", restaurant: "Chipotle")])
+
+            let stubOrder2 = Order(reference: "2-237-8453", title: "Weekend Lunch", date: "March 4, 2017", status: OrderStatus.completed, items: [OrderItem(name: "Cheesy Nachos", price: 3.59, details: "Crisp, freshly prepared tortilla chips covered in warm nacho cheese sauce.", imageName: "TB_Nacho.png", restaurantName: "Taco Bell"), OrderItem(name: "Burrito Bowl", price: 7.50, details: "Vegetarian, Chicken, Steak", imageName: "Chipotle_BB.png", restaurantName: "Chipotle")])
+
 
             return [stubOrder2,stubOrder1]
         }
@@ -76,18 +58,25 @@ struct AppDataMart {
 
         // TODO: Error Handling
         appDataMart = (plist as? Dictionary<String, Any>)!
+
+        // Extract Restaurants Data
+        restaurants = Array<Restaurant>()
+
+        if let restaurantList = appDataMart["Restaurants"] as? [Dictionary<String, Any>] {
+
+            for restaurantDict in restaurantList {
+
+                if let element = Restaurant(dictionary: restaurantDict) {
+                    restaurants.append(element)
+                }
+            }
+        }
     }
 
-    func menuList(for restaurantName: String) -> [Dictionary<String, String>]? {
+    func menuList(for restaurantName: String) -> Array<MenuItem>? {
 
-        if let matchingRestaurants = restaurants?.filter({ (element) -> Bool in
-            return (element["Name"] as! String == restaurantName)
-        }) {
-            let matchedRestaurant = matchingRestaurants.first
-            
-            return matchedRestaurant?["Menu"] as? [Dictionary<String, String>]
-        }
-
-        return nil
+        let matchedRestaurant = restaurants.filter{$0.name == restaurantName}.first
+        
+        return matchedRestaurant?.menu
     }
 }

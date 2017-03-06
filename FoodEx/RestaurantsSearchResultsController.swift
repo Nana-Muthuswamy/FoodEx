@@ -10,12 +10,12 @@ import UIKit
 
 class RestaurantsSearchResultsController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
 
-    var restaurants: [Dictionary<String, String>] = [] {
+    var restaurants: Array<Restaurant> = [] {
         didSet {
             filteredRestaurants = restaurants
         }
     }
-    var filteredRestaurants: [Dictionary<String, String>] = [] {
+    var filteredRestaurants: Array<Restaurant> = [] {
         didSet {
             tableView.reloadData()
         }
@@ -26,16 +26,7 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let restaurantList = AppDataMart.shared.restaurantsSynopsis {
-
-            restaurants = restaurantList.sorted() {
-
-                let firstDistance = Float($0["Distance"] ?? "") ?? 0.0
-                let secondDistance = Float($1["Distance"] ?? "") ?? 0.0
-
-                return firstDistance < secondDistance
-            }
-        }
+        restaurants = AppDataMart.shared.restaurants.sorted{$0.distance < $1.distance}
     }
 
     // MARK: Utils
@@ -46,29 +37,22 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
 
             let filterOnlyTheNearest = (scope > 0)
 
-            filteredRestaurants = restaurants.filter({ (aRestaurant) -> Bool in
+            filteredRestaurants = restaurants.filter({ (element) -> Bool in
 
                 var didPass = false
-                // If Name isn't available for the element, should not make to filtered list!
-                guard let name = aRestaurant["Name"] else {
-                    return didPass
-                }
 
                 // If Name matches, consider the element
-                if name.lowercased().contains(searchText.lowercased()) {
+                if element.name.lowercased().contains(searchText.lowercased()) {
                     didPass = true
-                } else if let cuisine = aRestaurant["Cuisine"] { // Or Else if the Cuisine type exists and matches
-                    if searchText.lowercased().contains(cuisine.lowercased()) {
+                } else { // Or Else if the Cuisine type exists and matches
+                    if searchText.lowercased().contains(element.cuisine.lowercased()) {
                         didPass = true
                     }
                 }
 
                 // If the element is considered, check the scope and validate the distance preference too...
                 if didPass && filterOnlyTheNearest {
-
-                    if let distanceStr = aRestaurant["Distance"], let distance = Float(distanceStr) {
-                        didPass = (distance <= 5)
-                    }
+                    didPass = (element.distance <= 5)
                 }
 
                 return didPass
@@ -93,24 +77,15 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
 
         let tableCell = tableView.dequeueReusableCell(withIdentifier: "RestaurantSynopsis")! as! RestaurantSynopsisTableViewCell
 
-        let restaurantSynopsis = filteredRestaurants[indexPath.row]
+        let restaurant = filteredRestaurants[indexPath.row]
 
-        tableCell.nameLabel.text = restaurantSynopsis["Name"]
-        tableCell.subTitleLabel.text = restaurantSynopsis["Description"] ?? "No description available."
-        tableCell.distanceLabel.text = "\(restaurantSynopsis["Distance"]!) mi."
-        tableCell.addressLabel.text = restaurantSynopsis["Address"]
-
-        if let imageFileNameTypeComponents = restaurantSynopsis["Image"]?.components(separatedBy: ".") {
-            tableCell.symbolImageView.image = UIImage(named: imageFileNameTypeComponents.first!)
-        }
-
-        if let reviewCount = Int(restaurantSynopsis["Reviews"] ?? "0") {
-            tableCell.setReviewStars(count: reviewCount)
-        }
-
-        if let costCount = Int(restaurantSynopsis["Cost"] ?? "0") {
-            tableCell.setCostDollars(count: costCount)
-        }
+        tableCell.nameLabel.text = restaurant.name
+        tableCell.subTitleLabel.text = restaurant.description
+        tableCell.distanceLabel.text = restaurant.formattedDistance
+        tableCell.addressLabel.text = restaurant.address
+        tableCell.symbolImageView.image = UIImage(named: restaurant.imageName)
+        tableCell.setReviewStars(count: restaurant.reviewRating)
+        tableCell.setCostDollars(count: restaurant.costRating)
 
         return tableCell
     }
@@ -123,11 +98,7 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
 
         let destination = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RestaurantDetailsViewController") as! RestaurantDetailsViewController
 
-        destination.restaurantSynopsis = selectedRestaurant
-
-        if let restaurantName = selectedRestaurant["Name"], let menuList = AppDataMart.shared.menuList(for: restaurantName) {
-            destination.menuList = menuList
-        }
+        destination.restaurant = selectedRestaurant
 
         // Present Restaurant Details View Controller using Dashboard's Nav controller
         self.presentingViewController?.navigationController?.pushViewController(destination, animated: true)
