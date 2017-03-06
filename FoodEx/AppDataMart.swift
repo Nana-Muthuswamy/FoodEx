@@ -91,6 +91,13 @@ struct AppDataMart {
         if let savedViewList = UserDefaults.standard.array(forKey: "LastViewedRestaurants") as? [Dictionary<String, Any>] {
 
             newViewList = savedViewList
+
+            if let existingIndex = savedViewList.index(where: { (element) -> Bool in
+                return element["Name"] as! String == restaurant.name
+            }) {
+                newViewList.remove(at: existingIndex)
+            }
+
             newViewList.insert(restaurant.dictionaryRepresentation(), at: 0)
 
             // Store only the last 3 viewed restaurants
