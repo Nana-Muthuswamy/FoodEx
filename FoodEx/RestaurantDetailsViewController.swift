@@ -17,6 +17,17 @@ class RestaurantDetailsViewController: AppBaseViewController {
         static let Menu = 1
     }
 
+    // MARK: View Life-cycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Add the restaurant to the last viewed list
+        if let currentRestaurant = restaurant {
+            AppDataMart.shared.setLastViewedRestaurant(currentRestaurant)
+        }
+    }
+
     // MARK: UITableViewDataSource
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

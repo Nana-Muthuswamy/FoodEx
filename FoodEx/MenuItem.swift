@@ -13,6 +13,10 @@ class MenuItem {
     let price: Double
     let imageName: String
 
+    var formattedPrice: String {
+        return String(format: "$%.2f", price)
+    }
+
     init(name: String, price: Double, details: String?, imageName: String?) {
 
         self.name = name
@@ -34,14 +38,23 @@ class MenuItem {
     convenience init?(dictionary source: Dictionary<String, Any>) {
 
         // Cannot create MenuItem without Name and Price
-        guard let menuName = source["Name"] as? String, let menuPricestr = source["Price"] as? String, let menuPrice = Double(menuPricestr) else {
+        guard let menuName = source["Name"] as? String, let menuPrice = source["Price"] as? Double else {
             return nil
         }
 
         self.init(name:menuName, price:menuPrice, details:source["Details"] as? String, imageName:source["Image"] as? String)
     }
 
-    var formattedPrice: String {
-        return String(format: "$%.2f", price)
+    func dictionaryRepresentation() -> Dictionary<String, Any> {
+
+        var dictRepresentation = Dictionary<String, Any>()
+
+        dictRepresentation.updateValue(self.name, forKey: "Name")
+        dictRepresentation.updateValue(self.details, forKey: "Details")
+        dictRepresentation.updateValue(self.price, forKey: "Price")
+        dictRepresentation.updateValue(self.imageName, forKey: "Image")
+
+        return dictRepresentation
     }
+
 }

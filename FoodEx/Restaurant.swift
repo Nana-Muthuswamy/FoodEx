@@ -66,14 +66,14 @@ struct Restaurant {
 
     init?(dictionary source: Dictionary<String, Any>) {
 
-        guard let theName = source["Name"] as? String, let cuisineType = source["Cuisine"] as? String, let theDistanceStr = source["Distance"] as? String, let theDistance = Double(theDistanceStr), let theAddress = source["Address"] as? String else {
+        guard let theName = source["Name"] as? String, let cuisineType = source["Cuisine"] as? String, let theDistance = source["Distance"] as? Double, let theAddress = source["Address"] as? String else {
 
             return nil
         }
 
         var menuList = Array<MenuItem>()
 
-        if let theMenu = source["Menu"] as? [Dictionary<String, String>] {
+        if let theMenu = source["Menu"] as? [Dictionary<String, Any>] {
 
             for menuItemDict in theMenu {
                 if let menuItem = MenuItem(dictionary: menuItemDict) {
@@ -82,6 +82,31 @@ struct Restaurant {
             }
         }
 
-        self.init(name: theName, description: source["Description"] as? String, distance: theDistance, imageName: source["Image"] as? String, cuisine: cuisineType, address: theAddress, reviewRating: Int(source["Reviews"] as! String), costRating: Int(source["Cost"] as! String), operationHours: source["OperationHours"] as? String, menu: menuList)
+        self.init(name: theName, description: source["Description"] as? String, distance: theDistance, imageName: source["Image"] as? String, cuisine: cuisineType, address: theAddress, reviewRating: Int(source["Reviews"] as! Int), costRating: Int(source["Cost"] as! Int), operationHours: source["OperationHours"] as? String, menu: menuList)
+    }
+
+    func dictionaryRepresentation() -> Dictionary<String, Any> {
+
+        var dict = Dictionary<String, Any>()
+
+        dict.updateValue(name, forKey: "Name")
+        dict.updateValue(description, forKey: "Description")
+        dict.updateValue(distance, forKey: "Distance")
+        dict.updateValue(imageName, forKey: "Image")
+        dict.updateValue(cuisine, forKey: "Cuisine")
+        dict.updateValue(address, forKey: "Address")
+        dict.updateValue(reviewRating, forKey: "Reviews")
+        dict.updateValue(costRating, forKey: "Cost")
+        dict.updateValue(operationHours, forKey: "OperationHours")
+
+        var menuDicts = [Dictionary<String, Any>]()
+
+        for menuItem in menu {
+            menuDicts.append(menuItem.dictionaryRepresentation())
+        }
+
+        dict.updateValue(menuDicts, forKey: "Menu")
+
+        return dict
     }
 }

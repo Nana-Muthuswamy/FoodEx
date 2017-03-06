@@ -13,12 +13,12 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
     private var searchController: UISearchController!
 
     private var cuisines = Array<String>()
-    private var restaurantsLastSeen = Array<Restaurant>()
+    private var restaurantsLastViewed = Array<Restaurant>()
     private var orderHistory = Array<Order>()
 
     struct DashboardSections {
         static let QuickSearch = 0
-        static let LastSeen = 1
+        static let LastViewed = 1
         static let OrderHistory = 2
     }
 
@@ -37,6 +37,14 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
         setupData()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        restaurantsLastViewed = AppDataMart.shared.restaurantsLastViewed
+
+        tableView.reloadData()
+    }
+
     // MARK: UITableViewDataSource
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,8 +53,8 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
 
         case DashboardSections.QuickSearch:
             return cuisines.count
-        case DashboardSections.LastSeen:
-            return restaurantsLastSeen.count
+        case DashboardSections.LastViewed:
+            return restaurantsLastViewed.count
         case DashboardSections.OrderHistory:
             return orderHistory.count
         default:
@@ -65,11 +73,11 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
 
             return tableCell
 
-        case DashboardSections.LastSeen:
+        case DashboardSections.LastViewed:
 
             let tableCell = tableView.dequeueReusableCell(withIdentifier: "RestaurantSynopsis")! as! RestaurantSynopsisTableViewCell
 
-            let restaurant = restaurantsLastSeen[indexPath.row]
+            let restaurant = restaurantsLastViewed[indexPath.row]
 
             tableCell.nameLabel.text = restaurant.name
             tableCell.subTitleLabel.text = restaurant.description
@@ -99,7 +107,14 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+
+        if restaurantsLastViewed.count > 0 && orderHistory.count > 0 {
+            return 3
+        } else if restaurantsLastViewed.count > 0 || orderHistory.count > 0 {
+            return 2
+        } else {
+            return 1
+        }
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -108,8 +123,8 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
 
         case DashboardSections.QuickSearch:
             return "Quick Search"
-        case DashboardSections.LastSeen:
-            return "Last Seen"
+        case DashboardSections.LastViewed:
+            return "Last Viewed"
         case DashboardSections.OrderHistory:
             return "Order History"
         default:
@@ -135,7 +150,7 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
 
         case DashboardSections.QuickSearch:
             return 44.0
-        case DashboardSections.LastSeen:
+        case DashboardSections.LastViewed:
             return 100.0
         case DashboardSections.OrderHistory:
             return 70.0
@@ -166,17 +181,9 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
 
     private func setupData() -> Void {
 
-        if let availableCuisines = AppDataMart.shared.cuisines {
-            cuisines = availableCuisines
-        }
-
-        if let lastSeen = AppDataMart.shared.restaurantsLastSeen {
-            restaurantsLastSeen = lastSeen
-        }
-
-        if let orders = AppDataMart.shared.orderHistory {
-            orderHistory = orders
-        }
+        cuisines = AppDataMart.shared.cuisines
+        restaurantsLastViewed = AppDataMart.shared.restaurantsLastViewed
+        orderHistory = AppDataMart.shared.orderHistory
     }
 
     // MARK: Segue
@@ -187,7 +194,7 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
 
             if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
 
-                let selectedRestaurant = restaurantsLastSeen[indexPath.row]
+                let selectedRestaurant = restaurantsLastViewed[indexPath.row]
 
                 let destination = segue.destination as! RestaurantDetailsViewController
 

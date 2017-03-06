@@ -17,7 +17,7 @@
 			<key>Description</key>
 			<string>I&apos;m Lovin&apos; It.</string>
 			<key>Distance</key>
-			<string>1.61</string>
+			<real>1.61</real>
 			<key>Image</key>
 			<string>Mcdonalds.png</string>
 			<key>Cuisine</key>
@@ -25,9 +25,9 @@
 			<key>Address</key>
 			<string>1990 El Camino Real, Santa Clara</string>
 			<key>Reviews</key>
-			<string>2</string>
+			<integer>2</integer>
 			<key>Cost</key>
-			<string>1</string>
+			<integer>1</integer>
 			<key>OperationHours</key>
 			<string>7:00 AM - 11:00 PM</string>
 			<key>Menu</key>
@@ -39,7 +39,7 @@
 					<string>Potatoes Prepared in Vegetable Oil (Canola Oil, Corn Oil, Soybean Oil, Hydrogenated Soybean
 Oil) and Salt</string>
 					<key>Price</key>
-					<string>1.69</string>
+					<real>1.69</real>
 					<key>Image</key>
 					<string>McD_Fries.png</string>
 				</dict>
@@ -49,7 +49,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Vanilla reduced fat ice cream, m&amp;m mini milk chocolate candies</string>
 					<key>Price</key>
-					<string>2.39</string>
+					<real>2.39</real>
 					<key>Image</key>
 					<string>McFlurry.png</string>
 				</dict>
@@ -59,7 +59,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>100% beef patty, regular bun, pasteurized process american cheese, ketchup, mustard, pickle slices, onions</string>
 					<key>Price</key>
-					<string>1</string>
+					<integer>1</integer>
 					<key>Image</key>
 					<string>McD_Cheseburger.png</string>
 				</dict>
@@ -69,7 +69,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>White Boneless Chicken, Water, Food Starch-Modified, Salt, Seasoning</string>
 					<key>Price</key>
-					<string>1.99</string>
+					<real>1.99</real>
 					<key>Image</key>
 					<string>McD_Nugget.png</string>
 				</dict>
@@ -79,7 +79,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Mango Pineapple, Strawberry Banana, or Blueberry Pomegranate</string>
 					<key>Price</key>
-					<string>2.39</string>
+					<real>2.39</real>
 					<key>Image</key>
 					<string>McD_Smoothie.png</string>
 				</dict>
@@ -89,7 +89,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Premium roast coffee, ice, light cream, liquid sugar</string>
 					<key>Price</key>
-					<string>1.49</string>
+					<real>1.49</real>
 					<key>Image</key>
 					<string>McD_Coffee.png</string>
 				</dict>
@@ -101,7 +101,7 @@ Oil) and Salt</string>
 			<key>Description</key>
 			<string>The food is better at the Box.</string>
 			<key>Distance</key>
-			<string>0.62</string>
+			<real>0.62</real>
 			<key>Image</key>
 			<string>JackInTheBox.png</string>
 			<key>Cuisine</key>
@@ -109,9 +109,9 @@ Oil) and Salt</string>
 			<key>Address</key>
 			<string>911 El Camino Real Santa Clara</string>
 			<key>Reviews</key>
-			<string>3</string>
+			<integer>3</integer>
 			<key>Cost</key>
-			<string>2</string>
+			<integer>2</integer>
 			<key>OperationHours</key>
 			<string>8:00 AM - 10:00 PM</string>
 			<key>Menu</key>
@@ -122,7 +122,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Potatoes Prepared in Vegetable Oil (Canola Oil, Corn Oil, Soybean Oil, Hydrogenated Soybean Oil) and Salt</string>
 					<key>Price</key>
-					<string>2.29</string>
+					<real>2.29</real>
 					<key>Image</key>
 					<string>JITB_Curly.png</string>
 				</dict>
@@ -132,7 +132,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Chocolate, Vanilla, or Strawberry</string>
 					<key>Price</key>
-					<string>2.39</string>
+					<real>2.39</real>
 					<key>Image</key>
 					<string>JITB_Shake.png</string>
 				</dict>
@@ -142,7 +142,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>White Boneless Chicken, Water, Food Starch-Modified, Salt, Seasoning</string>
 					<key>Price</key>
-					<string>1.59</string>
+					<real>1.59</real>
 					<key>Image</key>
 					<string>JITB_Nugget.png</string>
 				</dict>
@@ -152,7 +152,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>100% beef patty, regular bun, pasteurized process american cheese, ketchup, mustard, pickle slices, onions</string>
 					<key>Price</key>
-					<string>2.49</string>
+					<real>2.49</real>
 					<key>Image</key>
 					<string>JITB_Burger.png</string>
 				</dict>
@@ -162,7 +162,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Grilled Chicken, Bacon Ranch Dressing, Gourmet Croutons</string>
 					<key>Price</key>
-					<string>5.49</string>
+					<real>5.49</real>
 					<key>Image</key>
 					<string>JITB_Salad.png</string>
 				</dict>
@@ -172,7 +172,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Skim Milk, Milk, Sugar, Palm Oil, Corn Syrup, Enriched Bleached Wheat Flour</string>
 					<key>Price</key>
-					<string>1.59</string>
+					<real>1.59</real>
 					<key>Image</key>
 					<string>JITB_Cheesecake.png</string>
 				</dict>
@@ -184,7 +184,7 @@ Oil) and Salt</string>
 			<key>Description</key>
 			<string>America&apos;s Diner is Always Open.</string>
 			<key>Distance</key>
-			<string>2.1</string>
+			<real>2.1</real>
 			<key>Image</key>
 			<string>Dennys.png</string>
 			<key>Cuisine</key>
@@ -192,9 +192,9 @@ Oil) and Salt</string>
 			<key>Address</key>
 			<string>1745 El Camino Real Santa Clara</string>
 			<key>Reviews</key>
-			<string>5</string>
+			<integer>5</integer>
 			<key>Cost</key>
-			<string>3</string>
+			<integer>3</integer>
 			<key>Menu</key>
 			<array>
 				<dict>
@@ -203,7 +203,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Ten pancake puppies, our bitesized round pancakes rolled in a delicious blend of cinnamon and sugar. </string>
 					<key>Price</key>
-					<string>2.99</string>
+					<real>2.99</real>
 					<key>Image</key>
 					<string>Denny_BOP.png</string>
 				</dict>
@@ -213,7 +213,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Two new fluffy buttermilk pancakes, two eggs, two bacon strips and two sausage links. Served with hash browns or choice of bread, plus coffee and juice.</string>
 					<key>Price</key>
-					<string>5.45</string>
+					<real>5.45</real>
 					<key>Image</key>
 					<string>Denny_BF.png</string>
 				</dict>
@@ -223,7 +223,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Our soups are kettlecooked to be rich and hearty. served with dinner bread</string>
 					<key>Price</key>
-					<string>2.39</string>
+					<real>2.39</real>
 					<key>Image</key>
 					<string>Denny_BOS.png</string>
 				</dict>
@@ -233,7 +233,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Your choice of goldenfried breaded chicken strips or a grilled seasoned chicken breast sliced on top of crisp mixed greens with grape tomatoes, cucumbers, red onions and cheddar cheese. </string>
 					<key>Price</key>
-					<string>5.99</string>
+					<real>5.99</real>
 					<key>Image</key>
 					<string>Denny_CDS.png</string>
 				</dict>
@@ -243,7 +243,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Tangy steak sauce drizzled over onion tanglers and melted swiss cheese. served with lettuce, tomato and red onion</string>
 					<key>Price</key>
-					<string>5.99</string>
+					<real>5.99</real>
 					<key>Image</key>
 					<string>Denny_WB.png</string>
 				</dict>
@@ -253,7 +253,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Thinly sliced turkey bread with melted swiss cheese, crisp bacon and tomato on grilled sourdough.</string>
 					<key>Price</key>
-					<string>4.79</string>
+					<real>4.79</real>
 					<key>Image</key>
 					<string>Denny_TSB.png</string>
 				</dict>
@@ -265,7 +265,7 @@ Oil) and Salt</string>
 			<key>Description</key>
 			<string>Habit does it always.</string>
 			<key>Distance</key>
-			<string>5.74</string>
+			<real>5.74</real>
 			<key>Image</key>
 			<string>TheHabit.png</string>
 			<key>Cuisine</key>
@@ -273,9 +273,9 @@ Oil) and Salt</string>
 			<key>Address</key>
 			<string>2000 El Camino Real Santa Clara</string>
 			<key>Reviews</key>
-			<string>1</string>
+			<integer>1</integer>
 			<key>Cost</key>
-			<string>2</string>
+			<integer>2</integer>
 			<key>Menu</key>
 			<array>
 				<dict>
@@ -284,7 +284,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Crisp lettuce, fresh tomato, caramelized onions, pickles, and mayo on a toasted bun.</string>
 					<key>Price</key>
-					<string>3.5</string>
+					<real>3.5</real>
 					<key>Image</key>
 					<string>HBG_CharBurger.png</string>
 				</dict>
@@ -294,7 +294,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Portabella mushrooms, melted White American cheese, crisp lettuce, fresh tomato, caramelized onions, pickle, and roasted garlic aioli on a toasted bun</string>
 					<key>Price</key>
-					<string>4.99</string>
+					<real>4.99</real>
 					<key>Image</key>
 					<string>HBG_RGPC.png</string>
 				</dict>
@@ -304,7 +304,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Veggie patty on a toasted wheat bun, green leaf lettuce, fresh tomatoes, cucumbers, and onions, with honey Dijon dressing</string>
 					<key>Price</key>
-					<string>4.45</string>
+					<real>4.45</real>
 					<key>Image</key>
 					<string>HBG_VB.png</string>
 				</dict>
@@ -314,7 +314,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Crunchy-battered, sweet white onions</string>
 					<key>Price</key>
-					<string>2.49</string>
+					<real>2.49</real>
 					<key>Image</key>
 					<string>HBG_Onion.png</string>
 				</dict>
@@ -324,7 +324,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Includes fries, apple slices or applesauce and a soft drink, apple juice, or milk</string>
 					<key>Price</key>
-					<string>3.99</string>
+					<real>3.99</real>
 					<key>Image</key>
 					<string>HBG_GC.png</string>
 				</dict>
@@ -334,7 +334,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Vanilla Soft Serve, Hershey&apos;s© Chocolate, Whipped Cream, and Nuts</string>
 					<key>Price</key>
-					<string>2.99</string>
+					<real>2.99</real>
 					<key>Image</key>
 					<string>HBG_Sundae.png</string>
 				</dict>
@@ -346,7 +346,7 @@ Oil) and Salt</string>
 			<key>Description</key>
 			<string>Have It Your Way.</string>
 			<key>Distance</key>
-			<string>3.1</string>
+			<real>3.1</real>
 			<key>Image</key>
 			<string>BurgerKing.png</string>
 			<key>Cuisine</key>
@@ -354,9 +354,9 @@ Oil) and Salt</string>
 			<key>Address</key>
 			<string>1925 El Camino Real Santa Clara</string>
 			<key>Reviews</key>
-			<string>5</string>
+			<integer>5</integer>
 			<key>Cost</key>
-			<string>1</string>
+			<integer>1</integer>
 			<key>Menu</key>
 			<array>
 				<dict>
@@ -366,7 +366,7 @@ Oil) and Salt</string>
 					<string>Potatoes Prepared in Vegetable Oil (Canola Oil, Corn Oil, Soybean Oil, Hydrogenated Soybean
 Oil) and Salt</string>
 					<key>Price</key>
-					<string>1.69</string>
+					<real>1.69</real>
 					<key>Image</key>
 					<string>BK_Fries.png</string>
 				</dict>
@@ -376,7 +376,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Season-ripe lettuce, carrots, and tomatoes topped with grilled chicken, three kinds of cheese, and your choice of ken&apos;s salad dressing</string>
 					<key>Price</key>
-					<string>5.99</string>
+					<real>5.99</real>
 					<key>Image</key>
 					<string>BK_Salad.png</string>
 				</dict>
@@ -386,7 +386,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Crunchy-battered, sweet white onions</string>
 					<key>Price</key>
-					<string>2.49</string>
+					<real>2.49</real>
 					<key>Image</key>
 					<string>BK_Onion.png</string>
 				</dict>
@@ -396,7 +396,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Two flame-broiled beef patties stacked high with red ripe tomatoes, crisp lettuce, creamy mayo, ketchup, crunchy pickles, and onions all on a toasted sesame seed bun.</string>
 					<key>Price</key>
-					<string>3.59</string>
+					<real>3.59</real>
 					<key>Image</key>
 					<string>BK_Whooper.png</string>
 				</dict>
@@ -406,7 +406,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Mango Pineapple, Strawberry Banana, or Blueberry Pomegranate</string>
 					<key>Price</key>
-					<string>2.39</string>
+					<real>2.39</real>
 					<key>Image</key>
 					<string>BK_Smoothie.png</string>
 				</dict>
@@ -416,7 +416,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Premium roast coffee, ice, light cream, liquid sugar</string>
 					<key>Price</key>
-					<string>1.49</string>
+					<real>1.49</real>
 					<key>Image</key>
 					<string>BK_Coffee.png</string>
 				</dict>
@@ -428,7 +428,7 @@ Oil) and Salt</string>
 			<key>Description</key>
 			<string>Food as it should be.</string>
 			<key>Distance</key>
-			<string>5.01</string>
+			<real>5.01</real>
 			<key>Image</key>
 			<string>PaneraBread.png</string>
 			<key>Cuisine</key>
@@ -436,9 +436,9 @@ Oil) and Salt</string>
 			<key>Address</key>
 			<string>2002 El Camino Real Santa Clara</string>
 			<key>Reviews</key>
-			<string>3</string>
+			<integer>3</integer>
 			<key>Cost</key>
-			<string>3</string>
+			<integer>3</integer>
 			<key>Menu</key>
 			<array>
 				<dict>
@@ -447,7 +447,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Roasted Turkey &amp; Avocado BLT</string>
 					<key>Price</key>
-					<string>8.789999999999999</string>
+					<real>8.789999999999999</real>
 					<key>Image</key>
 					<string>Panera_SS.png</string>
 				</dict>
@@ -457,7 +457,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Soba Noodle Bowl with Edamame or Lentil Quinoa Bowl with Cage-Free Egg - Meal</string>
 					<key>Price</key>
-					<string>11.18</string>
+					<real>11.18</real>
 					<key>Image</key>
 					<string>Panera_BB.png</string>
 				</dict>
@@ -467,7 +467,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Chicken Tortellini Alfredo, Butternut Squash Ravioli or Pasta Primavera - Meal</string>
 					<key>Price</key>
-					<string>11.18</string>
+					<real>11.18</real>
 					<key>Image</key>
 					<string>Panera_PSP.png</string>
 				</dict>
@@ -477,7 +477,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Mac &amp; Cheese</string>
 					<key>Price</key>
-					<string>5.99</string>
+					<real>5.99</real>
 					<key>Image</key>
 					<string>Panera_MAC.png</string>
 				</dict>
@@ -487,7 +487,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Broccoli Cheddar Soup</string>
 					<key>Price</key>
-					<string>4.29</string>
+					<real>4.29</real>
 					<key>Image</key>
 					<string>Panera_BCS.png</string>
 				</dict>
@@ -499,7 +499,7 @@ Oil) and Salt</string>
 			<key>Description</key>
 			<string>Yo quiero Taco Bell.</string>
 			<key>Distance</key>
-			<string>2.7</string>
+			<real>2.7</real>
 			<key>Image</key>
 			<string>TacoBell.png</string>
 			<key>Cuisine</key>
@@ -507,9 +507,9 @@ Oil) and Salt</string>
 			<key>Address</key>
 			<string>1680 El Camino Real Santa Clara</string>
 			<key>Reviews</key>
-			<string>5</string>
+			<integer>5</integer>
 			<key>Cost</key>
-			<string>1</string>
+			<integer>1</integer>
 			<key>Menu</key>
 			<array>
 				<dict>
@@ -518,7 +518,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>A double portion of seasoned beef loaded with warm nacho cheese sauce and seasoned rice</string>
 					<key>Price</key>
-					<string>5.99</string>
+					<real>5.99</real>
 					<key>Image</key>
 					<string>TB_Burrito.png</string>
 				</dict>
@@ -528,7 +528,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>A crunchy red corn tortilla shell, filled with seasoned ground beef , crisp shredded lettuce, real cheddar cheese and topped off with cheesy molten hot lava sauce.</string>
 					<key>Price</key>
-					<string>4.59</string>
+					<real>4.59</real>
 					<key>Image</key>
 					<string>TB_Volcano.png</string>
 				</dict>
@@ -538,7 +538,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Crisp, freshly prepared tortilla chips covered in warm nacho cheese sauce.</string>
 					<key>Price</key>
-					<string>3.59</string>
+					<real>3.59</real>
 					<key>Image</key>
 					<string>TB_Nacho.png</string>
 				</dict>
@@ -548,7 +548,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>A crispy tortilla bowl filled with marinated all - white meat chicken, and loaded with chunky beans , real cheddar cheese, seasoned rice , crisp shredded lettuce, diced ripe tomatoes, red tortilla strips, reduced fat sour cream and served with citrus salsa on the side.</string>
 					<key>Price</key>
-					<string>5.65</string>
+					<real>5.65</real>
 					<key>Image</key>
 					<string>TB_Salad.png</string>
 				</dict>
@@ -558,7 +558,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>a crunchy, corn taco shell filled with seasoned ground beef, crisp shredded lettuce, and real cheddar cheese</string>
 					<key>Price</key>
-					<string>5.65</string>
+					<real>5.65</real>
 					<key>Image</key>
 					<string>TB_Taco.png</string>
 				</dict>
@@ -570,7 +570,7 @@ Oil) and Salt</string>
 			<key>Description</key>
 			<string>Food with Integrity.</string>
 			<key>Distance</key>
-			<string>5.76</string>
+			<real>5.76</real>
 			<key>Image</key>
 			<string>Chipotle.png</string>
 			<key>Cuisine</key>
@@ -578,9 +578,9 @@ Oil) and Salt</string>
 			<key>Address</key>
 			<string>2002 El Camino Real Santa Clara</string>
 			<key>Reviews</key>
-			<string>4</string>
+			<integer>4</integer>
 			<key>Cost</key>
-			<string>2</string>
+			<integer>2</integer>
 			<key>Menu</key>
 			<array>
 				<dict>
@@ -589,7 +589,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Vegetarian, Chicken, Steak</string>
 					<key>Price</key>
-					<string>7.5</string>
+					<real>7.5</real>
 					<key>Image</key>
 					<string>Chipotle_BB.png</string>
 				</dict>
@@ -599,7 +599,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>A crunchy red corn tortilla shell, filled with seasoned ground beef , crisp shredded lettuce, real cheddar cheese and topped off with cheesy molten hot lava sauce.</string>
 					<key>Price</key>
-					<string>4.59</string>
+					<real>4.59</real>
 					<key>Image</key>
 					<string>TB_Volcano.png</string>
 				</dict>
@@ -609,7 +609,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Avacado, Cilantro, Salt, Onion, Tomato</string>
 					<key>Price</key>
-					<string>3.59</string>
+					<real>3.59</real>
 					<key>Image</key>
 					<string>Chipotle_CG.png</string>
 				</dict>
@@ -619,7 +619,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Cheese, All purpose flour, Salt</string>
 					<key>Price</key>
-					<string>3.75</string>
+					<real>3.75</real>
 					<key>Image</key>
 					<string>Chipotle_CQ.png</string>
 				</dict>
@@ -629,7 +629,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Your choice of drink</string>
 					<key>Price</key>
-					<string>1.8</string>
+					<real>1.8</real>
 					<key>Image</key>
 					<string>Chipotle_Soda.png</string>
 				</dict>
@@ -641,7 +641,7 @@ Oil) and Salt</string>
 			<key>Description</key>
 			<string>Delicious Food and best Service</string>
 			<key>Distance</key>
-			<string>5.76</string>
+			<real>5.76</real>
 			<key>Image</key>
 			<string>Peacock.png</string>
 			<key>Cuisine</key>
@@ -649,9 +649,9 @@ Oil) and Salt</string>
 			<key>Address</key>
 			<string>2798 El Camino Real Santa Clara CA 95051</string>
 			<key>Reviews</key>
-			<string>4</string>
+			<integer>4</integer>
 			<key>Cost</key>
-			<string>2</string>
+			<integer>2</integer>
 			<key>Menu</key>
 			<array>
 				<dict>
@@ -660,7 +660,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Vegetarian, Chicken, Steak</string>
 					<key>Price</key>
-					<string>7.5</string>
+					<real>7.5</real>
 					<key>Image</key>
 					<string>Chipotle_BB.png</string>
 				</dict>
@@ -670,7 +670,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>A crunchy red corn tortilla shell, filled with seasoned ground beef , crisp shredded lettuce, real cheddar cheese and topped off with cheesy molten hot lava sauce.</string>
 					<key>Price</key>
-					<string>4.59</string>
+					<real>4.59</real>
 					<key>Image</key>
 					<string>TB_Volcano.png</string>
 				</dict>
@@ -680,7 +680,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Avacado, Cilantro, Salt, Onion, Tomato</string>
 					<key>Price</key>
-					<string>3.59</string>
+					<real>3.59</real>
 					<key>Image</key>
 					<string>Chipotle_CG.png</string>
 				</dict>
@@ -690,7 +690,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Cheese, All purpose flour, Salt</string>
 					<key>Price</key>
-					<string>3.75</string>
+					<real>3.75</real>
 					<key>Image</key>
 					<string>Chipotle_CQ.png</string>
 				</dict>
@@ -700,7 +700,7 @@ Oil) and Salt</string>
 					<key>Details</key>
 					<string>Your choice of drink</string>
 					<key>Price</key>
-					<string>1.8</string>
+					<real>1.8</real>
 					<key>Image</key>
 					<string>Chipotle_Soda.png</string>
 				</dict>
