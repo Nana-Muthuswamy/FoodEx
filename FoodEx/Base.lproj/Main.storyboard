@@ -561,7 +561,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuDetails" rowHeight="70" id="Hce-uk-s2i" customClass="MenuItemDetailsTableViewCell" customModule="FoodEx" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuItem" rowHeight="70" id="Hce-uk-s2i" customClass="MenuItemTableViewCell" customModule="FoodEx" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="100" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hce-uk-s2i" id="3IL-qc-reW">
@@ -792,7 +792,7 @@
                                     <outlet property="symbolImageView" destination="f0c-zk-pzO" id="jRn-tI-10B"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuDetails" id="gxc-lx-3AW" customClass="MenuItemDetailsTableViewCell" customModule="FoodEx" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuItem" id="gxc-lx-3AW" customClass="MenuItemTableViewCell" customModule="FoodEx" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="155.5" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gxc-lx-3AW" id="hUC-3M-T2e">

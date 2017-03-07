@@ -81,7 +81,7 @@ class CartViewController: UITableViewController {
 
         case OrderDetailsSections.MenuItem:
 
-            let tableCell = tableView.dequeueReusableCell(withIdentifier: "MenuDetails") as! MenuItemDetailsTableViewCell
+            let tableCell = tableView.dequeueReusableCell(withIdentifier: "CartItem") as! CartItemTableViewCell
 
             let menuItem = orderDetails.items[indexPath.row]
 

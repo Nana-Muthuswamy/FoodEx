@@ -67,7 +67,7 @@ class RestaurantViewController: AppBaseViewController {
 
         case DetailsSection.Menu:
 
-            let tableCell = tableView.dequeueReusableCell(withIdentifier: "MenuDetails")! as! MenuItemDetailsTableViewCell
+            let tableCell = tableView.dequeueReusableCell(withIdentifier: "MenuItem")! as! MenuItemTableViewCell
 
             let menuItem = restaurant.menu[indexPath.row]
 

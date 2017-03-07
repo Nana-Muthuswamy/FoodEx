@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuItemDetailsTableViewCell: UITableViewCell {
+class MenuItemTableViewCell: UITableViewCell {
 
     @IBOutlet weak var menuItemImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -17,7 +17,7 @@ class MenuItemDetailsTableViewCell: UITableViewCell {
 
 }
 
-class CartItemTableViewCell: MenuItemDetailsTableViewCell {
+class CartItemTableViewCell: MenuItemTableViewCell {
     @IBOutlet weak var quantityField: UITextField!
 
 }

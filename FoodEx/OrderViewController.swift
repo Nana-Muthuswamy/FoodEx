@@ -78,7 +78,7 @@ class OrderViewController: UITableViewController {
 
         case OrderDetailsSections.MenuItem:
 
-            let tableCell = tableView.dequeueReusableCell(withIdentifier: "MenuDetails") as! MenuItemDetailsTableViewCell
+            let tableCell = tableView.dequeueReusableCell(withIdentifier: "MenuItem") as! MenuItemTableViewCell
 
             let menuItem = orderDetails.items[indexPath.row]
 
