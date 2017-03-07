@@ -14,8 +14,8 @@ enum OrderStatus: Int {
 
 struct Order {
 
-    var reference: String
-    var title: String
+    let reference: String
+    let title: String
     let date: String
     var status: OrderStatus
     var items: Array<OrderItem>

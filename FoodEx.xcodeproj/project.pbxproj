@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		391A4B121E6E44E500163125 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391A4B111E6E44E500163125 /* CartViewController.swift */; };
+		391A4B141E6E682100163125 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391A4B131E6E682100163125 /* Cart.swift */; };
 		393D72861E6B3B92005B9679 /* OrderSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D72851E6B3B92005B9679 /* OrderSummaryTableViewCell.swift */; };
 		393D72881E6B506C005B9679 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D72871E6B506C005B9679 /* OrderViewController.swift */; };
 		393D728B1E6B9524005B9679 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D728A1E6B9524005B9679 /* Order.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		391A4B111E6E44E500163125 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		391A4B131E6E682100163125 /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		393D72851E6B3B92005B9679 /* OrderSummaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSummaryTableViewCell.swift; sourceTree = "<group>"; };
 		393D72871E6B506C005B9679 /* OrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		393D728A1E6B9524005B9679 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
@@ -69,10 +71,10 @@
 		393D72891E6B94C7005B9679 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				39C95A0F1E4FDC9500D56416 /* AppDataMart.swift */,
 				39E6AFA71E6C8DD8002E0CA7 /* Restaurant.swift */,
 				39E6AFA91E6CE516002E0CA7 /* MenuItem.swift */,
 				393D728A1E6B9524005B9679 /* Order.swift */,
+				391A4B131E6E682100163125 /* Cart.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				39B870AD1E45CE2100F63751 /* AppDelegate.swift */,
+				39C95A0F1E4FDC9500D56416 /* AppDataMart.swift */,
 				393D72891E6B94C7005B9679 /* Models */,
 				39F346D41E56C66F008E4A03 /* Views */,
 				39F346D51E56C692008E4A03 /* Controllers */,
@@ -232,6 +235,7 @@
 				39F089051E518F4500F70E2B /* RestaurantSearchResultsController.swift in Sources */,
 				39E0317F1E66A92C00CA1400 /* MenuItemDetailsTableViewCell.swift in Sources */,
 				39ED632F1E6A569B0039452D /* AppBaseViewController.swift in Sources */,
+				391A4B141E6E682100163125 /* Cart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

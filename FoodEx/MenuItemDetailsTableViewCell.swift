@@ -17,7 +17,7 @@ class MenuItemDetailsTableViewCell: UITableViewCell {
 
 }
 
-class EditableMenuItemDetailsTableViewCell: MenuItemDetailsTableViewCell {
+class CartItemTableViewCell: MenuItemDetailsTableViewCell {
     @IBOutlet weak var quantityField: UITextField!
 
 }
