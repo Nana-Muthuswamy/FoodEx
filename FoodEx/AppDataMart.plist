@@ -652,57 +652,428 @@ Oil) and Salt</string>
 			<integer>4</integer>
 			<key>Cost</key>
 			<integer>2</integer>
+			<key>OperationHours</key>
+			<string>11:30 AM - 10:00 PM</string>
 			<key>Menu</key>
 			<array>
 				<dict>
 					<key>Name</key>
-					<string>Burrito Bowl</string>
+					<string>Butter Chicken</string>
 					<key>Details</key>
-					<string>Vegetarian, Chicken, Steak</string>
+					<string>Chicken cooked with yogurt, kasuri methi, oil, turmeric, ginger garlic paste, and garam masala powder</string>
 					<key>Price</key>
-					<real>7.5</real>
+					<real>9.99</real>
 					<key>Image</key>
-					<string>Chipotle_BB.png</string>
+					<string>Peacock_BC.png</string>
 				</dict>
 				<dict>
 					<key>Name</key>
-					<string>Taco</string>
+					<string>Chilli Paneer</string>
 					<key>Details</key>
-					<string>A crunchy red corn tortilla shell, filled with seasoned ground beef , crisp shredded lettuce, real cheddar cheese and topped off with cheesy molten hot lava sauce.</string>
+					<string>Chinese style, Indian cottage cheese (paneer) dumplings, battered and fried till golden brown.</string>
 					<key>Price</key>
-					<real>4.59</real>
+					<real>8.99</real>
 					<key>Image</key>
-					<string>TB_Volcano.png</string>
+					<string>Peacock_CP.png</string>
 				</dict>
 				<dict>
 					<key>Name</key>
-					<string>Chips &amp; Guacamole</string>
+					<string>Chicken Dum Biryani</string>
 					<key>Details</key>
-					<string>Avacado, Cilantro, Salt, Onion, Tomato</string>
+					<string>Long grain basmati rice flavored with saffron and cooked with a delicate blend of exotic spices and herbs and chicken, served with raita and curry sauce.</string>
 					<key>Price</key>
-					<real>3.59</real>
+					<real>10.99</real>
 					<key>Image</key>
-					<string>Chipotle_CG.png</string>
+					<string>Peacock_CDB.png</string>
 				</dict>
 				<dict>
 					<key>Name</key>
-					<string>Cheese Quesadilla (No Meat)</string>
+					<string>Veg Dum Biryani</string>
 					<key>Details</key>
-					<string>Cheese, All purpose flour, Salt</string>
+					<string>Long grain basmati rice flavored with saffron and cooked with a delicate blend of exotic spices and herbs and vegetables, served with raita and curry sauce.</string>
 					<key>Price</key>
-					<real>3.75</real>
+					<real>9.99</real>
 					<key>Image</key>
-					<string>Chipotle_CQ.png</string>
+					<string>Peacock_VDB.png</string>
 				</dict>
 				<dict>
 					<key>Name</key>
-					<string>Soda</string>
+					<string>Chana Masala</string>
 					<key>Details</key>
-					<string>Your choice of drink</string>
+					<string>Garbanzo beans cooked with finely chopped with onions, tomatoes and spices.</string>
 					<key>Price</key>
-					<real>1.8</real>
+					<real>6.99</real>
 					<key>Image</key>
-					<string>Chipotle_Soda.png</string>
+					<string>Peacock_CM.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Chana Masala</string>
+					<key>Details</key>
+					<string>Garbanzo beans cooked with finely chopped with onions, tomatoes and spices.</string>
+					<key>Price</key>
+					<real>6.99</real>
+					<key>Image</key>
+					<string>Peacock_CM.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Malai Kofta</string>
+					<key>Details</key>
+					<string>Koftas made of cottage cheese, potatoes, almonds cooked in rich creamy sauce.</string>
+					<key>Price</key>
+					<real>9.99</real>
+					<key>Image</key>
+					<string>Peacock_MK.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Andhra Chicken Curry</string>
+					<key>Details</key>
+					<string>Boneless chicken cooked with tomato and onion sauce and garnished with egg.</string>
+					<key>Price</key>
+					<real>7.99</real>
+					<key>Image</key>
+					<string>Peacock_ACC.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Naan</string>
+					<key>Details</key>
+					<string>All purpose flour mixed with oil, water, pressed thin and cooked in tandoori oven</string>
+					<key>Price</key>
+					<real>1.99</real>
+					<key>Image</key>
+					<string>Peacock_naan.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Garlic Naan</string>
+					<key>Details</key>
+					<string>l purpose flour mixed with oil, water, pressed thin and garnished with garlic, cooked in tandoori oven.</string>
+					<key>Price</key>
+					<real>2.5</real>
+					<key>Image</key>
+					<string>Peacock_GN.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Chicken Chettinad</string>
+					<key>Details</key>
+					<string>Chicken cooked in traditional south Indian herbs.</string>
+					<key>Price</key>
+					<real>8.99</real>
+					<key>Image</key>
+					<string>Peacock_CC.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Gulab Jamun</string>
+					<key>Details</key>
+					<string>Juicy milk balls dipped in honey syrup Rice in thick milk with almonds, nuts, raisins</string>
+					<key>Price</key>
+					<real>3.99</real>
+					<key>Image</key>
+					<string>Peacock_Gulab.png</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Kebab and Curry</string>
+			<key>Description</key>
+			<string>Indian Pakistani food Service</string>
+			<key>Distance</key>
+			<real>2.5</real>
+			<key>Image</key>
+			<string>Kebab.png</string>
+			<key>Cuisine</key>
+			<string>Indian</string>
+			<key>Address</key>
+			<string>1498 Isabella St Santa Clara, CA 95050</string>
+			<key>Reviews</key>
+			<integer>4</integer>
+			<key>Cost</key>
+			<integer>2</integer>
+			<key>OperationHours</key>
+			<string>12:00 PM - 10:00 PM</string>
+			<key>Menu</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>Chicken Leg Quarter</string>
+					<key>Details</key>
+					<string>Leg quarter marinated in our homemade spices and baked over grill repliques montres</string>
+					<key>Price</key>
+					<real>4.5</real>
+					<key>Image</key>
+					<string>Kebab_CL.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Butter Chicken</string>
+					<key>Details</key>
+					<string>Boneless chicken thigh meat marinated in spices; baked over charcoal and then cooked in onion and tomato sauces along with some cream. Smooth texture.</string>
+					<key>Price</key>
+					<real>9.25</real>
+					<key>Image</key>
+					<string>Peacock_BC.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Aaloo gobi</string>
+					<key>Details</key>
+					<string>Cauliflower cooked with potato using onion and tomato sauce.</string>
+					<key>Price</key>
+					<real>6.5</real>
+					<key>Image</key>
+					<string>Kebab_AG.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Rice</string>
+					<key>Details</key>
+					<string>Basmati rice cooked with cumin, herbs and other spices.</string>
+					<key>Price</key>
+					<real>2.85</real>
+					<key>Image</key>
+					<string>Kebab_Rice.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Naan</string>
+					<key>Details</key>
+					<string>All purpose flour mixed with oil, water, pressed thin and cooked in tandoori oven</string>
+					<key>Price</key>
+					<real>1.99</real>
+					<key>Image</key>
+					<string>Peacock_naan.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Garlic Naan</string>
+					<key>Details</key>
+					<string>l purpose flour mixed with oil, water, pressed thin and garnished with garlic, cooked in tandoori oven.</string>
+					<key>Price</key>
+					<real>2.5</real>
+					<key>Image</key>
+					<string>Peacock_GN.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Bread butter pudding</string>
+					<key>Details</key>
+					<string>Bread used with milk, eggs and baked in the oven.</string>
+					<key>Price</key>
+					<real>2.5</real>
+					<key>Image</key>
+					<string>Kebab_BBP.png</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Mayuri Indian Cuisine</string>
+			<key>Description</key>
+			<string>Indian  food Service</string>
+			<key>Distance</key>
+			<real>3.5</real>
+			<key>Image</key>
+			<string>Mayuri.png</string>
+			<key>Cuisine</key>
+			<string>Indian</string>
+			<key>Address</key>
+			<string>2232 El Camino Real Santa Clara, CA 95050</string>
+			<key>Reviews</key>
+			<integer>4</integer>
+			<key>Cost</key>
+			<integer>2</integer>
+			<key>OperationHours</key>
+			<string>11:00 PM - 10:30 PM</string>
+			<key>Menu</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>Vada Sambar</string>
+					<key>Details</key>
+					<string>Fried lentil cake dipped in sambar</string>
+					<key>Price</key>
+					<real>4.95</real>
+					<key>Image</key>
+					<string>Mayuri_SV.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Tomato Utappam</string>
+					<key>Details</key>
+					<string>Pancake made with lentils, tomatoes and chilies</string>
+					<key>Price</key>
+					<real>5.95</real>
+					<key>Image</key>
+					<string>Mayuri_TU.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>South Indian Combo</string>
+					<key>Details</key>
+					<string>Pick from masala dosa or uthapam, 1 pc Idly, 1 pc vada</string>
+					<key>Price</key>
+					<real>8.949999999999999</real>
+					<key>Image</key>
+					<string>Mayuri_SIC.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Sambar Thick</string>
+					<key>Details</key>
+					<string>Vegetable soup of lentils</string>
+					<key>Price</key>
+					<real>4.95</real>
+					<key>Image</key>
+					<string>Mayuri_Saambar.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Kachumber Salad</string>
+					<key>Details</key>
+					<string>Fine diced vegetables and seasoned</string>
+					<key>Price</key>
+					<real>4.95</real>
+					<key>Image</key>
+					<string>Mayuri_KS.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Vegetarian Thali</string>
+					<key>Details</key>
+					<string>2 curries of the day, sambar, rasa, dal, raita &amp; dessert</string>
+					<key>Price</key>
+					<real>9.949999999999999</real>
+					<key>Image</key>
+					<string>Mayuri_VT.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Tandoori Vegetable Platter</string>
+					<key>Details</key>
+					<string>Cauliflowers, oopu, zucchini, potatoes, tomatoes, green chili, paneer bell pepper with spices cooked in clay oven</string>
+					<key>Price</key>
+					<real>9.949999999999999</real>
+					<key>Image</key>
+					<string>Mayuri_P.png</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Aachi Aappakadai</string>
+			<key>Description</key>
+			<string>South Indian Chettinad food </string>
+			<key>Distance</key>
+			<integer>3</integer>
+			<key>Image</key>
+			<string>Aachi-Aappakadai.png</string>
+			<key>Cuisine</key>
+			<string>Indian</string>
+			<key>Address</key>
+			<string>3075 El Camino Real Santa Clara, CA 95050</string>
+			<key>Reviews</key>
+			<integer>4</integer>
+			<key>Cost</key>
+			<integer>2</integer>
+			<key>OperationHours</key>
+			<string>11:00 PM - 10:30 PM</string>
+			<key>Menu</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>Kozhi Soup</string>
+					<key>Details</key>
+					<string>Kozhi Soup spicy dish</string>
+					<key>Price</key>
+					<real>3.99</real>
+					<key>Image</key>
+					<string>AAK_KS.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Rasam</string>
+					<key>Details</key>
+					<string>Traditional South Indian soup flavored with garlic, pepper and cumin.</string>
+					<key>Price</key>
+					<real>3.49</real>
+					<key>Image</key>
+					<string>AAK_Rasam.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Chicken 65</string>
+					<key>Details</key>
+					<string>Boneless chicken pieces marinated with exotic spices and deep fried.</string>
+					<key>Price</key>
+					<real>9.99</real>
+					<key>Image</key>
+					<string>AAK_C65.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Rice</string>
+					<key>Details</key>
+					<string>Basmati rice cooked with cumin, herbs and other spices.</string>
+					<key>Price</key>
+					<real>2.85</real>
+					<key>Image</key>
+					<string>Kebab_Rice.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Vegetable Pakora</string>
+					<key>Details</key>
+					<string>Shredded vegetables battered with besan flour, rice flour and spices and deep fried.</string>
+					<key>Price</key>
+					<real>7.49</real>
+					<key>Image</key>
+					<string>AAK_VP.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Aappam</string>
+					<key>Details</key>
+					<string>Bowl shaped thin pancakes made from fermented rice flour cooked in a traditional Aappachatti.</string>
+					<key>Price</key>
+					<real>8.99</real>
+					<key>Image</key>
+					<string>AAK_AApam.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Dosa</string>
+					<key>Details</key>
+					<string>Thin crispy pancake made with fermented rice &amp; lentil batter (served w/3 chutneys &amp; sambhar)</string>
+					<key>Price</key>
+					<real>7.49</real>
+					<key>Image</key>
+					<string>AAK_Dosa.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Vegetarian thali</string>
+					<key>Details</key>
+					<string>Chappati, Rice, Sambhar, Kara kolumbu, Rasam, 2 vegetables, Veg Khurma, variety rice, yogurt, sweet, pickle, pappad.</string>
+					<key>Price</key>
+					<real>10.99</real>
+					<key>Image</key>
+					<string>Mayuri_VT.png</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Chicken thali</string>
+					<key>Details</key>
+					<string>Chappati, Rice, Chicken Curry, Fish Curry, Sambhar, Rasam, 2 vegetables, Veg Khurma, variety rice, yogurt, sweet, pickle, pappad</string>
+					<key>Price</key>
+					<real>12.99</real>
+					<key>Image</key>
+					<string>AAK_CT.png</string>
 				</dict>
 			</array>
 		</dict>

@@ -169,7 +169,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CNI-dO-t4t" userLabel="Reviews Stack">
+                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CNI-dO-t4t" userLabel="Reviews Stack">
                                             <rect key="frame" x="120" y="51" width="0.0" height="15"/>
                                             <subviews>
                                                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="87O-kS-4dg">
@@ -353,7 +353,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="m0m-Rt-OSx" userLabel="Reviews Stack">
+                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="m0m-Rt-OSx" userLabel="Reviews Stack">
                                             <rect key="frame" x="120" y="51" width="0.0" height="15"/>
                                             <subviews>
                                                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ReviewStar" translatesAutoresizingMaskIntoConstraints="NO" id="IVn-dx-2b5">
@@ -609,7 +609,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9I7-YO-drh">
                                             <rect key="frame" x="75" y="10" width="131" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="Hhv-iJ-gqW"/>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="Hhv-iJ-gqW"/>
                                                 <constraint firstAttribute="height" constant="21" id="QTk-yW-gZe"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -629,7 +629,7 @@
                                             <rect key="frame" x="313" y="10" width="39" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="Ehm-gS-S0k"/>
-                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="x8D-BE-Dan"/>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="70" id="x8D-BE-Dan"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -673,7 +673,7 @@
                                             <rect key="frame" x="75" y="10" width="131" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="NFP-cL-59C"/>
-                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="190" id="VbT-ej-bQw"/>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="170" id="VbT-ej-bQw"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -689,17 +689,17 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeN-Xu-YPi">
-                                            <rect key="frame" x="312" y="10" width="40" height="21"/>
+                                            <rect key="frame" x="282" y="10" width="70" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="IQr-np-ZsG"/>
-                                                <constraint firstAttribute="width" constant="40" id="bsL-xH-1B5"/>
+                                                <constraint firstAttribute="width" constant="70" id="bsL-xH-1B5"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hDN-ls-ICO" userLabel="Quantity">
-                                            <rect key="frame" x="279" y="7" width="25" height="30"/>
+                                            <rect key="frame" x="249" y="7" width="25" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="Zy2-tp-0px"/>
                                             </constraints>
@@ -916,7 +916,7 @@
                                             <rect key="frame" x="75" y="10" width="131" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="Da3-n3-xzO"/>
-                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="ujR-Dc-Ffv"/>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="ujR-Dc-Ffv"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -935,7 +935,7 @@
                                             <rect key="frame" x="313" y="10" width="39" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="oT7-KE-Dzz"/>
-                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="q3a-po-Cov"/>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="70" id="q3a-po-Cov"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
