@@ -1,5 +1,5 @@
 //
-//  OrderDetailsViewController.swift
+//  OrderViewController.swift
 //  FoodEx
 //
 //  Created by Nana on 3/4/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OrderDetailsViewController: UITableViewController {
+class OrderViewController: UITableViewController {
 
     var orderDetails: Order!
 

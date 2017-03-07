@@ -1,5 +1,5 @@
 //
-//  RestaurantDetailsViewController.swift
+//  RestaurantViewController.swift
 //  FoodEx
 //
 //  Created by Nana on 2/28/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RestaurantDetailsViewController: AppBaseViewController {
+class RestaurantViewController: AppBaseViewController {
 
     var restaurant: Restaurant!
 

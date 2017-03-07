@@ -42,6 +42,12 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
 
         restaurantsLastViewed = AppDataMart.shared.restaurantsLastViewed
 
+        // TDO - Remove this check after implementing functional Cart View Controller
+        if restaurantsLastViewed.count > 0 {
+            orderHistory = AppDataMart.shared.orderHistory
+        }
+
+
         tableView.reloadData()
     }
 
@@ -162,7 +168,7 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
     // MARK: Utils
     private func setupSearchController() -> Void {
 
-        let searchResultsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RestaurantsSearchResultsController") as! RestaurantsSearchResultsController
+        let searchResultsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RestaurantSearchResultsController") as! RestaurantSearchResultsController
 
         searchController = UISearchController(searchResultsController: searchResultsController)
         searchController.searchResultsUpdater = searchResultsController
@@ -183,30 +189,34 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
 
         cuisines = AppDataMart.shared.cuisines
         restaurantsLastViewed = AppDataMart.shared.restaurantsLastViewed
-        orderHistory = AppDataMart.shared.orderHistory
+
+        // TDO - Remove this check after implementing functional Cart View Controller
+        if restaurantsLastViewed.count > 0 {
+            orderHistory = AppDataMart.shared.orderHistory
+        }
     }
 
     // MARK: Segue
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        if (segue.identifier == "ShowRestaurantDetails") {
+        if (segue.identifier == "ShowRestaurantView") {
 
             if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
 
                 let selectedRestaurant = restaurantsLastViewed[indexPath.row]
 
-                let destination = segue.destination as! RestaurantDetailsViewController
+                let destination = segue.destination as! RestaurantViewController
 
                 destination.restaurant = selectedRestaurant
             }
 
-        } else if (segue.identifier == "ShowOrderDetails") {
+        } else if (segue.identifier == "ShowOrderView") {
 
             if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
 
                 let selectedOrder = orderHistory[indexPath.row]
-                let destination = segue.destination as! OrderDetailsViewController
+                let destination = segue.destination as! OrderViewController
 
                 destination.orderDetails = selectedOrder
             }

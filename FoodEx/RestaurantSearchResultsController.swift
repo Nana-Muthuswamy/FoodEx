@@ -1,5 +1,5 @@
 //
-//  RestaurantsSearchResultsController.swift
+//  RestaurantSearchResultsController.swift
 //  FoodEx
 //
 //  Created by Nana on 2/12/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RestaurantsSearchResultsController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
+class RestaurantSearchResultsController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
 
     var restaurants: Array<Restaurant> = [] {
         didSet {
@@ -96,7 +96,7 @@ class RestaurantsSearchResultsController: UITableViewController, UISearchResults
 
         let selectedRestaurant = filteredRestaurants[indexPath.row]
 
-        let destination = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RestaurantDetailsViewController") as! RestaurantDetailsViewController
+        let destination = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RestaurantViewController") as! RestaurantViewController
 
         destination.restaurant = selectedRestaurant
 
