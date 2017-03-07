@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		391A4B121E6E44E500163125 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391A4B111E6E44E500163125 /* CartViewController.swift */; };
 		393D72861E6B3B92005B9679 /* OrderSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D72851E6B3B92005B9679 /* OrderSummaryTableViewCell.swift */; };
 		393D72881E6B506C005B9679 /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D72871E6B506C005B9679 /* OrderDetailsViewController.swift */; };
 		393D728B1E6B9524005B9679 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D728A1E6B9524005B9679 /* Order.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		391A4B111E6E44E500163125 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		393D72851E6B3B92005B9679 /* OrderSummaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSummaryTableViewCell.swift; sourceTree = "<group>"; };
 		393D72871E6B506C005B9679 /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		393D728A1E6B9524005B9679 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				39F089041E518F4500F70E2B /* RestaurantsSearchResultsController.swift */,
 				39E0317C1E6691C700CA1400 /* RestaurantDetailsViewController.swift */,
 				393D72871E6B506C005B9679 /* OrderDetailsViewController.swift */,
+				391A4B111E6E44E500163125 /* CartViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				39B870AE1E45CE2100F63751 /* AppDelegate.swift in Sources */,
 				393D72861E6B3B92005B9679 /* OrderSummaryTableViewCell.swift in Sources */,
 				39E6AFAA1E6CE516002E0CA7 /* MenuItem.swift in Sources */,
+				391A4B121E6E44E500163125 /* CartViewController.swift in Sources */,
 				393D72881E6B506C005B9679 /* OrderDetailsViewController.swift in Sources */,
 				393D728B1E6B9524005B9679 /* Order.swift in Sources */,
 				39F346D31E552A09008E4A03 /* RestaurantSynopsisTableViewCell.swift in Sources */,

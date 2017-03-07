@@ -1,14 +1,14 @@
 //
-//  OrderDetailsViewController.swift
+//  CartViewController.swift
 //  FoodEx
 //
-//  Created by Nana on 3/4/17.
+//  Created by Nana on 3/6/17.
 //  Copyright © 2017 Apple. All rights reserved.
 //
 
 import UIKit
 
-class OrderDetailsViewController: UITableViewController {
+class CartViewController: UITableViewController {
 
     var orderDetails: Order!
 
@@ -25,7 +25,12 @@ class OrderDetailsViewController: UITableViewController {
     // MARK: UITableViewDataSource
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return OrderDetailsSections.totalSections()
+
+        if (orderDetails != nil) {
+            return OrderDetailsSections.totalSections()
+        } else {
+            return 1
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -36,7 +41,7 @@ class OrderDetailsViewController: UITableViewController {
             if (orderDetails) != nil {
                 return 2
             } else {
-                return 0
+                return 1
             }
 
         case OrderDetailsSections.MenuItem:
@@ -46,12 +51,12 @@ class OrderDetailsViewController: UITableViewController {
                 return 0
             }
 
-        case OrderDetailsSections.Total:
-            if (orderDetails) != nil {
-                return 2
-            } else {
-                return 0
-            }
+//        case OrderDetailsSections.Total:
+//            if (orderDetails) != nil {
+//                return 2
+//            } else {
+//                return 0
+//            }
 
         default:
             return 0
@@ -64,14 +69,12 @@ class OrderDetailsViewController: UITableViewController {
 
         case OrderDetailsSections.Summary:
 
-            let tableCell = tableView.dequeueReusableCell(withIdentifier: "OrderItemDetail")!
+            var tableCell: UITableViewCell
 
-            if indexPath.row == 0 {
-                tableCell.textLabel?.text = "Title"
-                tableCell.detailTextLabel?.text = orderDetails.title + " - " + orderDetails.date
-            } else if indexPath.row == 1 {
-                tableCell.textLabel?.text = "Reference #"
-                tableCell.detailTextLabel?.text = orderDetails.reference
+            if (orderDetails != nil) {
+                tableCell = tableView.dequeueReusableCell(withIdentifier: "OrderTitle")!
+            } else {
+                tableCell = tableView.dequeueReusableCell(withIdentifier: "EmptyCart")!
             }
 
             return tableCell
@@ -89,19 +92,19 @@ class OrderDetailsViewController: UITableViewController {
 
             return tableCell
 
-        case OrderDetailsSections.Total:
-
-            let tableCell = tableView.dequeueReusableCell(withIdentifier: "OrderItemDetail")!
-
-            if indexPath.row == 0 {
-                tableCell.textLabel?.text = "Sub Total"
-                tableCell.detailTextLabel?.text = orderDetails.formattedSubTotal
-            } else if indexPath.row == 1 {
-                tableCell.textLabel?.text = "Grand Total (tax incl.)"
-                tableCell.detailTextLabel?.text = orderDetails.formattedGrandTotal
-            }
-
-            return tableCell
+//        case OrderDetailsSections.Total:
+//
+//            let tableCell = tableView.dequeueReusableCell(withIdentifier: "OrderItemDetail")!
+//
+//            if indexPath.row == 0 {
+//                tableCell.textLabel?.text = "Sub Total"
+//                tableCell.detailTextLabel?.text = orderDetails.formattedSubTotal
+//            } else if indexPath.row == 1 {
+//                tableCell.textLabel?.text = "Grand Total (tax incl.)"
+//                tableCell.detailTextLabel?.text = orderDetails.formattedGrandTotal
+//            }
+//
+//            return tableCell
 
         default:
             return UITableViewCell()
@@ -113,26 +116,43 @@ class OrderDetailsViewController: UITableViewController {
         switch section {
 
         case OrderDetailsSections.Summary:
-            return "Summary"
+            if (orderDetails != nil) {
+                return "Summary"
+            } else {
+                return ""
+            }
         case OrderDetailsSections.MenuItem:
-            return "Items"
-        case OrderDetailsSections.Total:
-            return "Total"
+            if let count = orderDetails?.items.count, count > 0 {
+                return "Items"
+            } else {
+                return ""
+            }
+//        case OrderDetailsSections.Total:
+//            return "Total"
         default:
             return ""
         }
     }
 
     // MARK: UITableViewDelegate
-
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-
+        
         switch indexPath.section {
+
+        case OrderDetailsSections.Summary:
+            if (orderDetails != nil) {
+                return 44
+            } else {
+                return 300
+            }
 
         case OrderDetailsSections.MenuItem:
             return 70
+
         default:
             return 44
         }
     }
+
 }
