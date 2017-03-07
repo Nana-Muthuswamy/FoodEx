@@ -86,6 +86,27 @@ struct Order {
 
         self.init(reference: source["Reference"] as? String, title: source["Title"] as? String, date: source["Date"] as? String, status: source["Status"] as? OrderStatus, items: orderItems)
     }
+
+    func dictionaryRepresentation() -> Dictionary<String, Any> {
+
+        var dict = Dictionary<String, Any>()
+
+        dict.updateValue(reference, forKey: "Reference")
+        dict.updateValue(title, forKey: "Title")
+        dict.updateValue(date, forKey: "Date")
+        dict.updateValue(status, forKey: "Status")
+
+        var itemDicts = [Dictionary<String, Any>]()
+
+        for item in items {
+            itemDicts.append(item.dictionaryRepresentation())
+        }
+
+        dict.updateValue(itemDicts, forKey: "Items")
+        
+        return dict
+    }
+
 }
 
 class OrderItem: MenuItem {
@@ -109,4 +130,12 @@ class OrderItem: MenuItem {
         self.init(name: menuName, price: menuPrice, details: source["Details"] as? String, imageName: source["Image"] as? String, restaurantName: restaurantName)
     }
 
+    override func dictionaryRepresentation() -> Dictionary<String, Any> {
+
+        var dictRepresentation = super.dictionaryRepresentation()
+
+        dictRepresentation.updateValue(self.restaurantName, forKey: "RestaurantName")
+
+        return dictRepresentation
+    }
 }

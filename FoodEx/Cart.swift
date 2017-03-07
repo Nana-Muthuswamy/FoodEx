@@ -10,7 +10,49 @@ struct Cart {
 
     var title: String?
     var items: Array<CartItem>
-    
+
+    init(title: String?, items: Array<CartItem>) {
+
+        self.title = title
+        self.items = items
+    }
+
+    init(dictionary source: Dictionary<String, Any>) {
+
+        var cartItems = Array<CartItem>()
+
+        if let cartItemList = source["Items"] as? [Dictionary<String, Any>] {
+
+            for cartItem in cartItemList {
+
+                if let element = CartItem(dictionary: cartItem) {
+                    cartItems.append(element)
+                }
+            }
+        }
+
+        self.init(title: source["Title"] as? String, items: cartItems)
+    }
+
+
+    func dictionaryRepresentation() -> Dictionary<String, Any> {
+
+        var dict = Dictionary<String, Any>()
+
+        if let title = self.title {
+            dict.updateValue(title, forKey: "Title")
+        }
+
+        var itemDicts = [Dictionary<String, Any>]()
+
+        for item in items {
+            itemDicts.append(item.dictionaryRepresentation())
+        }
+
+        dict.updateValue(itemDicts, forKey: "Items")
+        
+        return dict
+    }
 }
 
 class CartItem: OrderItem {
@@ -32,5 +74,14 @@ class CartItem: OrderItem {
         }
 
         self.init(name: menuName, price: menuPrice, details: source["Details"] as? String, imageName: source["Image"] as? String, restaurantName: restaurantName, quantity: source["Quantity"] as! Int)
+    }
+
+    override func dictionaryRepresentation() -> Dictionary<String, Any> {
+
+        var dictRepresentation = super.dictionaryRepresentation()
+
+        dictRepresentation.updateValue(self.quantity, forKey: "Quantity")
+
+        return dictRepresentation
     }
 }
