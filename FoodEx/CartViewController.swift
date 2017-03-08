@@ -171,8 +171,13 @@ class CartViewController: UITableViewController {
                 // End editing
                 tableView.setEditing(false, animated: true)
 
-                // Reload table view
-                tableView.reloadData()
+                if AppDataManager.shared.cart.items.count > 0 {
+                    // Delete row with animation
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                } else {
+                    tableView.reloadData()
+                }
+
             })
 
             rowAction.backgroundColor = UIColor.red
