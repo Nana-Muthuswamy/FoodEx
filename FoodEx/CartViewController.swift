@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CartViewController: UITableViewController, UITextFieldDelegate {
+class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTableViewCellDelegate {
 
     var cart: Cart {
         return AppDataManager.shared.cart
@@ -86,8 +86,11 @@ class CartViewController: UITableViewController, UITextFieldDelegate {
 
             tableCell.nameLabel.text = menuItem.name
             tableCell.detailsLabel.text = "@" + menuItem.restaurantName
+            tableCell.quantityField.text = String(menuItem.quantity)
             tableCell.priceLabel.text = menuItem.formattedPrice
             tableCell.menuItemImageView.image = UIImage(named: menuItem.imageName)
+
+            tableCell.delegate = self
 
             return tableCell
 
@@ -202,4 +205,21 @@ class CartViewController: UITableViewController, UITextFieldDelegate {
         // Update cart title
         AppDataManager.shared.cart.title = textField.text
     }
+
+    // MARK: CartItemTableViewCellDelegate
+
+    func tableViewCell(_ tableCell: UITableViewCell, quantityDidChange newValue: Int) {
+
+        if let indexPath = tableView.indexPath(for: tableCell), cart.items.count > indexPath.row {
+
+            let existingValue = cart.items[indexPath.row].quantity
+
+            if (existingValue != newValue) {
+
+                cart.items[indexPath.row].quantity = newValue
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+        }
+    }
+    
 }
