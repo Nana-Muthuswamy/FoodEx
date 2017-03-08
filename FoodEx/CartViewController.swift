@@ -16,7 +16,7 @@ class CartViewController: UITableViewController {
 
     struct CartDetailsSections {
         static let Summary = 0
-        static let MenuItem = 1
+        static let Items = 1
         static let Total = 2
 
         static func totalSections() -> Int {
@@ -42,7 +42,7 @@ class CartViewController: UITableViewController {
         case CartDetailsSections.Summary:
             return 1
 
-        case CartDetailsSections.MenuItem:
+        case CartDetailsSections.Items:
             return cart.items.count
 
 //        case CartDetailsSections.Total:
@@ -73,7 +73,7 @@ class CartViewController: UITableViewController {
 
             return tableCell
 
-        case CartDetailsSections.MenuItem:
+        case CartDetailsSections.Items:
 
             let tableCell = tableView.dequeueReusableCell(withIdentifier: "CartItem") as! CartItemTableViewCell
 
@@ -115,7 +115,7 @@ class CartViewController: UITableViewController {
             } else {
                 return ""
             }
-        case CartDetailsSections.MenuItem:
+        case CartDetailsSections.Items:
             if cart.items.count > 0 {
                 return "Items"
             } else {
@@ -125,6 +125,16 @@ class CartViewController: UITableViewController {
 //            return "Total"
         default:
             return ""
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+
+        switch indexPath.section {
+        case CartDetailsSections.Items:
+            return true
+        default:
+            return false
         }
     }
 
@@ -141,12 +151,39 @@ class CartViewController: UITableViewController {
                 return 300
             }
 
-        case CartDetailsSections.MenuItem:
+        case CartDetailsSections.Items:
             return 70
 
         default:
             return 44
         }
+    }
+
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+
+        switch indexPath.section {
+        case CartDetailsSections.Items:
+
+            let rowAction = UITableViewRowAction(style: .default, title: "Remove", handler: { (rowAction, indexPath) in
+                // Remove the cart item in the current index
+                AppDataManager.shared.cart.removeItem(at: indexPath.row)
+
+                // End editing
+                tableView.setEditing(false, animated: true)
+
+                // Reload table view
+                tableView.reloadData()
+            })
+
+            rowAction.backgroundColor = UIColor.red
+
+            
+            return [rowAction]
+            
+        default:
+            return nil
+        }
+        
     }
 
 }
