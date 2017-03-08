@@ -9,7 +9,7 @@
 import Foundation
 
 // A Singleton Data Mart that extacts data from DataMart.plist and provides data for all controllers
-struct AppDataManager {
+class AppDataManager {
 
     // Singleton Type property
     static let shared = AppDataManager()

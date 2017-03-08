@@ -15,6 +15,10 @@ class RestaurantViewController: AppBaseViewController {
     struct DetailsSection {
         static let Synopsis = 0
         static let Menu = 1
+
+        static func totalSections() -> Int {
+            return 2
+        }
     }
 
     // MARK: View Life-cycle
@@ -84,7 +88,7 @@ class RestaurantViewController: AppBaseViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return DetailsSection.totalSections()
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -144,11 +148,36 @@ class RestaurantViewController: AppBaseViewController {
         switch indexPath.section {
         case DetailsSection.Menu:
 
-            let rowAction = UITableViewRowAction(style: .default, title: "Add to Cart", handler: { (rowAction, indexPath) in
-                // TDO: Add the menuList[indexPath.row] to Order.menuList
-                print("Menu Item added to Cart")
-            })
-            rowAction.backgroundColor = UIColor.green
+            let rowAction: UITableViewRowAction
+
+            if let existingIndex = AppDataManager.shared.cart.items.index(where: { (item) -> Bool in
+                return (item.restaurantName == restaurant.name &&
+                    item.name == restaurant.menu[indexPath.row].name)
+            }) {
+
+                rowAction = UITableViewRowAction(style: .default, title: "Remove", handler: { (rowAction, indexPath) in
+                    // Remove the cart item in the existing index
+                    AppDataManager.shared.cart.removeItem(at: existingIndex)
+
+                    // End editing
+                    tableView.setEditing(false, animated: true)
+                })
+
+                rowAction.backgroundColor = UIColor.red
+
+            } else {
+
+                rowAction = UITableViewRowAction(style: .default, title: "Add to Cart", handler: { (rowAction, indexPath) in
+                    // Create Cart Item from selected menu item and add it to Cart
+                    if let newCartItem = CartItem(from: self.restaurant, itemIndex: indexPath.row) {
+                        AppDataManager.shared.cart.add(item: newCartItem)
+                    }
+
+                    // End editing
+                    tableView.setEditing(false, animated: true)
+                })
+                rowAction.backgroundColor = UIColor.green
+            }
 
             return [rowAction]
 
@@ -157,6 +186,5 @@ class RestaurantViewController: AppBaseViewController {
         }
 
     }
-
 
 }

@@ -54,12 +54,19 @@ struct Cart {
         return dict
     }
 
-    mutating func addToCart(item: CartItem) -> Void {
+    mutating func add(item: CartItem) -> Void {
 
         items.append(item)
     }
 
-    mutating func removeFromCart(item: CartItem) -> Void {
+    mutating func removeItem(at index: Int) -> Void {
+
+        if index < items.count {
+            items.remove(at: index)
+        }
+    }
+
+    mutating func remove(item: CartItem) -> Void {
 
         if let existingIndex = items.index(where: { (element) -> Bool in
             return (element.name == item.name) && (element.restaurantName == item.restaurantName)
@@ -67,6 +74,7 @@ struct Cart {
             items.remove(at: existingIndex)
         }
     }
+
 }
 
 class CartItem: OrderItem {
@@ -92,6 +100,17 @@ class CartItem: OrderItem {
         self.init(name: menuName, price: menuPrice, details: source["Details"] as? String, imageName: source["Image"] as? String, restaurantName: restaurantName, quantity: source["Quantity"] as? Int)
     }
 
+    convenience init?(from restaurant: Restaurant, itemIndex index: Int) {
+
+        guard index < restaurant.menu.count else {
+            return nil
+        }
+
+        let source = restaurant.menu[index]
+
+        self.init(name: source.name, price: source.price, details: source.details, imageName: source.imageName, restaurantName: restaurant.name, quantity: 1)
+    }
+
     override func dictionaryRepresentation() -> Dictionary<String, Any> {
 
         var dictRepresentation = super.dictionaryRepresentation()
@@ -100,4 +119,5 @@ class CartItem: OrderItem {
 
         return dictRepresentation
     }
+
 }
