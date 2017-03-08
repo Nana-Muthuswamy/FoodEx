@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CartViewController: UITableViewController {
+class CartViewController: UITableViewController, UITextFieldDelegate {
 
     var cart: Cart {
         return AppDataManager.shared.cart
@@ -67,6 +67,11 @@ class CartViewController: UITableViewController {
 
             if cart.items.count > 0 {
                 tableCell = tableView.dequeueReusableCell(withIdentifier: "OrderTitle")!
+
+                if let title = cart.title, let titleField = tableCell.viewWithTag(1) as? UITextField {
+                    titleField.text = title
+                }
+
             } else {
                 tableCell = tableView.dequeueReusableCell(withIdentifier: "EmptyCart")!
             }
@@ -191,4 +196,10 @@ class CartViewController: UITableViewController {
         
     }
 
+    // MARK: UITextFieldDelegate
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        // Update cart title
+        AppDataManager.shared.cart.title = textField.text
+    }
 }

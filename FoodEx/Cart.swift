@@ -81,6 +81,10 @@ class CartItem: OrderItem {
 
     var quantity: Int = 1
 
+    override var formattedPrice: String {
+        return String(format: "$%.2f", price * Double(quantity))
+    }
+
     init(name: String, price: Double, details: String?, imageName: String?, restaurantName: String, quantity: Int?) {
 
         if let itemQuantity = quantity {
