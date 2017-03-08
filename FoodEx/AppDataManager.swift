@@ -1,5 +1,5 @@
 //
-//  AppDataMart.swift
+//  AppDataManager.swift
 //  FoodEx
 //
 //  Created by Nana on 2/11/17.
@@ -9,20 +9,21 @@
 import Foundation
 
 // A Singleton Data Mart that extacts data from DataMart.plist and provides data for all controllers
-struct AppDataMart {
+struct AppDataManager {
 
     // Singleton Type property
-    static let shared = AppDataMart()
+    static let shared = AppDataManager()
 
-    var restaurants : Array<Restaurant>
+    var restaurants: Array<Restaurant>
+    var cart: Cart
 
-    private let appDataMart : [String:Any]
+    private let appDataMart: [String:Any]
 
-    var registeredUsers : Dictionary<String, String>? {
+    var registeredUsers: Dictionary<String, String>? {
         return appDataMart["RegisteredUsers"] as? Dictionary<String, String>
     }
 
-    var cuisines : Array<String> {
+    var cuisines: Array<String> {
         return appDataMart["Cuisines"] as! Array<String>
     }
 
@@ -82,6 +83,12 @@ struct AppDataMart {
                 }
             }
         }
+
+        if let savedCart = UserDefaults.standard.dictionary(forKey: "SavedCart") {
+            cart = Cart(dictionary: savedCart)
+        } else {
+            cart = Cart(title: nil, items: Array<CartItem>())
+        }
     }
 
     func setLastViewedRestaurant(_ restaurant: Restaurant) -> Void {
@@ -111,4 +118,5 @@ struct AppDataMart {
 
         UserDefaults.standard.set(newViewList, forKey: "LastViewedRestaurants")
     }
+
 }

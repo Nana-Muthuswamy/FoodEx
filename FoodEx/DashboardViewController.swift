@@ -40,11 +40,11 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        restaurantsLastViewed = AppDataMart.shared.restaurantsLastViewed
+        restaurantsLastViewed = AppDataManager.shared.restaurantsLastViewed
 
         // TDO - Remove this check after implementing functional Cart View Controller
         if restaurantsLastViewed.count > 0 {
-            orderHistory = AppDataMart.shared.orderHistory
+            orderHistory = AppDataManager.shared.orderHistory
         }
 
 
@@ -187,12 +187,12 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
 
     private func setupData() -> Void {
 
-        cuisines = AppDataMart.shared.cuisines
-        restaurantsLastViewed = AppDataMart.shared.restaurantsLastViewed
+        cuisines = AppDataManager.shared.cuisines
+        restaurantsLastViewed = AppDataManager.shared.restaurantsLastViewed
 
         // TDO - Remove this check after implementing functional Cart View Controller
         if restaurantsLastViewed.count > 0 {
-            orderHistory = AppDataMart.shared.orderHistory
+            orderHistory = AppDataManager.shared.orderHistory
         }
     }
 

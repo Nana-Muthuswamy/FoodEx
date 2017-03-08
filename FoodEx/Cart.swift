@@ -53,15 +53,31 @@ struct Cart {
         
         return dict
     }
+
+    mutating func addToCart(item: CartItem) -> Void {
+
+        items.append(item)
+    }
+
+    mutating func removeFromCart(item: CartItem) -> Void {
+
+        if let existingIndex = items.index(where: { (element) -> Bool in
+            return (element.name == item.name) && (element.restaurantName == item.restaurantName)
+        }) {
+            items.remove(at: existingIndex)
+        }
+    }
 }
 
 class CartItem: OrderItem {
 
     var quantity: Int = 1
 
-    init(name: String, price: Double, details: String?, imageName: String?, restaurantName: String, quantity: Int) {
+    init(name: String, price: Double, details: String?, imageName: String?, restaurantName: String, quantity: Int?) {
 
-        self.quantity = quantity
+        if let itemQuantity = quantity {
+            self.quantity = itemQuantity
+        }
 
         super.init(name: name, price: price, details: details, imageName: imageName, restaurantName: restaurantName)
     }
@@ -69,11 +85,11 @@ class CartItem: OrderItem {
     convenience init?(dictionary source:Dictionary<String, Any>) {
 
         // Cannot create OrderItem without Restaurant Name, Item Name and Price
-        guard let restaurantName = source["RestaurantName"] as? String, let menuName = source["Name"] as? String, let menuPricestr = source["Price"] as? String, let menuPrice = Double(menuPricestr) else {
+        guard let restaurantName = source["RestaurantName"] as? String, let menuName = source["Name"] as? String, let menuPrice = source["Price"] as? Double else {
             return nil
         }
 
-        self.init(name: menuName, price: menuPrice, details: source["Details"] as? String, imageName: source["Image"] as? String, restaurantName: restaurantName, quantity: source["Quantity"] as! Int)
+        self.init(name: menuName, price: menuPrice, details: source["Details"] as? String, imageName: source["Image"] as? String, restaurantName: restaurantName, quantity: source["Quantity"] as? Int)
     }
 
     override func dictionaryRepresentation() -> Dictionary<String, Any> {

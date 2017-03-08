@@ -82,7 +82,7 @@ struct Restaurant {
             }
         }
 
-        self.init(name: theName, description: source["Description"] as? String, distance: theDistance, imageName: source["Image"] as? String, cuisine: cuisineType, address: theAddress, reviewRating: Int(source["Reviews"] as! Int), costRating: Int(source["Cost"] as! Int), operationHours: source["OperationHours"] as? String, menu: menuList)
+        self.init(name: theName, description: source["Description"] as? String, distance: theDistance, imageName: source["Image"] as? String, cuisine: cuisineType, address: theAddress, reviewRating: source["Reviews"] as? Int, costRating: source["Cost"] as? Int, operationHours: source["OperationHours"] as? String, menu: menuList)
     }
 
     func dictionaryRepresentation() -> Dictionary<String, Any> {

@@ -24,7 +24,7 @@ class RestaurantViewController: AppBaseViewController {
 
         // Add the restaurant to the last viewed list
         if let currentRestaurant = restaurant {
-            AppDataMart.shared.setLastViewedRestaurant(currentRestaurant)
+            AppDataManager.shared.setLastViewedRestaurant(currentRestaurant)
         }
     }
 

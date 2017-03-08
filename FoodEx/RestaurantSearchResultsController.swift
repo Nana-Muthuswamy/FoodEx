@@ -26,7 +26,7 @@ class RestaurantSearchResultsController: UITableViewController, UISearchResultsU
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        restaurants = AppDataMart.shared.restaurants.sorted{$0.distance < $1.distance}
+        restaurants = AppDataManager.shared.restaurants.sorted{$0.distance < $1.distance}
     }
 
     // MARK: Utils

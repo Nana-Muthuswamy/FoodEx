@@ -56,7 +56,7 @@ class LoginViewController: UIViewController {
             let password = passwordField.text!
 
             // Validate the login credentials against registered users data mart
-            if let registeredUsersDataMart = AppDataMart.shared.registeredUsers {
+            if let registeredUsersDataMart = AppDataManager.shared.registeredUsers {
 
                 shouldPerform = (registeredUsersDataMart[userName] == password)
                 

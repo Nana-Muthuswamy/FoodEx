@@ -10,9 +10,11 @@ import UIKit
 
 class CartViewController: UITableViewController {
 
-    var orderDetails: Order!
+    var cart: Cart {
+        return AppDataManager.shared.cart
+    }
 
-    struct OrderDetailsSections {
+    struct CartDetailsSections {
         static let Summary = 0
         static let MenuItem = 1
         static let Total = 2
@@ -26,8 +28,8 @@ class CartViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
 
-        if (orderDetails != nil) {
-            return OrderDetailsSections.totalSections()
+        if cart.items.count > 0 {
+            return CartDetailsSections.totalSections()
         } else {
             return 1
         }
@@ -37,22 +39,14 @@ class CartViewController: UITableViewController {
 
         switch section {
 
-        case OrderDetailsSections.Summary:
-            if (orderDetails) != nil {
-                return 2
-            } else {
-                return 1
-            }
+        case CartDetailsSections.Summary:
+            return 1
 
-        case OrderDetailsSections.MenuItem:
-            if let count = orderDetails?.items.count {
-                return count
-            } else {
-                return 0
-            }
+        case CartDetailsSections.MenuItem:
+            return cart.items.count
 
-//        case OrderDetailsSections.Total:
-//            if (orderDetails) != nil {
+//        case CartDetailsSections.Total:
+//            if (cart) != nil {
 //                return 2
 //            } else {
 //                return 0
@@ -67,11 +61,11 @@ class CartViewController: UITableViewController {
 
         switch indexPath.section {
 
-        case OrderDetailsSections.Summary:
+        case CartDetailsSections.Summary:
 
             var tableCell: UITableViewCell
 
-            if (orderDetails != nil) {
+            if cart.items.count > 0 {
                 tableCell = tableView.dequeueReusableCell(withIdentifier: "OrderTitle")!
             } else {
                 tableCell = tableView.dequeueReusableCell(withIdentifier: "EmptyCart")!
@@ -79,11 +73,11 @@ class CartViewController: UITableViewController {
 
             return tableCell
 
-        case OrderDetailsSections.MenuItem:
+        case CartDetailsSections.MenuItem:
 
             let tableCell = tableView.dequeueReusableCell(withIdentifier: "CartItem") as! CartItemTableViewCell
 
-            let menuItem = orderDetails.items[indexPath.row]
+            let menuItem = cart.items[indexPath.row]
 
             tableCell.nameLabel.text = menuItem.name
             tableCell.detailsLabel.text = "@" + menuItem.restaurantName
@@ -92,16 +86,16 @@ class CartViewController: UITableViewController {
 
             return tableCell
 
-//        case OrderDetailsSections.Total:
+//        case CartDetailsSections.Total:
 //
 //            let tableCell = tableView.dequeueReusableCell(withIdentifier: "OrderItemDetail")!
 //
 //            if indexPath.row == 0 {
 //                tableCell.textLabel?.text = "Sub Total"
-//                tableCell.detailTextLabel?.text = orderDetails.formattedSubTotal
+//                tableCell.detailTextLabel?.text = cart.formattedSubTotal
 //            } else if indexPath.row == 1 {
 //                tableCell.textLabel?.text = "Grand Total (tax incl.)"
-//                tableCell.detailTextLabel?.text = orderDetails.formattedGrandTotal
+//                tableCell.detailTextLabel?.text = cart.formattedGrandTotal
 //            }
 //
 //            return tableCell
@@ -115,19 +109,19 @@ class CartViewController: UITableViewController {
 
         switch section {
 
-        case OrderDetailsSections.Summary:
-            if (orderDetails != nil) {
+        case CartDetailsSections.Summary:
+            if cart.items.count > 0 {
                 return "Summary"
             } else {
                 return ""
             }
-        case OrderDetailsSections.MenuItem:
-            if let count = orderDetails?.items.count, count > 0 {
+        case CartDetailsSections.MenuItem:
+            if cart.items.count > 0 {
                 return "Items"
             } else {
                 return ""
             }
-//        case OrderDetailsSections.Total:
+//        case CartDetailsSections.Total:
 //            return "Total"
         default:
             return ""
@@ -140,14 +134,14 @@ class CartViewController: UITableViewController {
         
         switch indexPath.section {
 
-        case OrderDetailsSections.Summary:
-            if (orderDetails != nil) {
+        case CartDetailsSections.Summary:
+            if cart.items.count > 0 {
                 return 44
             } else {
                 return 300
             }
 
-        case OrderDetailsSections.MenuItem:
+        case CartDetailsSections.MenuItem:
             return 70
 
         default:

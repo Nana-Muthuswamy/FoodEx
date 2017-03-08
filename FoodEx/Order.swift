@@ -123,7 +123,7 @@ class OrderItem: MenuItem {
     convenience init?(dictionary source:Dictionary<String, Any>) {
 
         // Cannot create OrderItem without Restaurant Name, Item Name and Price
-        guard let restaurantName = source["RestaurantName"] as? String, let menuName = source["Name"] as? String, let menuPricestr = source["Price"] as? String, let menuPrice = Double(menuPricestr) else {
+        guard let restaurantName = source["RestaurantName"] as? String, let menuName = source["Name"] as? String, let menuPrice = source["Price"] as? Double else {
             return nil
         }
 
