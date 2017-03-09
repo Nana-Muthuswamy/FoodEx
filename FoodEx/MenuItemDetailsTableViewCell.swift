@@ -34,8 +34,10 @@ class CartItemTableViewCell: MenuItemTableViewCell, UITextFieldDelegate {
 
             delegate?.tableViewCell(self, quantityDidChange: newQuantity)
         } else {
-            textField.text = "1"
-            delegate?.tableViewCell(self, quantityDidChange: 1)
+            let newQuantity = 0
+            textField.text = String(newQuantity)
+
+            delegate?.tableViewCell(self, quantityDidChange: newQuantity)
         }
     }
 }

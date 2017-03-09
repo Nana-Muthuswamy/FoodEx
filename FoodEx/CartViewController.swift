@@ -226,8 +226,22 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
 
             if (existingValue != newValue) {
 
-                cart.items[indexPath.row].quantity = newValue
-                tableView.reloadRows(at: [indexPath], with: .automatic)
+                if newValue > 0 {
+                    cart.items[indexPath.row].quantity = newValue
+                    tableView.reloadRows(at: [indexPath], with: .automatic)
+
+                } else {
+
+                    // Remove the cart item in the current index
+                    AppDataManager.shared.cart.removeItem(at: indexPath.row)
+
+                    if AppDataManager.shared.cart.items.count > 0 {
+                        // Delete row with animation
+                        tableView.deleteRows(at: [indexPath], with: .fade)
+                    } else {
+                        tableView.reloadData()
+                    }
+                }
             }
         }
     }
