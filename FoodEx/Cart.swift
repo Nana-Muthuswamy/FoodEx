@@ -11,6 +11,22 @@ struct Cart {
     var title: String?
     var items: Array<CartItem>
 
+    var subTotal: Double {
+        return items.reduce(0, {$0 + $1.totalPrice})
+    }
+
+    var formattedSubTotal: String {
+        return String(format: "$%.2f", subTotal)
+    }
+
+    var grandTotal: Double {
+        return (subTotal * 1.085)
+    }
+
+    var formattedGrandTotal: String {
+        return String(format: "$%.2f", grandTotal)
+    }
+
     init(title: String?, items: Array<CartItem>) {
 
         self.title = title
@@ -81,8 +97,12 @@ class CartItem: OrderItem {
 
     var quantity: Int = 1
 
-    override var formattedPrice: String {
-        return String(format: "$%.2f", price * Double(quantity))
+    var totalPrice: Double {
+        return price * Double(quantity)
+    }
+
+    var formattedTotalPrice: String {
+        return String(format: "$%.2f", totalPrice)
     }
 
     init(name: String, price: Double, details: String?, imageName: String?, restaurantName: String, quantity: Int?) {

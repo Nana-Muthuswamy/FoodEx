@@ -55,12 +55,12 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
         case CartDetailsSections.Items:
             return cart.items.count
 
-//        case CartDetailsSections.Total:
-//            if (cart) != nil {
-//                return 2
-//            } else {
-//                return 0
-//            }
+        case CartDetailsSections.Total:
+            if cart.items.count > 0 {
+                return 2
+            } else {
+                return 0
+            }
 
         default:
             return 0
@@ -97,26 +97,26 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
             tableCell.nameLabel.text = menuItem.name
             tableCell.detailsLabel.text = "@" + menuItem.restaurantName
             tableCell.quantityField.text = String(menuItem.quantity)
-            tableCell.priceLabel.text = menuItem.formattedPrice
+            tableCell.priceLabel.text = menuItem.formattedTotalPrice
             tableCell.menuItemImageView.image = UIImage(named: menuItem.imageName)
 
             tableCell.delegate = self
 
             return tableCell
 
-//        case CartDetailsSections.Total:
-//
-//            let tableCell = tableView.dequeueReusableCell(withIdentifier: "OrderItemDetail")!
-//
-//            if indexPath.row == 0 {
-//                tableCell.textLabel?.text = "Sub Total"
-//                tableCell.detailTextLabel?.text = cart.formattedSubTotal
-//            } else if indexPath.row == 1 {
-//                tableCell.textLabel?.text = "Grand Total (tax incl.)"
-//                tableCell.detailTextLabel?.text = cart.formattedGrandTotal
-//            }
-//
-//            return tableCell
+        case CartDetailsSections.Total:
+
+            let tableCell = tableView.dequeueReusableCell(withIdentifier: "CartTotal")!
+
+            if indexPath.row == 0 {
+                tableCell.textLabel?.text = "Sub Total"
+                tableCell.detailTextLabel?.text = cart.formattedSubTotal
+            } else if indexPath.row == 1 {
+                tableCell.textLabel?.text = "Grand Total (tax incl.)"
+                tableCell.detailTextLabel?.text = cart.formattedGrandTotal
+            }
+
+            return tableCell
 
         default:
             return UITableViewCell()
@@ -139,8 +139,12 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
             } else {
                 return ""
             }
-//        case CartDetailsSections.Total:
-//            return "Total"
+        case CartDetailsSections.Total:
+            if cart.items.count > 0 {
+                return "Total"
+            } else {
+                return ""
+            }
         default:
             return ""
         }
@@ -192,6 +196,10 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
                 if AppDataManager.shared.cart.items.count > 0 {
                     // Delete row with animation
                     tableView.deleteRows(at: [indexPath], with: .fade)
+                    // Update Totals
+                    let indexSet = IndexSet(arrayLiteral:CartDetailsSections.Total)
+                    tableView.reloadSections(indexSet, with: .fade)
+
                 } else {
                     tableView.reloadData()
                 }
@@ -229,6 +237,9 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
                 if newValue > 0 {
                     cart.items[indexPath.row].quantity = newValue
                     tableView.reloadRows(at: [indexPath], with: .automatic)
+                    // Update Totals
+                    let indexSet = IndexSet(arrayLiteral:CartDetailsSections.Total)
+                    tableView.reloadSections(indexSet, with: .automatic)
 
                 } else {
 
@@ -238,6 +249,10 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
                     if AppDataManager.shared.cart.items.count > 0 {
                         // Delete row with animation
                         tableView.deleteRows(at: [indexPath], with: .fade)
+                        // Update Totals
+                        let indexSet = IndexSet(arrayLiteral:CartDetailsSections.Total)
+                        tableView.reloadSections(indexSet, with: .fade)
+
                     } else {
                         tableView.reloadData()
                     }
