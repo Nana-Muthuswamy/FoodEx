@@ -158,7 +158,8 @@ class RestaurantViewController: AppBaseViewController {
                 rowAction = UITableViewRowAction(style: .default, title: "Remove", handler: { (rowAction, indexPath) in
                     // Remove the cart item in the existing index
                     AppDataManager.shared.cart.removeItem(at: existingIndex)
-
+                    // Update Cart Badge
+                    self.updateCartBadge()
                     // End editing
                     tableView.setEditing(false, animated: true)
                 })
@@ -173,6 +174,8 @@ class RestaurantViewController: AppBaseViewController {
                         AppDataManager.shared.cart.add(item: newCartItem)
                     }
 
+                    // Update Cart Badge
+                    self.updateCartBadge()
                     // End editing
                     tableView.setEditing(false, animated: true)
                 })
