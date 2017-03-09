@@ -30,6 +30,7 @@ class CartItemTableViewCell: MenuItemTableViewCell, UITextFieldDelegate {
 
             // Hack for limiting the quantity within 100 ;-) Who would order any item more than 100 times!
             newQuantity = newText.characters.count > 2 ? newQuantity/Int(pow(10, Double(newText.characters.count-2))) : newQuantity
+            textField.text = String(newQuantity)
 
             delegate?.tableViewCell(self, quantityDidChange: newQuantity)
         } else {

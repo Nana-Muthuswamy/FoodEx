@@ -24,7 +24,7 @@ class AppBaseViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        super.viewWillAppear(animated)
 
         updateCartBadge()
     }

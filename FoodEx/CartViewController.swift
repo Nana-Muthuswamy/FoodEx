@@ -24,7 +24,17 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
         }
     }
 
-    // MARK: UITableViewDataSource
+    // MARK: ---- Life Cycle ----
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Adding Tap Gesture Recognizer to end editing mode when tapping elsewhere in Table View
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        tableView.addGestureRecognizer(tapGesture)
+    }
+
+    // MARK: ---- UITableViewDataSource ----
 
     override func numberOfSections(in tableView: UITableView) -> Int {
 
@@ -146,7 +156,7 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
         }
     }
 
-    // MARK: UITableViewDelegate
+    // MARK: ---- UITableViewDelegate ----
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -199,14 +209,14 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
         
     }
 
-    // MARK: UITextFieldDelegate
+    // MARK: ---- UITextFieldDelegate ----
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         // Update cart title
         AppDataManager.shared.cart.title = textField.text
     }
 
-    // MARK: CartItemTableViewCellDelegate
+    // MARK: ---- CartItemTableViewCellDelegate ----
 
     func tableViewCell(_ tableCell: UITableViewCell, quantityDidChange newValue: Int) {
 
@@ -221,5 +231,10 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
             }
         }
     }
-    
+
+    // MARK: ---- Gesture Recognizer ----
+
+    func handleTap(recognizer: UITapGestureRecognizer) -> Void {
+        view.endEditing(true)
+    }
 }
