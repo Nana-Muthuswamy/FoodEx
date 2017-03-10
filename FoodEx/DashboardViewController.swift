@@ -41,12 +41,7 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
         super.viewDidAppear(animated)
 
         restaurantsLastViewed = AppDataManager.shared.restaurantsLastViewed
-
-        // TDO - Remove this check after implementing functional Cart View Controller
-        if restaurantsLastViewed.count > 0 {
-            orderHistory = AppDataManager.shared.orderHistory
-        }
-
+        orderHistory = AppDataManager.shared.orderHistory
 
         tableView.reloadData()
     }

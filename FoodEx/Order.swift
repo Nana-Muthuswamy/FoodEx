@@ -6,6 +6,8 @@
 //  Copyright © 2017 Apple. All rights reserved.
 //
 
+import Foundation
+
 enum OrderStatus: Int {
     case none
     case pending
@@ -45,7 +47,7 @@ struct Order {
         if let orderRef = reference {
             self.reference = orderRef
         } else {
-            self.reference = "Yet to be generated"
+            self.reference = Order.generateOrderNumber()
         }
 
         if let orderTitle = title {
@@ -57,8 +59,12 @@ struct Order {
         if let orderDate = date {
             self.date = orderDate
         } else {
-            // TDO: Derive present date and stringfy!
-            self.date = ""
+
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale(identifier: "en_US")
+            dateFormatter.setLocalizedDateFormatFromTemplate("MMMMd")
+
+            self.date = dateFormatter.string(from: Date())
         }
 
         if let orderStatus = status {
@@ -87,6 +93,24 @@ struct Order {
         self.init(reference: source["Reference"] as? String, title: source["Title"] as? String, date: source["Date"] as? String, status: source["Status"] as? OrderStatus, items: orderItems)
     }
 
+    init?(cart: Cart) {
+
+        guard cart.items.count > 0 else {
+            return nil
+        }
+
+        var orderItems = Array<OrderItem>()
+
+        for item in cart.items {
+
+            if let orderItem = OrderItem(dictionary: item.dictionaryRepresentation()) {
+                orderItems.append(orderItem)
+            }
+        }
+
+        self.init(reference: nil, title: cart.title, date: nil, status: OrderStatus.init(rawValue:2), items: orderItems)
+    }
+
     func dictionaryRepresentation() -> Dictionary<String, Any> {
 
         var dict = Dictionary<String, Any>()
@@ -94,7 +118,7 @@ struct Order {
         dict.updateValue(reference, forKey: "Reference")
         dict.updateValue(title, forKey: "Title")
         dict.updateValue(date, forKey: "Date")
-        dict.updateValue(status, forKey: "Status")
+        dict.updateValue(status.rawValue, forKey: "Status")
 
         var itemDicts = [Dictionary<String, Any>]()
 
@@ -107,6 +131,23 @@ struct Order {
         return dict
     }
 
+    static func generateOrderNumber() -> String {
+
+        func transform(source: Int) -> Int {
+
+            var destination: Int
+
+            let a = 62
+            let b = 59
+            let c = 803
+
+            destination = ((source * b) + c) / a
+
+            return destination
+        }
+
+        return "F-\(transform(source: Int(arc4random())))-\(transform(source: Int(arc4random())))"
+    }
 }
 
 class OrderItem: MenuItem {

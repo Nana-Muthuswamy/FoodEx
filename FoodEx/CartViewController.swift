@@ -291,16 +291,11 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
     // MARK: ---- Apple Pay ----
 
     func initiateApplePay() -> Void {
-        print("Lets say, completed ApplePay Payment")
 
         displayOrderConfirmation()
     }
 
     func displayOrderConfirmation() -> Void {
-
-
-
-        print("Displaying Order confirmation")
 
         performSegue(withIdentifier: "ShowOrderConfirmationView", sender: self)
     }
@@ -310,8 +305,9 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if segue.identifier == "ShowOrderConfirmationView" {
-            print("Preparing Order confirmation view")
 
+            let destination = (segue.destination as! UINavigationController).topViewController as! OrderConfirmationViewController
+            destination.order = Order(cart: self.cart)!
         }
     }
 }

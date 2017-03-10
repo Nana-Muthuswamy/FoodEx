@@ -45,21 +45,16 @@ class AppDataManager {
 
     var orderHistory: Array<Order> {
 
-        let orderHistory = UserDefaults.standard.array(forKey: "OrderHistory")
+        var orderHistory = Array<Order>()
 
-        // TDO: Need to extract Order History and create the model
-        if let orderHistory = orderHistory as? Array<Order> {
-            return orderHistory
-        } else {
+        if let orderHistoryList = UserDefaults.standard.array(forKey: "OrderHistory") as? [Dictionary<String, Any>] {
 
-            let stubOrder2 = Order(reference: "2-143-2358",title: "Nightout Dinner", date: "March 3, 2017", status: OrderStatus.completed, items: [OrderItem(name: "Seasoned Curly Fries", price: 2.29, details: "Potatoes Prepared in Vegetable Oil (Canola Oil, Corn Oil, Soybean Oil, Hydrogenated Soybean Oil) and Salt", imageName: "JITB_Curly.png", restaurantName: "Jack in the Box"), OrderItem(name: "Cheeseburger", price: 1.00, details: "100% beef patty, regular bun, pasteurized process american cheese, ketchup, mustard, pickle slices, onions", imageName: "McD_Cheseburger.png", restaurantName: "McDonald's")])
-
-
-            let stubOrder1 = Order(reference: "2-237-8453", title: "Weekend Lunch", date: "March 4, 2017", status: OrderStatus.completed, items: [OrderItem(name: "Cheesy Nachos", price: 3.59, details: "Crisp, freshly prepared tortilla chips covered in warm nacho cheese sauce.", imageName: "TB_Nacho.png", restaurantName: "Taco Bell"), OrderItem(name: "Burrito Bowl", price: 7.50, details: "Vegetarian, Chicken, Steak", imageName: "Chipotle_BB.png", restaurantName: "Chipotle")])
-
-
-            return [stubOrder1,stubOrder2]
+            for anOrderDict in orderHistoryList {
+                orderHistory.append(Order(dictionary: anOrderDict))
+            }
         }
+
+        return orderHistory
     }
 
     private init() {
@@ -117,6 +112,31 @@ class AppDataManager {
         }
 
         UserDefaults.standard.set(newViewList, forKey: "LastViewedRestaurants")
+    }
+
+    func saveOrder(_ newOrder: Order) -> Void {
+
+        var newOrderList: [Dictionary<String, Any>]
+
+        if let savedOrderList = UserDefaults.standard.array(forKey: "OrderHistory") as? [Dictionary<String, Any>] {
+
+            newOrderList = savedOrderList
+
+            newOrderList.insert(newOrder.dictionaryRepresentation(), at: 0)
+
+            // Store only the last 10 orders
+            if newOrderList.count > 10 {
+                newOrderList = Array(newOrderList.prefix(upTo: 10))
+            }
+
+        } else {
+            newOrderList = [newOrder.dictionaryRepresentation()]
+        }
+
+        UserDefaults.standard.set(newOrderList, forKey: "OrderHistory")
+
+        // Wipe off the Cart
+        cart = Cart(title: nil, items: Array<CartItem>())
     }
 
 }
