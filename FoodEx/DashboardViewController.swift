@@ -223,4 +223,11 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
         }
     }
 
+    @IBAction func orderConfirmationUnwindAction(unwindSegue: UIStoryboardSegue) {
+
+        if tableView.numberOfSections == 3 {
+            tableView.scrollToRow(at: IndexPath(row:0, section:2), at: .top, animated: true)
+        }
+    }
+
 }

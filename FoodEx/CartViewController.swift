@@ -35,6 +35,12 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
         tableView.addGestureRecognizer(tapGesture)
     }
 
+    // MARK: ---- Gesture Recognizer ----
+
+    func handleTap(recognizer: UITapGestureRecognizer) -> Void {
+        view.endEditing(true)
+    }
+
     // MARK: ---- UITableViewDataSource ----
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -286,11 +292,26 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
 
     func initiateApplePay() -> Void {
         print("Lets say, completed ApplePay Payment")
+
+        displayOrderConfirmation()
     }
 
-    // MARK: ---- Gesture Recognizer ----
+    func displayOrderConfirmation() -> Void {
 
-    func handleTap(recognizer: UITapGestureRecognizer) -> Void {
-        view.endEditing(true)
+
+
+        print("Displaying Order confirmation")
+
+        performSegue(withIdentifier: "ShowOrderConfirmationView", sender: self)
+    }
+
+    // MARK: ---- Segue ----
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "ShowOrderConfirmationView" {
+            print("Preparing Order confirmation view")
+
+        }
     }
 }
