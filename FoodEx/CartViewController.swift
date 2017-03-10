@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PassKit
 
 class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTableViewCellDelegate {
 
@@ -57,7 +58,7 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
 
         case CartDetailsSections.Total:
             if cart.items.count > 0 {
-                return 2
+                return 3
             } else {
                 return 0
             }
@@ -106,7 +107,13 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
 
         case CartDetailsSections.Total:
 
-            let tableCell = tableView.dequeueReusableCell(withIdentifier: "CartTotal")!
+            let tableCell: UITableViewCell
+
+            if indexPath.row < 2 {
+                tableCell = tableView.dequeueReusableCell(withIdentifier: "CartTotal")!
+            } else {
+                tableCell = tableView.dequeueReusableCell(withIdentifier: "SubmitCart")!
+            }
 
             if indexPath.row == 0 {
                 tableCell.textLabel?.text = "Sub Total"
@@ -114,6 +121,20 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
             } else if indexPath.row == 1 {
                 tableCell.textLabel?.text = "Grand Total (tax incl.)"
                 tableCell.detailTextLabel?.text = cart.formattedGrandTotal
+            } else if indexPath.row == 2 {
+
+                let paymentButton = PKPaymentButton(type: .plain, style: .black)
+
+                paymentButton.addTarget(self, action: #selector(initiateApplePay), for: .touchUpInside)
+
+                paymentButton.sizeToFit()
+                paymentButton.translatesAutoresizingMaskIntoConstraints = false
+
+                tableCell.contentView.addSubview(paymentButton)
+
+                let paymentButtonConstraints = [NSLayoutConstraint(item: paymentButton, attribute: .centerX, relatedBy: .equal, toItem: tableCell.contentView, attribute: .centerX, multiplier: 1.0, constant: 0.0),NSLayoutConstraint(item: paymentButton, attribute: .centerY, relatedBy: .equal, toItem: tableCell.contentView, attribute: .centerY, multiplier: 1.0, constant: 0.0)]
+
+                tableCell.contentView.addConstraints(paymentButtonConstraints)
             }
 
             return tableCell
@@ -259,6 +280,12 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
                 }
             }
         }
+    }
+
+    // MARK: ---- Apple Pay ----
+
+    func initiateApplePay() -> Void {
+        print("Lets say, completed ApplePay Payment")
     }
 
     // MARK: ---- Gesture Recognizer ----
