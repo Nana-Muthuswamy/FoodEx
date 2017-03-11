@@ -3,12 +3,24 @@
 <plist version="1.0">
 <dict>
 	<key>RegisteredUsers</key>
-	<dict>
-		<key>asdf</key>
-		<string>asdf</string>
-		<key>divi</key>
-		<string>qwerty</string>
-	</dict>
+	<array>
+		<dict>
+			<key>UserName</key>
+			<string>a</string>
+			<key>Password</key>
+			<string>a</string>
+			<key>Email</key>
+			<string>nanaready@gmail.com</string>
+		</dict>
+		<dict>
+			<key>UserName</key>
+			<string>divi</string>
+			<key>Password</key>
+			<string>qwerty</string>
+			<key>email</key>
+			<string>drajagopal@scu.edu</string>
+		</dict>
+	</array>
 	<key>Restaurants</key>
 	<array>
 		<dict>

@@ -56,13 +56,14 @@ class LoginViewController: UIViewController {
             let password = passwordField.text!
 
             // Validate the login credentials against registered users data mart
-            if let registeredUsersDataMart = AppDataManager.shared.registeredUsers {
 
-                shouldPerform = (registeredUsersDataMart[userName] == password)
-                
-            }
+            if let loggedInUser = AppDataManager.shared.registeredUsers.first(where: { (element) -> Bool in
+                return (element["UserName"] == userName && element["Password"] == password)
+            }) {
+                AppDataManager.shared.loggedInUser = loggedInUser
+                shouldPerform = true
 
-            if (shouldPerform == false) {
+            } else {
 
                 let alert = UIAlertController(title: "User Authentication Error", message: "Incorrect Username or Password. Please try again.", preferredStyle: .alert)
 

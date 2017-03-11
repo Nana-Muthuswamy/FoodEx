@@ -133,20 +133,22 @@ struct Order {
 
     static func generateOrderNumber() -> String {
 
-        func transform(source: Int) -> Int {
+        func transform(_ source: Double) -> Int {
 
-            var destination: Int
+            let a = 62.0
+            let b = 59.0
+            let c = 803.0
 
-            let a = 62
-            let b = 59
-            let c = 803
-
-            destination = ((source * b) + c) / a
-
-            return destination
+            return Int(((source * b) + c) / a)
         }
 
-        return "F-\(transform(source: Int(arc4random())))-\(transform(source: Int(arc4random())))"
+        var firstComponent = Double(arc4random())
+        firstComponent.formTruncatingRemainder(dividingBy: 1000)
+
+        var secondComponent = Double(arc4random())
+        secondComponent.formTruncatingRemainder(dividingBy: 1000)
+
+        return "F\(transform(firstComponent))\(transform(secondComponent))"
     }
 }
 

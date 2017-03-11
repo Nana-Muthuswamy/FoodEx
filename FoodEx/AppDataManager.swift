@@ -19,9 +19,11 @@ class AppDataManager {
 
     private let appDataMart: [String:Any]
 
-    var registeredUsers: Dictionary<String, String>? {
-        return appDataMart["RegisteredUsers"] as? Dictionary<String, String>
+    var registeredUsers: [Dictionary<String, String>] {
+        return (appDataMart["RegisteredUsers"] as? [Dictionary<String, String>]) ?? [Dictionary<String, String>]()
     }
+
+    var loggedInUser: Dictionary<String, String>!
 
     var cuisines: Array<String> {
         return appDataMart["Cuisines"] as! Array<String>
