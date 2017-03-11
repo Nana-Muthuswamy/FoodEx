@@ -41,7 +41,7 @@ class AppBaseViewController: UITableViewController {
 
     func updateCartBadge() -> Void {
 
-        let cartCount = AppDataManager.shared.cart.items.count
+        let cartCount = AppDataManager.shared.user.cart.items.count
         cartButton?.badgeString = cartCount > 0 ? String(cartCount) : ""
     }
 

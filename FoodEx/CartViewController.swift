@@ -12,7 +12,7 @@ import PassKit
 class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTableViewCellDelegate {
 
     var cart: Cart {
-        return AppDataManager.shared.cart
+        return AppDataManager.shared.user.cart
     }
 
     struct CartDetailsSections {
@@ -215,12 +215,12 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
 
             let rowAction = UITableViewRowAction(style: .default, title: "Remove", handler: { (rowAction, indexPath) in
                 // Remove the cart item in the current index
-                AppDataManager.shared.cart.removeItem(at: indexPath.row)
+                AppDataManager.shared.user.cart.removeItem(at: indexPath.row)
 
                 // End editing
                 tableView.setEditing(false, animated: true)
 
-                if AppDataManager.shared.cart.items.count > 0 {
+                if AppDataManager.shared.user.cart.items.count > 0 {
                     // Delete row with animation
                     tableView.deleteRows(at: [indexPath], with: .fade)
                     // Update Totals
@@ -248,7 +248,7 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         // Update cart title
-        AppDataManager.shared.cart.title = textField.text
+        AppDataManager.shared.user.cart.title = textField.text
     }
 
     // MARK: ---- CartItemTableViewCellDelegate ----
@@ -271,9 +271,9 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
                 } else {
 
                     // Remove the cart item in the current index
-                    AppDataManager.shared.cart.removeItem(at: indexPath.row)
+                    AppDataManager.shared.user.cart.removeItem(at: indexPath.row)
 
-                    if AppDataManager.shared.cart.items.count > 0 {
+                    if AppDataManager.shared.user.cart.items.count > 0 {
                         // Delete row with animation
                         tableView.deleteRows(at: [indexPath], with: .fade)
                         // Update Totals

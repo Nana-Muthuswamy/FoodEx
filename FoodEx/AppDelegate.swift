@@ -46,13 +46,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func syncUserDefaults() -> Void {
 
-        // Update Cart Items in UserDefaults
-        let cart = AppDataManager.shared.cart
+        // Update User specific information to UserDefaults
+        let userKey = AppDataManager.shared.user.name
+        let userSessionInfo = AppDataManager.shared.user.dictionaryRepresentation()
 
-        if cart.items.count > 0 {
-            UserDefaults.standard.set(cart.dictionaryRepresentation(), forKey: "SavedCart")
+        if userSessionInfo.keys.count > 0 {
+            UserDefaults.standard.set(userSessionInfo, forKey: userKey)
         } else {
-            UserDefaults.standard.removeObject(forKey: "SavedCart")
+            UserDefaults.standard.removeObject(forKey: userKey)
         }
 
         UserDefaults.standard.synchronize()

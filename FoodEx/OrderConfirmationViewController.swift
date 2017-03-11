@@ -21,13 +21,8 @@ class OrderConfirmationViewController: UIViewController {
         super.viewDidLoad()
 
         orderNumberLabel.text = order.reference
+        emailLabel.text = AppDataManager.shared.user.email
 
-        if let email = AppDataManager.shared.loggedInUser?["Email"] {
-            emailLabel.text = email
-        } else {
-            emailLabel.text = "drajagopal@scu.edu"
-        }
-
-        AppDataManager.shared.saveOrder(order)
+        AppDataManager.shared.user.saveOrder(order)
     }
 }

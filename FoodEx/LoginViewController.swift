@@ -60,7 +60,7 @@ class LoginViewController: UIViewController {
             if let loggedInUser = AppDataManager.shared.registeredUsers.first(where: { (element) -> Bool in
                 return (element["UserName"] == userName && element["Password"] == password)
             }) {
-                AppDataManager.shared.loggedInUser = loggedInUser
+                AppDataManager.shared.user = User(name: loggedInUser["UserName"]!, email: loggedInUser["Email"])
                 shouldPerform = true
 
             } else {

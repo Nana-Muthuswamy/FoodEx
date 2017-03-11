@@ -28,7 +28,7 @@ class RestaurantViewController: AppBaseViewController {
 
         // Add the restaurant to the last viewed list
         if let currentRestaurant = restaurant {
-            AppDataManager.shared.setLastViewedRestaurant(currentRestaurant)
+            AppDataManager.shared.user.saveViewedRestaurant(currentRestaurant)
         }
     }
 
@@ -150,14 +150,14 @@ class RestaurantViewController: AppBaseViewController {
 
             let rowAction: UITableViewRowAction
 
-            if let existingIndex = AppDataManager.shared.cart.items.index(where: { (item) -> Bool in
+            if let existingIndex = AppDataManager.shared.user.cart.items.index(where: { (item) -> Bool in
                 return (item.restaurantName == restaurant.name &&
                     item.name == restaurant.menu[indexPath.row].name)
             }) {
 
                 rowAction = UITableViewRowAction(style: .default, title: "Remove", handler: { (rowAction, indexPath) in
                     // Remove the cart item in the existing index
-                    AppDataManager.shared.cart.removeItem(at: existingIndex)
+                    AppDataManager.shared.user.cart.removeItem(at: existingIndex)
                     // Update Cart Badge
                     self.updateCartBadge()
                     // End editing
@@ -171,7 +171,7 @@ class RestaurantViewController: AppBaseViewController {
                 rowAction = UITableViewRowAction(style: .default, title: "Add to Cart", handler: { (rowAction, indexPath) in
                     // Create Cart Item from selected menu item and add it to Cart
                     if let newCartItem = CartItem(from: self.restaurant, itemIndex: indexPath.row) {
-                        AppDataManager.shared.cart.add(item: newCartItem)
+                        AppDataManager.shared.user.cart.add(item: newCartItem)
                     }
 
                     // Update Cart Badge
