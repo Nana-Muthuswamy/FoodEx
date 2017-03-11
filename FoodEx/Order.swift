@@ -27,7 +27,7 @@ struct Order {
     }
 
     var subTotal: Double {
-        return items.reduce(0, {$0 + $1.price})
+        return items.reduce(0, {$0 + $1.totalPrice})
     }
 
     var formattedSubTotal: String {
@@ -156,7 +156,25 @@ class OrderItem: MenuItem {
 
     let restaurantName: String
 
-    init(name: String, price: Double, details: String?, imageName: String?, restaurantName: String) {
+    var quantity: Int = 1
+
+    var formattedQuantity: String {
+        return String(format: "x %d", quantity)
+    }
+
+    var totalPrice: Double {
+        return price * Double(quantity)
+    }
+
+    var formattedTotalPrice: String {
+        return String(format: "$%.2f", totalPrice)
+    }
+
+    init(name: String, price: Double, details: String?, imageName: String?, restaurantName: String, quantity: Int?) {
+
+        if let itemQuantity = quantity {
+            self.quantity = itemQuantity
+        }
 
         self.restaurantName = restaurantName
 
@@ -170,7 +188,18 @@ class OrderItem: MenuItem {
             return nil
         }
 
-        self.init(name: menuName, price: menuPrice, details: source["Details"] as? String, imageName: source["Image"] as? String, restaurantName: restaurantName)
+        self.init(name: menuName, price: menuPrice, details: source["Details"] as? String, imageName: source["Image"] as? String, restaurantName: restaurantName, quantity: source["Quantity"] as? Int)
+    }
+
+    convenience init?(from restaurant: Restaurant, itemIndex index: Int) {
+
+        guard index < restaurant.menu.count else {
+            return nil
+        }
+
+        let source = restaurant.menu[index]
+
+        self.init(name: source.name, price: source.price, details: source.details, imageName: source.imageName, restaurantName: restaurant.name, quantity: 1)
     }
 
     override func dictionaryRepresentation() -> Dictionary<String, Any> {
@@ -178,6 +207,7 @@ class OrderItem: MenuItem {
         var dictRepresentation = super.dictionaryRepresentation()
 
         dictRepresentation.updateValue(self.restaurantName, forKey: "RestaurantName")
+        dictRepresentation.updateValue(self.quantity, forKey: "Quantity")
 
         return dictRepresentation
     }

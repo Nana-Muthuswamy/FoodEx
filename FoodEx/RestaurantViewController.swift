@@ -170,8 +170,8 @@ class RestaurantViewController: AppBaseViewController {
 
                 rowAction = UITableViewRowAction(style: .default, title: "Add to Cart", handler: { (rowAction, indexPath) in
                     // Create Cart Item from selected menu item and add it to Cart
-                    if let newCartItem = CartItem(from: self.restaurant, itemIndex: indexPath.row) {
-                        AppDataManager.shared.user.cart.add(item: newCartItem)
+                    if let newItem = OrderItem(from: self.restaurant, itemIndex: indexPath.row) {
+                        AppDataManager.shared.user.cart.add(item: newItem)
                     }
 
                     // Update Cart Badge

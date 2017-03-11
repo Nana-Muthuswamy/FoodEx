@@ -29,7 +29,7 @@ struct User {
             self.email = "drajagopal@scu.edu"
         }
 
-        cart = Cart(title: nil, items: Array<CartItem>())
+        cart = Cart(title: nil, items: Array<OrderItem>())
         restaurantsLastViewed = Array<Restaurant>()
         orderHistory = Array<Order>()
 
@@ -84,7 +84,7 @@ struct User {
         }
 
         // Wipe off the Cart
-        cart = Cart(title: nil, items: Array<CartItem>())
+        cart = Cart(title: nil, items: Array<OrderItem>())
     }
 
     func dictionaryRepresentation() -> Dictionary<String, Any> {

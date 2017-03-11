@@ -9,7 +9,7 @@
 struct Cart {
 
     var title: String?
-    var items: Array<CartItem>
+    var items: Array<OrderItem>
 
     var subTotal: Double {
         return items.reduce(0, {$0 + $1.totalPrice})
@@ -27,7 +27,7 @@ struct Cart {
         return String(format: "$%.2f", grandTotal)
     }
 
-    init(title: String?, items: Array<CartItem>) {
+    init(title: String?, items: Array<OrderItem>) {
 
         self.title = title
         self.items = items
@@ -35,13 +35,13 @@ struct Cart {
 
     init(dictionary source: Dictionary<String, Any>) {
 
-        var cartItems = Array<CartItem>()
+        var cartItems = Array<OrderItem>()
 
         if let cartItemList = source["Items"] as? [Dictionary<String, Any>] {
 
             for cartItem in cartItemList {
 
-                if let element = CartItem(dictionary: cartItem) {
+                if let element = OrderItem(dictionary: cartItem) {
                     cartItems.append(element)
                 }
             }
@@ -70,7 +70,7 @@ struct Cart {
         return dict
     }
 
-    mutating func add(item: CartItem) -> Void {
+    mutating func add(item: OrderItem) -> Void {
 
         items.append(item)
     }
@@ -82,66 +82,13 @@ struct Cart {
         }
     }
 
-    mutating func remove(item: CartItem) -> Void {
+    mutating func remove(item: OrderItem) -> Void {
 
         if let existingIndex = items.index(where: { (element) -> Bool in
             return (element.name == item.name) && (element.restaurantName == item.restaurantName)
         }) {
             items.remove(at: existingIndex)
         }
-    }
-
-}
-
-class CartItem: OrderItem {
-
-    var quantity: Int = 1
-
-    var totalPrice: Double {
-        return price * Double(quantity)
-    }
-
-    var formattedTotalPrice: String {
-        return String(format: "$%.2f", totalPrice)
-    }
-
-    init(name: String, price: Double, details: String?, imageName: String?, restaurantName: String, quantity: Int?) {
-
-        if let itemQuantity = quantity {
-            self.quantity = itemQuantity
-        }
-
-        super.init(name: name, price: price, details: details, imageName: imageName, restaurantName: restaurantName)
-    }
-
-    convenience init?(dictionary source:Dictionary<String, Any>) {
-
-        // Cannot create OrderItem without Restaurant Name, Item Name and Price
-        guard let restaurantName = source["RestaurantName"] as? String, let menuName = source["Name"] as? String, let menuPrice = source["Price"] as? Double else {
-            return nil
-        }
-
-        self.init(name: menuName, price: menuPrice, details: source["Details"] as? String, imageName: source["Image"] as? String, restaurantName: restaurantName, quantity: source["Quantity"] as? Int)
-    }
-
-    convenience init?(from restaurant: Restaurant, itemIndex index: Int) {
-
-        guard index < restaurant.menu.count else {
-            return nil
-        }
-
-        let source = restaurant.menu[index]
-
-        self.init(name: source.name, price: source.price, details: source.details, imageName: source.imageName, restaurantName: restaurant.name, quantity: 1)
-    }
-
-    override func dictionaryRepresentation() -> Dictionary<String, Any> {
-
-        var dictRepresentation = super.dictionaryRepresentation()
-
-        dictRepresentation.updateValue(self.quantity, forKey: "Quantity")
-
-        return dictRepresentation
     }
 
 }

@@ -608,7 +608,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DxA-IA-Z4t">
-                                            <rect key="frame" x="75" y="39" width="277" height="21"/>
+                                            <rect key="frame" x="75" y="39" width="52.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="rGI-hY-kdZ"/>
                                             </constraints>
@@ -626,6 +626,15 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwY-Za-U3v">
+                                            <rect key="frame" x="287" y="39" width="65" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="ebR-EO-peC"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="FEe-0L-vWr" firstAttribute="baseline" secondItem="9I7-YO-drh" secondAttribute="baseline" id="9be-aj-bva"/>
@@ -634,9 +643,10 @@
                                         <constraint firstItem="9I7-YO-drh" firstAttribute="top" secondItem="Wgs-b4-KnC" secondAttribute="top" id="YWQ-3t-caC"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="FEe-0L-vWr" secondAttribute="trailing" constant="15" id="ZlI-A2-Bud"/>
                                         <constraint firstItem="Wgs-b4-KnC" firstAttribute="top" secondItem="3IL-qc-reW" secondAttribute="top" constant="10" id="aYx-Ac-9Pe"/>
+                                        <constraint firstItem="bwY-Za-U3v" firstAttribute="top" secondItem="FEe-0L-vWr" secondAttribute="bottom" constant="8" symbolic="YES" id="c92-hT-d4G"/>
+                                        <constraint firstItem="FEe-0L-vWr" firstAttribute="trailing" secondItem="bwY-Za-U3v" secondAttribute="trailing" id="etu-x6-9MZ"/>
                                         <constraint firstItem="DxA-IA-Z4t" firstAttribute="top" secondItem="9I7-YO-drh" secondAttribute="bottom" constant="8" id="faK-oH-t8E"/>
                                         <constraint firstItem="Wgs-b4-KnC" firstAttribute="leading" secondItem="3IL-qc-reW" secondAttribute="leading" constant="15" id="ibg-kA-jbL"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="DxA-IA-Z4t" secondAttribute="trailing" constant="15" id="t9z-lI-X70"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -644,6 +654,7 @@
                                     <outlet property="menuItemImageView" destination="Wgs-b4-KnC" id="nV4-NH-uhy"/>
                                     <outlet property="nameLabel" destination="9I7-YO-drh" id="sZn-Wn-D00"/>
                                     <outlet property="priceLabel" destination="FEe-0L-vWr" id="oxE-K8-fhB"/>
+                                    <outlet property="quantityInfoLabel" destination="bwY-Za-U3v" id="nL6-W2-N8l"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
