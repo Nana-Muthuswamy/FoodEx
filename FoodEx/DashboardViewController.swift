@@ -96,7 +96,8 @@ class DashboardViewController: AppBaseViewController, UISearchControllerDelegate
 
             let order = orderHistory[indexPath.row]
 
-            tableCell.summaryLabel.text = order.title + " - " + order.date
+            let summaryTextPrefix = order.title.characters.count > 0 ? order.title : order.reference
+            tableCell.summaryLabel.text = summaryTextPrefix + " | " + order.date
             tableCell.itemDetailsLabel.text = order.summary
             tableCell.totalLabel.text = order.formattedGrandTotal
 

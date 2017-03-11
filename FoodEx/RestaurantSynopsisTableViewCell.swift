@@ -21,6 +21,11 @@ class RestaurantSynopsisTableViewCell: UITableViewCell {
 
     func setReviewStars(count: Int) -> Void {
 
+        // Reset all stack sub views to hidden as tableviewcells are reused
+        reviewsStack.arrangedSubviews.forEach() {
+            $0.isHidden = true
+        }
+
         var count = count
         let subviews = reviewsStack.arrangedSubviews
 
@@ -34,6 +39,11 @@ class RestaurantSynopsisTableViewCell: UITableViewCell {
     }
 
     func setCostDollars(count: Int) -> Void {
+
+        // Reset all stack sub views to hidden as tableviewcells are reused
+        dollarsStack.arrangedSubviews.forEach() {
+            $0.isHidden = true
+        }
 
         var count = count
         let subviews = reviewsStack.arrangedSubviews

@@ -68,7 +68,10 @@ class OrderViewController: UITableViewController {
 
             if indexPath.row == 0 {
                 tableCell.textLabel?.text = "Title"
-                tableCell.detailTextLabel?.text = orderDetails.title + " - " + orderDetails.date
+
+                let detailTextPrefix = orderDetails.title.characters.count > 0 ? "\(orderDetails.title)" : "Order"
+                tableCell.detailTextLabel?.text = detailTextPrefix + " @ " + orderDetails.date
+
             } else if indexPath.row == 1 {
                 tableCell.textLabel?.text = "Reference #"
                 tableCell.detailTextLabel?.text = orderDetails.reference

@@ -62,7 +62,7 @@ struct Order {
 
             let dateFormatter = DateFormatter()
             dateFormatter.locale = Locale(identifier: "en_US")
-            dateFormatter.setLocalizedDateFormatFromTemplate("MMMMd")
+            dateFormatter.setLocalizedDateFormatFromTemplate("MMMdYYYY")
 
             self.date = dateFormatter.string(from: Date())
         }
