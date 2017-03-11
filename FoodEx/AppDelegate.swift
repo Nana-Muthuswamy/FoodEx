@@ -46,14 +46,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func syncUserDefaults() -> Void {
 
-        // Update User specific information to UserDefaults
-        let userKey = AppDataManager.shared.user.name
-        let userSessionInfo = AppDataManager.shared.user.dictionaryRepresentation()
+        if let user = AppDataManager.shared.user {
 
-        if userSessionInfo.keys.count > 0 {
-            UserDefaults.standard.set(userSessionInfo, forKey: userKey)
-        } else {
-            UserDefaults.standard.removeObject(forKey: userKey)
+            // Update User specific information to UserDefaults
+            let userKey = user.name
+            let userSessionInfo = user.dictionaryRepresentation()
+
+            if userSessionInfo.keys.count > 0 {
+                UserDefaults.standard.set(userSessionInfo, forKey: userKey)
+            } else {
+                UserDefaults.standard.removeObject(forKey: userKey)
+            }
         }
 
         UserDefaults.standard.synchronize()

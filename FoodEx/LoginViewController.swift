@@ -87,6 +87,31 @@ class LoginViewController: UIViewController {
         }
     }
 
+    @IBAction func signOutUnwindAction(unwindSegue: UIStoryboardSegue) {
+
+        func syncUserDefaults() -> Void {
+
+            let userKey = AppDataManager.shared.user.name
+            let userSessionInfo = AppDataManager.shared.user.dictionaryRepresentation()
+
+            if userSessionInfo.keys.count > 0 {
+                UserDefaults.standard.set(userSessionInfo, forKey: userKey)
+            } else {
+                UserDefaults.standard.removeObject(forKey: userKey)
+            }
+            
+            UserDefaults.standard.synchronize()
+            
+        }
+
+        // Update User specific information to UserDefaults
+        syncUserDefaults()
+        // Wipe off logged in user
+        AppDataManager.shared.user = nil
+        // Clear password
+        passwordField.text = nil
+    }
+
     // MARK: IBActions
 
     // Initiates Touch ID Auth
