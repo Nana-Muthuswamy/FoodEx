@@ -16,13 +16,23 @@
 		</dict>
 		<dict>
 			<key>UserName</key>
-			<string>divi</string>
+			<string>Divya</string>
 			<key>Password</key>
 			<string>qwerty</string>
 			<key>email</key>
 			<string>drajagopal@scu.edu</string>
 			<key>Default</key>
 			<string>1</string>
+		</dict>
+		<dict>
+			<key>UserName</key>
+			<string>Vidhya</string>
+			<key>Password</key>
+			<string>qwerty</string>
+			<key>email</key>
+			<string>vramu@scu.edu</string>
+			<key>Default</key>
+			<string>0</string>
 		</dict>
 	</array>
 	<key>Restaurants</key>
