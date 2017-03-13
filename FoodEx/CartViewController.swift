@@ -15,6 +15,8 @@ class CartViewController: UITableViewController {
         return AppDataManager.shared.user.cart
     }
 
+    var newOrder: Order?
+
     struct CartDetailsSections {
         static let Summary = 0
         static let Items = 1
@@ -295,13 +297,58 @@ extension CartViewController: UITextFieldDelegate, CartItemTableViewCellDelegate
     }
 }
 
-extension CartViewController {
+extension CartViewController: PKPaymentAuthorizationViewControllerDelegate {
 
-    // MARK: ---- Apple Pay ----
+    // MARK: ---- Segue ----
 
     func initiateApplePay() -> Void {
 
-        displayOrderConfirmation()
+        // 1. Create Payment Request
+
+        let paymentRequest = PKPaymentRequest()
+
+        // Basic
+        paymentRequest.countryCode = "US"
+        paymentRequest.currencyCode = "USD"
+        paymentRequest.merchantIdentifier = "merchant.com.nana-muthuswamy.FoodEx"
+        paymentRequest.supportedNetworks = [.amex, .discover, .masterCard, .visa]
+        paymentRequest.merchantCapabilities = .capability3DS
+
+        // Billing and Shipping
+        paymentRequest.requiredBillingAddressFields = .postalAddress
+        paymentRequest.requiredShippingAddressFields = .postalAddress
+
+        let loggedInUser = AppDataManager.shared.user!
+
+        var nameComponents = PersonNameComponents()
+        nameComponents.givenName = loggedInUser.name.firstName
+        nameComponents.familyName = loggedInUser.name.lastName
+
+        let address = CNMutablePostalAddress()
+        address.street = loggedInUser.address.street
+        address.city = loggedInUser.address.city
+        address.state = loggedInUser.address.state
+        address.postalCode = loggedInUser.address.postalCode
+
+        let contact = PKContact()
+        contact.name = nameComponents
+        contact.postalAddress = address
+
+        paymentRequest.billingContact = contact
+        paymentRequest.shippingContact = contact
+
+        // Shipping Methods
+        paymentRequest.shippingMethods = shippingMethods()
+
+        // Summary Items
+        paymentRequest.paymentSummaryItems = summaryItemsWith(standardShippingItem())
+
+        // 2. Present PKPaymentAuthorizationViewController
+
+        let applePayView = PKPaymentAuthorizationViewController(paymentRequest: paymentRequest)
+
+        applePayView.delegate = self
+        present(applePayView, animated: true, completion: nil)
     }
 
     func displayOrderConfirmation() -> Void {
@@ -309,15 +356,90 @@ extension CartViewController {
         performSegue(withIdentifier: "ShowOrderConfirmationView", sender: self)
     }
 
-    // MARK: ---- Segue ----
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        if segue.identifier == "ShowOrderConfirmationView" {
+        if segue.identifier == "ShowOrderConfirmationView", let createdOrder = newOrder {
 
             let destination = (segue.destination as! UINavigationController).topViewController as! OrderConfirmationViewController
-            destination.order = Order(cart: self.cart)!
+            destination.order = createdOrder
+
         }
     }
 
+    // MARK: ---- PKPaymentAuthorizationViewControllerDelegate ----
+
+    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: @escaping (PKPaymentAuthorizationStatus) -> Void) {
+
+        // Create New Order
+        if let shippingMethodIdentifier = payment.shippingMethod?.identifier {
+            newOrder = Order(cart: cart, deliveryCharge: deliveryChargeFor(shippingMethodIdentifier))
+        } else {
+            newOrder = Order(cart: cart, deliveryCharge: deliveryChargeFor("Standard"))
+        }
+
+        completion(.success)
+    }
+
+    func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
+
+        controller.dismiss(animated: true) {
+            self.displayOrderConfirmation()
+        }
+    }
+
+    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didSelect shippingMethod: PKShippingMethod, completion: @escaping (PKPaymentAuthorizationStatus, [PKPaymentSummaryItem]) -> Void) {
+
+        let shippingItem = (shippingMethod.identifier == "Express") ? expressShippingItem() : standardShippingItem()
+
+        completion(.success, summaryItemsWith(shippingItem))
+
+    }
+
+    // MARK: ---- Utils ----
+
+    private func shippingMethods() -> [PKShippingMethod] {
+
+        let standardShippingCharge = Decimal(deliveryChargeFor("Standard"))
+        let standardShipping = PKShippingMethod(label: "Standard Shipping", amount: NSDecimalNumber(decimal: standardShippingCharge))
+        standardShipping.detail = "Deliver within 2 hours."
+        standardShipping.identifier = "Standard"
+
+        let expressShippingCharge = Decimal(deliveryChargeFor("Express"))
+        let expressShipping = PKShippingMethod(label: "Express Shipping", amount: NSDecimalNumber(decimal: expressShippingCharge))
+        expressShipping.detail = "Deliver within 60 mins."
+        expressShipping.identifier = "Express"
+
+        return [standardShipping, expressShipping]
+    }
+
+    private func standardShippingItem() -> PKShippingMethod {
+        return shippingMethods().first!
+    }
+
+    private func expressShippingItem() -> PKShippingMethod {
+        return shippingMethods().last!
+    }
+
+    private func summaryItemsWith(_ shippingItem: PKShippingMethod) -> [PKPaymentSummaryItem] {
+
+        let subTotal = Decimal(cart.subTotal)
+        let subTotalItem = PKPaymentSummaryItem(label: "Subtotal", amount: NSDecimalNumber(decimal: subTotal))
+        let tax = subTotal * Decimal(0.0875)
+        let taxItem = PKPaymentSummaryItem(label: "Tax", amount: NSDecimalNumber(decimal: tax))
+        let grandTotal = subTotal + tax + (shippingItem.amount as Decimal)
+        let grandTotalItem = PKPaymentSummaryItem(label: "FoodEx", amount: NSDecimalNumber(decimal: grandTotal))
+
+        return [subTotalItem, taxItem, shippingItem, grandTotalItem]
+    }
+
+    private func deliveryChargeFor(_ shippingMethodIdentifier: String) -> Double {
+
+        var charge = cart.subTotal > 50 ? cart.subTotal * 0.10 : 5.0
+
+        if shippingMethodIdentifier == "Express" {
+            charge += 5.00
+        }
+
+        return charge
+    }
 }

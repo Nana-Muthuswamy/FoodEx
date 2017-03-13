@@ -48,7 +48,7 @@ class OrderViewController: UITableViewController {
 
         case OrderDetailsSections.Total:
             if (orderDetails) != nil {
-                return 2
+                return 4
             } else {
                 return 0
             }
@@ -101,7 +101,13 @@ class OrderViewController: UITableViewController {
                 tableCell.textLabel?.text = "Sub Total"
                 tableCell.detailTextLabel?.text = orderDetails.formattedSubTotal
             } else if indexPath.row == 1 {
-                tableCell.textLabel?.text = "Grand Total (tax incl.)"
+                tableCell.textLabel?.text = "Tax (8.75%)"
+                tableCell.detailTextLabel?.text = orderDetails.formattedTax
+            } else if indexPath.row == 2 {
+                tableCell.textLabel?.text = "Delivery"
+                tableCell.detailTextLabel?.text = orderDetails.formattedDeliveryCharge
+            } else if indexPath.row == 3 {
+                tableCell.textLabel?.text = "Grand Total"
                 tableCell.detailTextLabel?.text = orderDetails.formattedGrandTotal
             }
 

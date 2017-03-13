@@ -8,18 +8,11 @@
 
 import Foundation
 
-enum OrderStatus: Int {
-    case none
-    case pending
-    case completed
-}
-
 struct Order {
 
     let reference: String
     let title: String
     let date: String
-    var status: OrderStatus
     var items: Array<OrderItem>
 
     var summary: String {
@@ -34,15 +27,29 @@ struct Order {
         return String(format: "$%.2f", subTotal)
     }
 
+    let deliveryCharge: Double
+
+    var formattedDeliveryCharge: String {
+        return String(format: "$%.2f", deliveryCharge)
+    }
+
+    var tax: Double {
+        return (subTotal * 0.0875)
+    }
+
+    var formattedTax: String {
+        return String(format: "$%.2f", tax)
+    }
+
     var grandTotal: Double {
-        return (subTotal * 1.085)
+        return subTotal + tax + deliveryCharge
     }
 
     var formattedGrandTotal: String {
         return String(format: "$%.2f", grandTotal)
     }
 
-    init(reference: String?, title: String?, date: String?, status: OrderStatus?, items: Array<OrderItem>) {
+    init(reference: String?, title: String?, date: String?, items: Array<OrderItem>, deliveryCharge: Double) {
 
         if let orderRef = reference {
             self.reference = orderRef
@@ -67,13 +74,9 @@ struct Order {
             self.date = dateFormatter.string(from: Date())
         }
 
-        if let orderStatus = status {
-            self.status = orderStatus
-        } else {
-            self.status = OrderStatus.init(rawValue:0)!
-        }
-
         self.items = items
+
+        self.deliveryCharge = deliveryCharge
     }
 
     init(dictionary source: Dictionary<String, Any>) {
@@ -90,10 +93,10 @@ struct Order {
             }
         }
 
-        self.init(reference: source["Reference"] as? String, title: source["Title"] as? String, date: source["Date"] as? String, status: source["Status"] as? OrderStatus, items: orderItems)
+        self.init(reference: source["Reference"] as? String, title: source["Title"] as? String, date: source["Date"] as? String, items: orderItems, deliveryCharge: source["DeliveryCharge"] as! Double)
     }
 
-    init?(cart: Cart) {
+    init?(cart: Cart, deliveryCharge: Double) {
 
         guard cart.items.count > 0 else {
             return nil
@@ -108,7 +111,7 @@ struct Order {
             }
         }
 
-        self.init(reference: nil, title: cart.title, date: nil, status: OrderStatus.init(rawValue:2), items: orderItems)
+        self.init(reference: nil, title: cart.title, date: nil, items: orderItems, deliveryCharge: deliveryCharge)
     }
 
     func dictionaryRepresentation() -> Dictionary<String, Any> {
@@ -118,7 +121,6 @@ struct Order {
         dict.updateValue(reference, forKey: "Reference")
         dict.updateValue(title, forKey: "Title")
         dict.updateValue(date, forKey: "Date")
-        dict.updateValue(status.rawValue, forKey: "Status")
 
         var itemDicts = [Dictionary<String, Any>]()
 
@@ -127,6 +129,7 @@ struct Order {
         }
 
         dict.updateValue(itemDicts, forKey: "Items")
+        dict.updateValue(deliveryCharge, forKey: "DeliveryCharge")
         
         return dict
     }
