@@ -9,7 +9,7 @@
 import UIKit
 import LocalAuthentication
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: Properties
     let laContext = LAContext()
@@ -18,12 +18,22 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var userNameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var touchIDButton: UIButton!
 
     // MARK: View Controller Life Cycle
 
     // Evaluates and presents Touch ID Auth if device and user setup supports it.
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if let defaultUser = AppDataManager.shared.registeredUsers.first(where: { (element) -> Bool in
+            return element["Default"] == "1"
+        }) {
+            userNameField.text = defaultUser["UserName"]
+            touchIDButton.isEnabled = true
+        } else {
+            touchIDButton.isEnabled = false
+        }
 
         // Disable SignIn initially
         signInButton.isEnabled = false
@@ -37,10 +47,11 @@ class LoginViewController: UIViewController {
         } // else continue displaying login view controller for users to perform traditional login
     }
 
-    // Memory Management
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+        super.touchesBegan(touches, with: event)
+
+        view.endEditing(true)
     }
 
     // MARK: Segues
@@ -82,8 +93,6 @@ class LoginViewController: UIViewController {
         if (segue.identifier == "ShowAppNavController") {
             segue.destination.modalPresentationStyle = .fullScreen
             segue.destination.modalTransitionStyle = .flipHorizontal
-
-            // TODO: Need to setup data for display
         }
     }
 
@@ -121,9 +130,28 @@ class LoginViewController: UIViewController {
 
             if (success) {
 
-                // Proceed with segue to application view controller
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "ShowAppNavController", sender: self)
+                let userName = self.userNameField.text!.trimmingCharacters(in: .whitespaces).lowercased()
+
+                // Validate the login credentials against registered users data mart
+                if let loggedInUser = AppDataManager.shared.registeredUsers.first(where: { (element) -> Bool in
+                    return (element["UserName"] == userName)
+                }) {
+                    AppDataManager.shared.user = User(name: loggedInUser["UserName"]!, email: loggedInUser["Email"])
+
+                    // Proceed with segue to application view controller
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "ShowAppNavController", sender: self)
+                    }
+
+                } else {
+
+                    let alert = UIAlertController(title: "User Authentication Error", message: "Invalid Username. Please try again.", preferredStyle: .alert)
+
+                    alert.addAction(UIAlertAction(title: "OK", style: .default))
+
+                    DispatchQueue.main.async {
+                        self.present(alert, animated: true)
+                    }
                 }
 
             } else {
@@ -145,6 +173,13 @@ class LoginViewController: UIViewController {
             signInButton.isEnabled = true
         } else {
             signInButton.isEnabled = false
+        }
+
+        // Enable Touch ID button only if there are valid values in username field
+        if (userName.characters.count > 0) {
+            touchIDButton.isEnabled = true
+        } else {
+            touchIDButton.isEnabled = false
         }
 
     }
@@ -199,5 +234,12 @@ class LoginViewController: UIViewController {
         }
     }
 
+    // MARK: UITextFieldDelegate
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+
+        return true
+    }
 }
 

@@ -11,6 +11,8 @@
 			<string>a</string>
 			<key>Email</key>
 			<string>nanaready@gmail.com</string>
+			<key>Default</key>
+			<string>0</string>
 		</dict>
 		<dict>
 			<key>UserName</key>
@@ -19,6 +21,8 @@
 			<string>qwerty</string>
 			<key>email</key>
 			<string>drajagopal@scu.edu</string>
+			<key>Default</key>
+			<string>1</string>
 		</dict>
 	</array>
 	<key>Restaurants</key>

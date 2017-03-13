@@ -251,6 +251,12 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
         AppDataManager.shared.user.cart.title = textField.text
     }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+
+        return true
+    }
+
     // MARK: ---- CartItemTableViewCellDelegate ----
 
     func tableViewCell(_ tableCell: UITableViewCell, quantityDidChange newValue: Int) {
