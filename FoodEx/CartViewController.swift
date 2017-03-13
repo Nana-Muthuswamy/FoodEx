@@ -64,7 +64,7 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
 
         case CartDetailsSections.Total:
             if cart.items.count > 0 {
-                return 3
+                return 2
             } else {
                 return 0
             }
@@ -115,7 +115,7 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
 
             let tableCell: UITableViewCell
 
-            if indexPath.row < 2 {
+            if indexPath.row < 1 {
                 tableCell = tableView.dequeueReusableCell(withIdentifier: "CartTotal")!
             } else {
                 tableCell = tableView.dequeueReusableCell(withIdentifier: "SubmitCart")!
@@ -125,9 +125,6 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
                 tableCell.textLabel?.text = "Sub Total"
                 tableCell.detailTextLabel?.text = cart.formattedSubTotal
             } else if indexPath.row == 1 {
-                tableCell.textLabel?.text = "Grand Total (tax incl.)"
-                tableCell.detailTextLabel?.text = cart.formattedGrandTotal
-            } else if indexPath.row == 2 {
 
                 let paymentButton = PKPaymentButton(type: .plain, style: .black)
 
