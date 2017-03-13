@@ -69,7 +69,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             // Validate the login credentials against registered users data mart
 
             if let loggedInUser = AppDataManager.shared.registeredUsers.first(where: { (element) -> Bool in
-                return (element["UserName"] == userName && element["Password"] == password)
+                return (element["UserName"]?.lowercased() == userName && element["Password"] == password)
             }) {
                 AppDataManager.shared.user = User(name: loggedInUser["UserName"]!, email: loggedInUser["Email"])
                 shouldPerform = true
@@ -126,16 +126,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // Initiates Touch ID Auth
     @IBAction func performTouchIDAuth(_ sender: Any) {
 
-        laContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Sign in with Touch ID or cancel to enter password.") { (success, evaluateError) in
+        let userName = self.userNameField.text!.trimmingCharacters(in: .whitespaces).lowercased()
 
-            if (success) {
+        // Validate the login credentials against registered users data mart
+        if let loggedInUser = AppDataManager.shared.registeredUsers.first(where: { (element) -> Bool in
+            return (element["UserName"]?.lowercased() == userName)
+        }) {
+            laContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Sign in with Touch ID or cancel to enter password.") { (success, evaluateError) in
 
-                let userName = self.userNameField.text!.trimmingCharacters(in: .whitespaces).lowercased()
+                if (success) {
 
-                // Validate the login credentials against registered users data mart
-                if let loggedInUser = AppDataManager.shared.registeredUsers.first(where: { (element) -> Bool in
-                    return (element["UserName"] == userName)
-                }) {
                     AppDataManager.shared.user = User(name: loggedInUser["UserName"]!, email: loggedInUser["Email"])
 
                     // Proceed with segue to application view controller
@@ -145,20 +145,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
                 } else {
 
-                    let alert = UIAlertController(title: "User Authentication Error", message: "Invalid Username. Please try again.", preferredStyle: .alert)
-
-                    alert.addAction(UIAlertAction(title: "OK", style: .default))
-
-                    DispatchQueue.main.async {
-                        self.present(alert, animated: true)
-                    }
+                    // Handle auth failure and appropriate display user alert
+                    self.handleTouchIDAuthFailure(LAError(_nsError: evaluateError as! NSError).code)
                 }
-
-            } else {
-
-                // Handle auth failure and appropriate display user alert
-                self.handleTouchIDAuthFailure(LAError(_nsError: evaluateError as! NSError).code)
             }
+
+        } else {
+
+            let alert = UIAlertController(title: "User Authentication Error", message: "Invalid Username. Please try again.", preferredStyle: .alert)
+
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true)
         }
     }
 
