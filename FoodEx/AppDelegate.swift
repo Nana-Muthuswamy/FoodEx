@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let user = AppDataManager.shared.user {
 
             // Update User specific information to UserDefaults
-            let userKey = user.name
+            let userKey = user.id
             let userSessionInfo = user.dictionaryRepresentation()
 
             if userSessionInfo.keys.count > 0 {

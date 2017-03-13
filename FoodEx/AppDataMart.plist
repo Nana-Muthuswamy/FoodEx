@@ -5,7 +5,7 @@
 	<key>RegisteredUsers</key>
 	<array>
 		<dict>
-			<key>UserName</key>
+			<key>ID</key>
 			<string>a</string>
 			<key>Password</key>
 			<string>a</string>
@@ -13,9 +13,27 @@
 			<string>nanaready@gmail.com</string>
 			<key>Default</key>
 			<string>0</string>
+			<key>ContactName</key>
+			<dict>
+				<key>FirstName</key>
+				<string>Nana</string>
+				<key>LastName</key>
+				<string>V Muthuswamy</string>
+			</dict>
+			<key>Address</key>
+			<dict>
+				<key>Street</key>
+				<string>1682 Fremont St Apt 4</string>
+				<key>City</key>
+				<string>Santa Clara</string>
+				<key>State</key>
+				<string>CA</string>
+				<key>PostalCode</key>
+				<string>95050</string>
+			</dict>
 		</dict>
 		<dict>
-			<key>UserName</key>
+			<key>ID</key>
 			<string>Divya</string>
 			<key>Password</key>
 			<string>qwerty</string>
@@ -23,9 +41,27 @@
 			<string>drajagopal@scu.edu</string>
 			<key>Default</key>
 			<string>1</string>
+			<key>ContactName</key>
+			<dict>
+				<key>FirstName</key>
+				<string>Divya</string>
+				<key>LastName</key>
+				<string>Rajagopal</string>
+			</dict>
+			<key>Address</key>
+			<dict>
+				<key>Street</key>
+				<string>1682 Fremont St Apt 4</string>
+				<key>City</key>
+				<string>Santa Clara</string>
+				<key>State</key>
+				<string>CA</string>
+				<key>PostalCode</key>
+				<string>95050</string>
+			</dict>
 		</dict>
 		<dict>
-			<key>UserName</key>
+			<key>ID</key>
 			<string>Vidhya</string>
 			<key>Password</key>
 			<string>qwerty</string>
@@ -33,6 +69,24 @@
 			<string>vramu@scu.edu</string>
 			<key>Default</key>
 			<string>0</string>
+			<key>ContactName</key>
+			<dict>
+				<key>FirstName</key>
+				<string>Vidhya</string>
+				<key>LastName</key>
+				<string>Ramu</string>
+			</dict>
+			<key>Address</key>
+			<dict>
+				<key>Street</key>
+				<string>783 Almeda Ave Apt 201</string>
+				<key>City</key>
+				<string>San Jose</string>
+				<key>State</key>
+				<string>CA</string>
+				<key>PostalCode</key>
+				<string>95028</string>
+			</dict>
 		</dict>
 	</array>
 	<key>Restaurants</key>

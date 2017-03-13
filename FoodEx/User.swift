@@ -10,30 +10,44 @@ import Foundation
 
 struct User {
 
-    let name: String
+    let id: String
     let email: String
 
+    let name: Name
+    let address: Address
+
     var cart: Cart
-
     var restaurantsLastViewed: Array<Restaurant>
-
     var orderHistory: Array<Order>
 
-    init(name: String, email: String?) {
+    init(id: String, email: String, name: Name, address: Address, cart: Cart, restaurantsLastViewed: Array<Restaurant>, orderHistory: Array<Order>) {
 
+        self.id = id
+        self.email = email
         self.name = name
-        
-        if let userEmail = email {
-            self.email = userEmail
-        } else {
-            self.email = "drajagopal@scu.edu"
+        self.address = address
+        self.cart = cart
+        self.restaurantsLastViewed = restaurantsLastViewed
+        self.orderHistory = orderHistory
+    }
+
+    init?(dictionary source: Dictionary<String, Any>) {
+
+        guard let id = source["ID"] as? String, let name = Name(dictionary: source["ContactName"] as? Dictionary<String, String>), let address = Address(dictionary: source["Address"] as? Dictionary<String, String>) else {
+            return nil
         }
 
-        cart = Cart(title: nil, items: Array<OrderItem>())
-        restaurantsLastViewed = Array<Restaurant>()
-        orderHistory = Array<Order>()
+        var email = "drajagopal@scu.edu"
 
-        if let userDefaults = UserDefaults.standard.dictionary(forKey: name) {
+        if let userEmail = source["Email"] as? String {
+            email = userEmail
+        }
+
+        var cart = Cart(title: nil, items: Array<OrderItem>())
+        var restaurantsLastViewed = Array<Restaurant>()
+        var orderHistory = Array<Order>()
+
+        if let userDefaults = UserDefaults.standard.dictionary(forKey: id) {
 
             if let savedCart = userDefaults["SavedCart"] as? Dictionary<String, Any> {
                 cart = Cart(dictionary: savedCart)
@@ -54,8 +68,9 @@ struct User {
                     orderHistory.append(Order(dictionary: anOrderDict))
                 }
             }
-
         }
+
+        self.init(id: id, email: email, name: name, address: address, cart: cart, restaurantsLastViewed: restaurantsLastViewed, orderHistory: orderHistory)
     }
 
     mutating func saveViewedRestaurant(_ restaurant: Restaurant) -> Void {
@@ -119,5 +134,51 @@ struct User {
         }
         
         return dict
+    }
+}
+
+struct Name {
+
+    let firstName: String
+    let lastName: String
+
+    init(firstName: String, lastName: String) {
+
+        self.firstName = firstName
+        self.lastName = lastName
+    }
+
+    init?(dictionary source: Dictionary<String, String>?) {
+
+        guard let firstName = source?["FirstName"], let lastName = source?["LastName"] else {
+            return nil
+        }
+
+        self.init(firstName: firstName, lastName: lastName)
+    }
+}
+
+struct Address {
+
+    let street: String
+    let city: String
+    let state: String
+    let postalCode: String
+
+    init(street: String, city: String, state: String, postalCode: String) {
+
+        self.street = street
+        self.city = city
+        self.state = state
+        self.postalCode = postalCode
+    }
+
+    init?(dictionary source: Dictionary<String, String>?) {
+
+        guard let street = source?["Street"], let city = source?["City"], let state = source?["State"], let postalCode = source?["PostalCode"] else {
+            return nil
+        }
+
+        self.init(street: street, city: city, state: state, postalCode: postalCode)
     }
 }
