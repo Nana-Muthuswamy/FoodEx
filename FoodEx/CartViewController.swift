@@ -9,7 +9,7 @@
 import UIKit
 import PassKit
 
-class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTableViewCellDelegate {
+class CartViewController: UITableViewController {
 
     var cart: Cart {
         return AppDataManager.shared.user.cart
@@ -240,6 +240,9 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
         }
         
     }
+}
+
+extension CartViewController: UITextFieldDelegate, CartItemTableViewCellDelegate {
 
     // MARK: ---- UITextFieldDelegate ----
 
@@ -290,6 +293,9 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
             }
         }
     }
+}
+
+extension CartViewController {
 
     // MARK: ---- Apple Pay ----
 
@@ -313,4 +319,5 @@ class CartViewController: UITableViewController, UITextFieldDelegate, CartItemTa
             destination.order = Order(cart: self.cart)!
         }
     }
+
 }
