@@ -301,6 +301,17 @@ extension CartViewController: PKPaymentAuthorizationViewControllerDelegate {
 
     // MARK: ---- Segue ----
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "ShowOrderConfirmationView" {
+
+            let destination = (segue.destination as! UINavigationController).topViewController as! OrderConfirmationViewController
+            destination.order = newOrder
+        }
+    }
+
+    // MARK: ---- Initiate Payment ----
+
     func initiateApplePay() -> Void {
 
         // 1. Create Payment Request
@@ -351,21 +362,6 @@ extension CartViewController: PKPaymentAuthorizationViewControllerDelegate {
         present(applePayView, animated: true, completion: nil)
     }
 
-    func displayOrderConfirmation() -> Void {
-
-        performSegue(withIdentifier: "ShowOrderConfirmationView", sender: self)
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-        if segue.identifier == "ShowOrderConfirmationView", let createdOrder = newOrder {
-
-            let destination = (segue.destination as! UINavigationController).topViewController as! OrderConfirmationViewController
-            destination.order = createdOrder
-
-        }
-    }
-
     // MARK: ---- PKPaymentAuthorizationViewControllerDelegate ----
 
     func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: @escaping (PKPaymentAuthorizationStatus) -> Void) {
@@ -383,7 +379,10 @@ extension CartViewController: PKPaymentAuthorizationViewControllerDelegate {
     func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
 
         controller.dismiss(animated: true) {
-            self.displayOrderConfirmation()
+
+            if self.newOrder != nil {
+                self.performSegue(withIdentifier: "ShowOrderConfirmationView", sender: self)
+            }
         }
     }
 
