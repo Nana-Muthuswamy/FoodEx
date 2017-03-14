@@ -2,7 +2,7 @@
 //  User.swift
 //  FoodEx
 //
-//  Created by Nana on 3/10/17.
+//  Created by Divya on 3/10/17.
 //  Copyright © 2017 Apple. All rights reserved.
 //
 

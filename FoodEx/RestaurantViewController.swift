@@ -2,7 +2,7 @@
 //  RestaurantViewController.swift
 //  FoodEx
 //
-//  Created by Nana on 2/28/17.
+//  Created by Divya on 2/28/17.
 //  Copyright © 2017 Apple. All rights reserved.
 //
 

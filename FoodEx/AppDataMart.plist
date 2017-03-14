@@ -16,7 +16,7 @@
 			<key>ContactName</key>
 			<dict>
 				<key>FirstName</key>
-				<string>Nana</string>
+				<string>Narayanan</string>
 				<key>LastName</key>
 				<string>V Muthuswamy</string>
 			</dict>
@@ -86,6 +86,34 @@
 				<string>CA</string>
 				<key>PostalCode</key>
 				<string>95028</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<string>Imran</string>
+			<key>Password</key>
+			<string>asdf</string>
+			<key>email</key>
+			<string>ihajimusa@scu.edu</string>
+			<key>Default</key>
+			<string>0</string>
+			<key>ContactName</key>
+			<dict>
+				<key>FirstName</key>
+				<string>Imran</string>
+				<key>LastName</key>
+				<string>Hajimusa</string>
+			</dict>
+			<key>Address</key>
+			<dict>
+				<key>Street</key>
+				<string>500 El Camino Real</string>
+				<key>City</key>
+				<string>Santa Clara</string>
+				<key>State</key>
+				<string>CA</string>
+				<key>PostalCode</key>
+				<string>95050</string>
 			</dict>
 		</dict>
 	</array>
@@ -1164,7 +1192,7 @@ Oil) and Salt</string>
 		<string>Mexican</string>
 		<string>Indian</string>
 		<string>Chinese</string>
-		<string>Favorites</string>
+		<string>Italian</string>
 	</array>
 </dict>
 </plist>
