@@ -8,6 +8,7 @@
 
 import UIKit
 import PassKit
+import Stripe
 
 class CartViewController: UITableViewController {
 
@@ -366,14 +367,36 @@ extension CartViewController: PKPaymentAuthorizationViewControllerDelegate {
 
     func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: @escaping (PKPaymentAuthorizationStatus) -> Void) {
 
-        // Create New Order
-        if let shippingMethodIdentifier = payment.shippingMethod?.identifier {
-            newOrder = Order(cart: cart, deliveryCharge: deliveryChargeFor(shippingMethodIdentifier))
-        } else {
-            newOrder = Order(cart: cart, deliveryCharge: deliveryChargeFor("Standard"))
-        }
+        STPAPIClient.shared().createToken(with: payment) { (token, error) in
 
-        completion(.success)
+            if error == nil, let sourceID = token?.tokenId {
+
+                let grandTotalItem = self.summaryItemsWith(payment.shippingMethod!).last!
+
+                var amountToCharge: Decimal
+                amountToCharge = grandTotalItem.amount as Decimal
+                amountToCharge = amountToCharge / Decimal(pow(10, Double(amountToCharge.exponent)))
+
+                AppDataManager.shared.createBackendCharge(sourceID: sourceID, grandTotal: amountToCharge, completion: { (error) in
+                    if error == nil {
+
+                        // Create New Order
+                        if let shippingMethodIdentifier = payment.shippingMethod?.identifier {
+                            self.newOrder = Order(cart: self.cart, deliveryCharge: self.deliveryChargeFor(shippingMethodIdentifier))
+                        } else {
+                            self.newOrder = Order(cart: self.cart, deliveryCharge: self.deliveryChargeFor("Standard"))
+                        }
+
+                        completion(.success)
+                    } else {
+                        completion(.failure)
+                    }
+
+                })
+            } else {
+                completion(.failure)
+            }
+        }
     }
 
     func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
@@ -392,6 +415,10 @@ extension CartViewController: PKPaymentAuthorizationViewControllerDelegate {
 
         completion(.success, summaryItemsWith(shippingItem))
 
+    }
+
+    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didSelectShippingContact contact: PKContact, completion: @escaping (PKPaymentAuthorizationStatus, [PKShippingMethod], [PKPaymentSummaryItem]) -> Void) {
+        completion(.success, shippingMethods(), summaryItemsWith(standardShippingItem()))
     }
 
     // MARK: ---- Utils ----

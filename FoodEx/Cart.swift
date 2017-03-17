@@ -19,14 +19,6 @@ struct Cart {
         return String(format: "$%.2f", subTotal)
     }
 
-    var grandTotal: Double {
-        return (subTotal * 1.085)
-    }
-
-    var formattedGrandTotal: String {
-        return String(format: "$%.2f", grandTotal)
-    }
-
     init(title: String?, items: Array<OrderItem>) {
 
         self.title = title
