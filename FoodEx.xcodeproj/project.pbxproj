@@ -133,11 +133,19 @@
 				39B870B11E45CE2100F63751 /* Main.storyboard */,
 				39B870B41E45CE2100F63751 /* Assets.xcassets */,
 				39B870B61E45CE2100F63751 /* LaunchScreen.storyboard */,
+				39C5F39F1E7E493500AC0652 /* Resources */,
+			);
+			path = FoodEx;
+			sourceTree = "<group>";
+		};
+		39C5F39F1E7E493500AC0652 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				39B870B91E45CE2100F63751 /* Info.plist */,
 				39C95A111E4FDDF400D56416 /* AppDataMart.plist */,
 				39D5209D1E766F0700E209FA /* FoodEx.entitlements */,
 			);
-			path = FoodEx;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		39C68D771E496F7E00D393C9 /* Frameworks */ = {

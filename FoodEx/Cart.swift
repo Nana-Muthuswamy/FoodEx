@@ -11,18 +11,26 @@ struct Cart {
     var title: String?
     var items: Array<OrderItem>
 
+    var couponIncluded: Bool
+
     var subTotal: Double {
-        return items.reduce(0, {$0 + $1.totalPrice})
+
+        if couponIncluded {
+            return items.reduce(0, {$0 + $1.totalPrice}) + 40.0
+        } else {
+            return items.reduce(0, {$0 + $1.totalPrice})
+        }
     }
 
     var formattedSubTotal: String {
         return String(format: "$%.2f", subTotal)
     }
 
-    init(title: String?, items: Array<OrderItem>) {
+    init(title: String?, items: Array<OrderItem>, couponIncluded: Bool = false) {
 
         self.title = title
         self.items = items
+        self.couponIncluded = couponIncluded
     }
 
     init(dictionary source: Dictionary<String, Any>) {
@@ -39,7 +47,11 @@ struct Cart {
             }
         }
 
-        self.init(title: source["Title"] as? String, items: cartItems)
+        if let couponIncluded = source["Coupon"] as? Bool {
+            self.init(title: source["Title"] as? String, items: cartItems, couponIncluded: couponIncluded)
+        } else {
+            self.init(title: source["Title"] as? String, items: cartItems)
+        }
     }
 
 
@@ -50,6 +62,8 @@ struct Cart {
         if let title = self.title {
             dict.updateValue(title, forKey: "Title")
         }
+
+        dict.updateValue(self.couponIncluded, forKey: "Coupon")
 
         var itemDicts = [Dictionary<String, Any>]()
 

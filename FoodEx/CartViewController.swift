@@ -63,7 +63,7 @@ class CartViewController: UITableViewController {
             return 1
 
         case CartDetailsSections.Items:
-            return cart.items.count
+            return cart.items.count > 0 ? cart.items.count + 1 : 0 // Coupon row is added only when there are menu items
 
         case CartDetailsSections.Total:
             if cart.items.count > 0 {
@@ -100,19 +100,32 @@ class CartViewController: UITableViewController {
 
         case CartDetailsSections.Items:
 
-            let tableCell = tableView.dequeueReusableCell(withIdentifier: "CartItem") as! CartItemTableViewCell
+            if indexPath.row == cart.items.count {
 
-            let menuItem = cart.items[indexPath.row]
+                let tableCell = tableView.dequeueReusableCell(withIdentifier: "Coupon")!
 
-            tableCell.nameLabel.text = menuItem.name
-            tableCell.detailsLabel.text = "@" + menuItem.restaurantName
-            tableCell.quantityField.text = String(menuItem.quantity)
-            tableCell.priceLabel.text = menuItem.formattedTotalPrice
-            tableCell.menuItemImageView.image = UIImage(named: menuItem.imageName)
+                if let couponSwitch = tableCell.viewWithTag(1) as? UISwitch {
+                    couponSwitch.setOn(cart.couponIncluded, animated: true)
+                }
 
-            tableCell.delegate = self
+                return tableCell
 
-            return tableCell
+            } else {
+
+                let tableCell = tableView.dequeueReusableCell(withIdentifier: "CartItem") as! CartItemTableViewCell
+
+                let menuItem = cart.items[indexPath.row]
+
+                tableCell.nameLabel.text = menuItem.name
+                tableCell.detailsLabel.text = "@" + menuItem.restaurantName
+                tableCell.quantityField.text = String(menuItem.quantity)
+                tableCell.priceLabel.text = menuItem.formattedTotalPrice
+                tableCell.menuItemImageView.image = UIImage(named: menuItem.imageName)
+                
+                tableCell.delegate = self
+
+                return tableCell
+            }
 
         case CartDetailsSections.Total:
 
@@ -180,8 +193,16 @@ class CartViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
 
         switch indexPath.section {
+
         case CartDetailsSections.Items:
-            return true
+
+            if indexPath.row == cart.items.count {
+                return false
+            }
+            else {
+                return true
+            }
+
         default:
             return false
         }
@@ -194,6 +215,7 @@ class CartViewController: UITableViewController {
         switch indexPath.section {
 
         case CartDetailsSections.Summary:
+
             if cart.items.count > 0 {
                 return 44
             } else {
@@ -201,7 +223,12 @@ class CartViewController: UITableViewController {
             }
 
         case CartDetailsSections.Items:
-            return 70
+
+            if indexPath.row == cart.items.count {
+                return 44
+            } else {
+                return 70
+            }
 
         default:
             return 44
@@ -243,6 +270,21 @@ class CartViewController: UITableViewController {
         }
         
     }
+
+    // MARK: IBAction
+
+    @IBAction func addCouponValueChanged(_ sender: UISwitch) {
+
+        view.endEditing(true)
+        
+        AppDataManager.shared.user.cart.couponIncluded = sender.isOn
+
+        // Update Totals
+        let indexSet = IndexSet(arrayLiteral:CartDetailsSections.Total)
+        tableView.reloadSections(indexSet, with: .automatic)
+    }
+
+
 }
 
 extension CartViewController: UITextFieldDelegate, CartItemTableViewCellDelegate {
