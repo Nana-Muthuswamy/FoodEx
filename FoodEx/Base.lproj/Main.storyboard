@@ -561,7 +561,7 @@
         <scene sceneID="i0E-oQ-hFa">
             <objects>
                 <tableViewController storyboardIdentifier="OrderViewController" id="waY-bB-JyH" customClass="OrderViewController" customModule="FoodEx" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="cw2-g9-GSx">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="cw2-g9-GSx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -664,6 +664,33 @@
                                     <outlet property="quantityInfoLabel" destination="bwY-Za-U3v" id="nL6-W2-N8l"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Coupon" textLabel="lRj-n4-m0y" detailTextLabel="ybG-j0-Fiu" rowHeight="70" style="IBUITableViewCellStyleSubtitle" id="ZAf-TI-2IN" userLabel="Coupon" customClass="MenuItemTableViewCell" customModule="FoodEx" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="170" width="375" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZAf-TI-2IN" id="0GS-pf-oRw">
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="69"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="View In-Store Coupon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lRj-n4-m0y">
+                                            <rect key="frame" x="15" y="17" width="169" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="$50 worth coupon for $40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ybG-j0-Fiu">
+                                            <rect key="frame" x="15" y="38" width="150" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="ju2-P8-nNN" kind="show" identifier="ShowCoupon" id="H2A-Y2-28o"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="waY-bB-JyH" id="TWV-7g-agZ"/>
@@ -675,6 +702,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KJS-ua-eZe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2521" y="907"/>
+        </scene>
+        <!--CouponViewController-->
+        <scene sceneID="YuH-uQ-xYR">
+            <objects>
+                <viewController restorationIdentifier="CouponViewController" storyboardIdentifier="CouponViewController" title="CouponViewController" id="ju2-P8-nNN" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kXR-7u-hPf"/>
+                        <viewControllerLayoutGuide type="bottom" id="ABl-Jf-g8r"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="T7Q-xX-zkN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pass_50" translatesAutoresizingMaskIntoConstraints="NO" id="sqM-kA-NbO">
+                                <rect key="frame" x="16" y="72" width="343" height="595"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sqM-kA-NbO" firstAttribute="leading" secondItem="T7Q-xX-zkN" secondAttribute="leadingMargin" id="0vy-cM-GPD"/>
+                            <constraint firstItem="sqM-kA-NbO" firstAttribute="top" secondItem="kXR-7u-hPf" secondAttribute="bottom" constant="8" id="228-6V-3yT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sqM-kA-NbO" secondAttribute="trailing" id="AqP-TN-Ngi"/>
+                            <constraint firstItem="ABl-Jf-g8r" firstAttribute="top" secondItem="sqM-kA-NbO" secondAttribute="bottom" id="QkS-CN-vOO"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zZp-Yf-Nhx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3437.5999999999999" y="898.2008995502249"/>
         </scene>
         <!--Restaurant-->
         <scene sceneID="qX0-Tj-ky5">
@@ -1258,6 +1314,7 @@
     <resources>
         <image name="Dollar" width="204" height="204"/>
         <image name="EmptyCart" width="1536" height="1536"/>
+        <image name="Pass_50" width="632" height="826"/>
         <image name="ReviewStar" width="95" height="95"/>
         <image name="TouchID" width="225" height="225"/>
         <image name="iTunesArtwork" width="512" height="512"/>

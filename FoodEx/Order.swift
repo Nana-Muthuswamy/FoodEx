@@ -15,12 +15,20 @@ struct Order {
     let date: String
     var items: Array<OrderItem>
 
+    var couponIncluded: Bool
+
     var summary: String {
         return items.map{$0.name}.joined(separator:", ")
     }
 
     var subTotal: Double {
-        return items.reduce(0, {$0 + $1.totalPrice})
+
+        if couponIncluded {
+            return items.reduce(0, {$0 + $1.totalPrice}) + 40.0
+        } else {
+            return items.reduce(0, {$0 + $1.totalPrice})
+        }
+
     }
 
     var formattedSubTotal: String {
@@ -49,7 +57,7 @@ struct Order {
         return String(format: "$%.2f", grandTotal)
     }
 
-    init(reference: String?, title: String?, date: String?, items: Array<OrderItem>, deliveryCharge: Double) {
+    init(reference: String?, title: String?, date: String?, items: Array<OrderItem>, deliveryCharge: Double, couponIncluded: Bool = false) {
 
         if let orderRef = reference {
             self.reference = orderRef
@@ -77,6 +85,8 @@ struct Order {
         self.items = items
 
         self.deliveryCharge = deliveryCharge
+
+        self.couponIncluded = couponIncluded
     }
 
     init(dictionary source: Dictionary<String, Any>) {
@@ -93,7 +103,11 @@ struct Order {
             }
         }
 
-        self.init(reference: source["Reference"] as? String, title: source["Title"] as? String, date: source["Date"] as? String, items: orderItems, deliveryCharge: source["DeliveryCharge"] as! Double)
+        if let couponIncluded = source["Coupon"] as? Bool {
+            self.init(reference: source["Reference"] as? String, title: source["Title"] as? String, date: source["Date"] as? String, items: orderItems, deliveryCharge: source["DeliveryCharge"] as! Double, couponIncluded: couponIncluded)
+        } else {
+            self.init(reference: source["Reference"] as? String, title: source["Title"] as? String, date: source["Date"] as? String, items: orderItems, deliveryCharge: source["DeliveryCharge"] as! Double)
+        }
     }
 
     init?(cart: Cart, deliveryCharge: Double) {
@@ -111,7 +125,7 @@ struct Order {
             }
         }
 
-        self.init(reference: nil, title: cart.title, date: nil, items: orderItems, deliveryCharge: deliveryCharge)
+        self.init(reference: nil, title: cart.title, date: nil, items: orderItems, deliveryCharge: deliveryCharge, couponIncluded: cart.couponIncluded)
     }
 
     func dictionaryRepresentation() -> Dictionary<String, Any> {
@@ -130,6 +144,7 @@ struct Order {
 
         dict.updateValue(itemDicts, forKey: "Items")
         dict.updateValue(deliveryCharge, forKey: "DeliveryCharge")
+        dict.updateValue(couponIncluded, forKey: "Coupon")
         
         return dict
     }

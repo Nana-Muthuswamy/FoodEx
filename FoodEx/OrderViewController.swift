@@ -40,10 +40,10 @@ class OrderViewController: UITableViewController {
             }
 
         case OrderDetailsSections.MenuItem:
-            if let count = orderDetails?.items.count {
-                return count
+            if orderDetails.couponIncluded {
+                return orderDetails.items.count + 1
             } else {
-                return 0
+                return orderDetails.items.count
             }
 
         case OrderDetailsSections.Total:
@@ -81,17 +81,24 @@ class OrderViewController: UITableViewController {
 
         case OrderDetailsSections.MenuItem:
 
-            let tableCell = tableView.dequeueReusableCell(withIdentifier: "MenuItem") as! MenuItemTableViewCell
+            if indexPath.row == orderDetails.items.count {
 
-            let menuItem = orderDetails.items[indexPath.row]
+                return tableView.dequeueReusableCell(withIdentifier: "Coupon")!
 
-            tableCell.nameLabel.text = menuItem.name
-            tableCell.detailsLabel.text = "@" + menuItem.restaurantName
-            tableCell.priceLabel.text = menuItem.formattedPrice
-            tableCell.quantityInfoLabel.text = menuItem.formattedQuantity
-            tableCell.menuItemImageView.image = UIImage(named: menuItem.imageName)
+            } else {
 
-            return tableCell
+                let tableCell = tableView.dequeueReusableCell(withIdentifier: "MenuItem") as! MenuItemTableViewCell
+
+                let menuItem = orderDetails.items[indexPath.row]
+
+                tableCell.nameLabel.text = menuItem.name
+                tableCell.detailsLabel.text = "@" + menuItem.restaurantName
+                tableCell.priceLabel.text = menuItem.formattedPrice
+                tableCell.quantityInfoLabel.text = menuItem.formattedQuantity
+                tableCell.menuItemImageView.image = UIImage(named: menuItem.imageName)
+                
+                return tableCell
+            }
 
         case OrderDetailsSections.Total:
 
@@ -140,7 +147,12 @@ class OrderViewController: UITableViewController {
         switch indexPath.section {
 
         case OrderDetailsSections.MenuItem:
-            return 70
+
+            if indexPath.row == orderDetails.items.count {
+                return 44
+            } else {
+                return 70
+            }
         default:
             return 44
         }
