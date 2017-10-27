@@ -2,7 +2,7 @@
 //  RestaurantSearchResultsController.swift
 //  FoodEx
 //
-//  Created by Divya on 2/12/17.
+//  Created by Nana on 2/12/17.
 //  Copyright © 2017 Apple. All rights reserved.
 //
 

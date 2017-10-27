@@ -2,7 +2,7 @@
 //  MenuItemDetailsTableViewCell.swift
 //  FoodEx
 //
-//  Created by Divya on 2/28/17.
+//  Created by Nana on 2/28/17.
 //  Copyright © 2017 Apple. All rights reserved.
 //
 
@@ -21,7 +21,7 @@ class MenuItemTableViewCell: UITableViewCell {
 class CartItemTableViewCell: MenuItemTableViewCell, UITextFieldDelegate {
     @IBOutlet weak var quantityField: UITextField!
 
-    var delegate: CartItemTableViewCellDelegate?
+    weak var delegate: CartItemTableViewCellDelegate?
     
     // MARK: UITextFieldDelegate
 
@@ -43,7 +43,7 @@ class CartItemTableViewCell: MenuItemTableViewCell, UITextFieldDelegate {
     }
 }
 
-protocol CartItemTableViewCellDelegate {
+protocol CartItemTableViewCellDelegate: class {
 
     func tableViewCell(_ tableCell: UITableViewCell, quantityDidChange newValue: Int) -> Void
 }
